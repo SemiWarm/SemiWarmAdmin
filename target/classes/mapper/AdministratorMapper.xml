@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace是指明Mybatis扫描的目录，即cn.semiwarm.admin.mapper.xxxMapper -->
+<mapper namespace="cn.semiwarm.admin.mapper.AdministratorMapper">
+    <insert id="add" parameterType="cn.semiwarm.admin.entity.Administrator">
+        INSERT INTO ADMINISTRATOR (admin_id, admin_name, password, privilege_level, status, create_time)
+            VALUE (#{adminId}, #{adminName}, password(#{password}), #{privilegeLevel}, #{status}, #{createTime})
+    </insert>
+
+    <delete id="delete" parameterType="cn.semiwarm.admin.entity.Administrator">
+        DELETE FROM ADMINISTRATOR
+        WHERE admin_id = #{adminId}
+    </delete>
+
+    <update id="update" parameterType="cn.semiwarm.admin.entity.Administrator">
+        UPDATE ADMINISTRATOR
+        SET
+            admin_name      = #{adminName},
+            password        = password(#{password}),
+            privilege_level = #{privilegeLevel},
+            status          = #{status}
+        WHERE admin_id = #{adminId}
+    </update>
+
+    <select id="findById" parameterType="String" resultType="cn.semiwarm.admin.entity.Administrator">
+        SELECT *
+        FROM ADMINISTRATOR
+        WHERE admin_id = #{adminId}
+    </select>
+
+    <select id="findAll" resultType="cn.semiwarm.admin.entity.Administrator">
+        SELECT *
+        FROM ADMINISTRATOR
+    </select>
+
+    <select id="verifyAdministratorByName" parameterType="cn.semiwarm.admin.entity.Administrator"
+            resultType="cn.semiwarm.admin.entity.Administrator">
+        SELECT *
+        FROM ADMINISTRATOR
+        WHERE admin_name = #{adminName} AND password = password(#{password})
+    </select>
+</mapper>
