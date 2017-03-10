@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="SemiWarmDB">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="SemiWarm">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="test"/>
+    <table id="6" parent="2" name="ADMINISTRATOR">
+      <Comment>管理员表</Comment>
+    </table>
+    <table id="7" parent="2" name="USER">
+      <Comment>用户表</Comment>
+    </table>
+    <column id="8" parent="6" name="admin_id">
+      <Position>1</Position>
+      <Comment>管理员ID</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="9" parent="6" name="admin_name">
+      <Position>2</Position>
+      <Comment>管理员名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="10" parent="6" name="password">
+      <Position>3</Position>
+      <Comment>密码</Comment>
+      <DataType>varchar(41)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="11" parent="6" name="privilege_level">
+      <Position>4</Position>
+      <Comment>权限等级</Comment>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="12" parent="6" name="status">
+      <Position>5</Position>
+      <Comment>账号是否可用</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="13" parent="6" name="create_time">
+      <Position>6</Position>
+      <Comment>管理员创建时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="14" parent="6" name="admin_id">
+      <ColNames>admin_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="15" parent="6" name="admin_name">
+      <ColNames>admin_name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="16" parent="6" name="PRIMARY">
+      <ColNames>admin_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="17" parent="6" name="admin_id">
+      <ColNames>admin_id</ColNames>
+      <UnderlyingIndexName>admin_id</UnderlyingIndexName>
+    </key>
+    <key id="18" parent="6" name="admin_name">
+      <ColNames>admin_name</ColNames>
+      <UnderlyingIndexName>admin_name</UnderlyingIndexName>
+    </key>
+    <column id="19" parent="7" name="user_id">
+      <Position>1</Position>
+      <Comment>用户ID</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="7" name="user_name">
+      <Position>2</Position>
+      <Comment>用户名</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="7" name="user_phone">
+      <Position>3</Position>
+      <Comment>手机号</Comment>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="7" name="password">
+      <Position>4</Position>
+      <Comment>密码</Comment>
+      <DataType>varchar(41)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="7" name="status">
+      <Position>5</Position>
+      <Comment>账号是否可用</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="24" parent="7" name="create_time">
+      <Position>6</Position>
+      <Comment>用户创建时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="25" parent="7" name="user_id">
+      <ColNames>user_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="26" parent="7" name="user_name">
+      <ColNames>user_name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="27" parent="7" name="user_phone">
+      <ColNames>user_phone</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="7" name="PRIMARY">
+      <ColNames>user_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="29" parent="7" name="user_id">
+      <ColNames>user_id</ColNames>
+      <UnderlyingIndexName>user_id</UnderlyingIndexName>
+    </key>
+    <key id="30" parent="7" name="user_name">
+      <ColNames>user_name</ColNames>
+      <UnderlyingIndexName>user_name</UnderlyingIndexName>
+    </key>
+    <key id="31" parent="7" name="user_phone">
+      <ColNames>user_phone</ColNames>
+      <UnderlyingIndexName>user_phone</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
