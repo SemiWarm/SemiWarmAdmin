@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.sql.Timestamp;
 import java.util.UUID;
 
 /**
@@ -29,7 +28,6 @@ public class AdministratorMapperTest {
         admin.setPassword("941001");
         admin.setPrivilegeLevel(10);
         admin.setStatus(true);
-        admin.setCreateTime(new Timestamp(System.currentTimeMillis()));
 
         int result;
         result = administratorMapper.add(admin);

@@ -50,8 +50,9 @@
     <column id="13" parent="6" name="create_time">
       <Position>6</Position>
       <Comment>管理员创建时间</Comment>
-      <DataType>datetime|0</DataType>
+      <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <index id="14" parent="6" name="admin_id">
       <ColNames>admin_id</ColNames>
@@ -107,8 +108,9 @@
     <column id="24" parent="7" name="create_time">
       <Position>6</Position>
       <Comment>用户创建时间</Comment>
-      <DataType>datetime|0</DataType>
+      <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <index id="25" parent="7" name="user_id">
       <ColNames>user_id</ColNames>
