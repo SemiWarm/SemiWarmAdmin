@@ -3,8 +3,8 @@
 <!-- namespace是指明Mybatis扫描的目录，即cn.semiwarm.admin.mapper.xxxMapper -->
 <mapper namespace="cn.semiwarm.admin.mapper.AdministratorMapper">
     <insert id="add" parameterType="cn.semiwarm.admin.entity.Administrator">
-        INSERT INTO ADMINISTRATOR (admin_id, admin_name, password, privilege_level, status, create_time)
-            VALUE (#{adminId}, #{adminName}, password(#{password}), #{privilegeLevel}, #{status}, #{createTime})
+        INSERT INTO ADMINISTRATOR (admin_id, admin_name, password, privilege_level, status, create_at)
+            VALUE (#{adminId}, #{adminName}, password(#{password}), #{privilegeLevel}, #{status}, #{createAt})
     </insert>
 
     <delete id="delete" parameterType="cn.semiwarm.admin.entity.Administrator">

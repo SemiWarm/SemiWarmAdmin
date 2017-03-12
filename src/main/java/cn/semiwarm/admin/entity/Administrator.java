@@ -8,18 +8,18 @@ import java.util.Date;
  * Created by alibct on 2017/3/10.
  */
 public class Administrator implements Serializable{
-    private String adminId; // 管理员ID
+    private Long adminId; // 管理员ID
     private String adminName; // 管理员名称
     private String password; // 密码
     private Integer privilegeLevel; // 权限等级默认一级，最高十级
     private Boolean status; // 是否可用
-    private Date createTime; // 创建时间
+    private Date createAt; // 创建时间
 
-    public String getAdminId() {
+    public Long getAdminId() {
         return adminId;
     }
 
-    public void setAdminId(String adminId) {
+    public void setAdminId(Long adminId) {
         this.adminId = adminId;
     }
 
@@ -55,23 +55,23 @@ public class Administrator implements Serializable{
         this.status = status;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreateAt() {
+        return createAt;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
     }
 
     @Override
     public String toString() {
         return "Administrator{" +
-                "adminId='" + adminId + '\'' +
+                "adminId=" + adminId +
                 ", adminName='" + adminName + '\'' +
                 ", password='" + password + '\'' +
                 ", privilegeLevel=" + privilegeLevel +
                 ", status=" + status +
-                ", createTime=" + createTime +
+                ", createAt=" + createAt +
                 '}';
     }
 }

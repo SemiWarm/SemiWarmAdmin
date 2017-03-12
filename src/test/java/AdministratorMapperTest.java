@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.UUID;
+import java.util.Date;
 
 /**
  * 管理员测试类
@@ -23,7 +23,8 @@ public class AdministratorMapperTest {
     @Test
     public void testAdd() { // 光标放在这里右键'Debug'，然后看控制台的打印日志，出现添加成功后就OK了
         Administrator admin = new Administrator();
-        admin.setAdminId(UUID.randomUUID().toString());
+        Long adminId = new Date().getTime();
+        admin.setAdminId(adminId);
         admin.setAdminName("admin");
         admin.setPassword("941001");
         admin.setPrivilegeLevel(10);
