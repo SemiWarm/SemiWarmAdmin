@@ -10,8 +10,8 @@
 <head>
     <meta charset="UTF-8">
     <title>半暖-社区化导购商城</title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css"/>
 </head>
-<link rel="stylesheet" type="text/css" href="static/css/main.css"/>
 <body>
 <div class="canvas-background">
     <canvas id="particle"></canvas>
