@@ -19,15 +19,20 @@
     </div>
 </div>
 <script src="../../static/js/jquery.min.js"></script>
-<script src="../../static/js/editormd.min.js"></script>
+<script src="../../static/js/editormd.js"></script>
 <script type="text/javascript">
     var editor;
     $(function () {
         editor = editormd("mdEditor", {
             width: "90%",
-            height: 600,
+            height: 640,
             syncScrolling: "single",
-            path: "../../static/lib/"
+            path: "../../static/lib/",
+            saveHTMLToTextarea: true,
+            emoji: true,
+            imageUpload: true,
+            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL: ""
         });
     });
 </script>

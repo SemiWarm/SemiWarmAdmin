@@ -24,7 +24,7 @@ public class AdministratorServiceImpl implements AdministratorService {
 
     public ModelAndView signIn(Administrator administrator) throws Exception {
 
-        ModelAndView view = new ModelAndView("main"); // 实例化jsp界面就是前面写的那个main.jsp
+        ModelAndView view = new ModelAndView("mdEditor"); // 实例化jsp界面就是前面写的那个main.jsp
 
         Administrator administratorInfo = administratorMapper.verifyAdministratorByName(administrator);
 
