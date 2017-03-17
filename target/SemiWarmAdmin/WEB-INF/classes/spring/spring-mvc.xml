@@ -23,11 +23,9 @@
         (2)允许使用"/"做整体映射
      -->
     <mvc:resources mapping="/css/**" location="/static/css/"/>
-    <mvc:resources mapping="/fonts/**" location="/static/fonts/"/>
+    <mvc:resources mapping="/upload/images/**" location="/static/file/upload/images/"/>
     <mvc:resources mapping="/images/**" location="/static/images/"/>
     <mvc:resources mapping="/js/**" location="/static/js/"/>
-    <mvc:resources mapping="/lib/**" location="/static/lib/"/>
-    <mvc:resources mapping="/plugins/**" location="/static/plugins/"/>
     <mvc:resources mapping="/view/**" location="/static/view/"/>
     <mvc:default-servlet-handler/>
 
@@ -38,7 +36,16 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!-- 4.扫描controller包 -->
+    <!-- 4.上传文件 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 最大内存大小 -->
+        <property name="maxInMemorySize" value="10240"/>
+        <!-- 最大文件大小，-1为不限制大小 -->
+        <property name="maxUploadSize" value="-1"/>
+    </bean>
+
+    <!-- 5.扫描controller包 -->
     <context:component-scan base-package="cn.semiwarm.admin.controller">
         <!-- 制定扫包规则 ,只扫描使用@Controller注解的JAVA类 -->
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
