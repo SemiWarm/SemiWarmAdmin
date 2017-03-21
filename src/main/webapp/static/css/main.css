@@ -108,3 +108,7 @@ body {
 .card p{
     text-align: center;
 }
+/*解决屎黄色输入框问题*/
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+}

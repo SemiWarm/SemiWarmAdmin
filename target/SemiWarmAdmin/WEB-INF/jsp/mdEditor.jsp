@@ -15,7 +15,8 @@
 <body>
 <div id="container">
     <div id="mdEditor">
-        <textarea style="display:none;">### 请输入内容</textarea>
+        <textarea class="editormd-markdown-textarea" name="markdown-area" style="display:none;"># 请输入标题</textarea>
+        <textarea class="editormd-html-textarea" name="html-area"></textarea>
     </div>
 </div>
 <script src="../../static/js/jquery.min.js"></script>
