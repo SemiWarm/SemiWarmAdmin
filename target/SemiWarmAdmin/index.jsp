@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <title>半暖-社区化导购商城</title>
-    <link rel="stylesheet" href="static/css/main.css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/main.css"/>
 </head>
 <body>
 <%--<div class="canvas-background">--%>

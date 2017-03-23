@@ -11,25 +11,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>半暖商城-后台管理系统</title>
-    <!-- Tell the browser to be responsive to screen width -->
+    <%--Tell the browser to be responsive to screen width--%>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../static/css/ionicons.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/ionicons.min.css">
     <link rel="stylesheet" href="../../static/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-          page. However, you can choose any other skin. Make sure you
-          apply the skin class to the body tag so the changes take effect.
-    -->
-    <link rel="stylesheet" href="../../static/css/skin-red-light.min.css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="../../static/js/html5shiv.min.js"></script>
-    <script src="../../static/js/respond.min.js"></script>
-    <![endif]-->
+    <%--
+    AdminLTE Skins. We have chosen the skin-blue for this starter
+    page. However, you can choose any other skin. Make sure you
+    apply the skin class to the body tag so the changes take effect.
+    --%>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/skin-red-light.min.css">
+    <%--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries--%>
+    <%--WARNING: Respond.js doesn't work if you view the page via file://--%>
+    <%--[if lt IE 9]--%>
+    <%--<script src="../../static/js/html5shiv.min.js"></script>--%>
+    <%--<script src="../../static/js/respond.min.js"></script>--%>
+    <%--[endif]--%>
 </head>
-<!--
+<%--
 BODY TAG OPTIONS:
 =================
 Apply one or more of the following classes to get the
@@ -48,7 +49,7 @@ desired effect
 |               | sidebar-collapse                        |
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
--->
+--%>
 <body class="hold-transition skin-red-light sidebar-mini">
 <div class="wrapper">
 
@@ -84,7 +85,8 @@ desired effect
                                 <p style="color: white">
                                     SemiWarm
                                 </p>
-                                <small>权限等级 </small>10
+                                <small>权限等级</small>
+                                10
                             </li>
 
                             <li class="user-body">
@@ -276,8 +278,8 @@ desired effect
     </div>
 </div>
 
-<script src="../../static/js/jquery.min.js"></script>
-<script src="../../static/js/bootstrap.min.js"></script>
-<script src="../../static/js/app.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/app.min.js"></script>
 </body>
 </html>

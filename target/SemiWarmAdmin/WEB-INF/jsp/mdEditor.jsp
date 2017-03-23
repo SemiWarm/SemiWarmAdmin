@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>Markdown 编辑器</title>
-    <link rel="stylesheet" href="../../static/css/style.css"/>
-    <link rel="stylesheet" href="../../static/css/editormd.css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/style.css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/editormd.css"/>
 </head>
 <body>
 <div id="container">
@@ -19,8 +19,8 @@
         <textarea class="editormd-html-textarea" name="html-area"></textarea>
     </div>
 </div>
-<script src="../../static/js/jquery.min.js"></script>
-<script src="../../static/js/editormd.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/editormd.js"></script>
 <script type="text/javascript">
     var editor;
     $(function () {
@@ -28,9 +28,10 @@
             width: "90%",
             height: 640,
             syncScrolling: "single",
-            path: "../../static/lib/",
+            path: "<%=request.getContextPath()%>/static/lib/",
             saveHTMLToTextarea: true,
             emoji: true,
+            editorTheme: "solarized",
             imageUpload: true,
             imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
             imageUploadURL: ""
