@@ -6,6 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    Long adminId = (Long) session.getAttribute("adminId");
+    String adminName = (String) session.getAttribute("adminName");
+    Integer privilegeLevel = (Integer) session.getAttribute("privilegeLevel");
+    if (null == adminId) {
+        response.sendRedirect(request.getContextPath() + "/signIn");
+        return;
+    }
+%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -16,7 +25,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/font-awesome.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/ionicons.min.css">
-    <link rel="stylesheet" href="../../static/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/AdminLTE.min.css">
     <%--
     AdminLTE Skins. We have chosen the skin-blue for this starter
     page. However, you can choose any other skin. Make sure you
@@ -52,43 +61,35 @@ desired effect
 --%>
 <body class="hold-transition skin-red-light sidebar-mini">
 <div class="wrapper">
-
+    <%--顶部导航条--%>
     <header class="main-header">
-
         <a href="#" class="logo">
-
             <span class="logo-mini"><b>半</b>暖</span>
-
             <span class="logo-lg"><b>S</b>emi<b>W</b>arm</span>
         </a>
 
         <nav class="navbar navbar-static-top" role="navigation">
-
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-
             <div class="navbar-custom-menu">
-
                 <ul class="nav navbar-nav">
-
                     <li class="dropdown user user-menu">
-
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../../static/images/user_logo.png" class="user-image" alt="User Image">
-                            <span class="hidden-xs">SemiWarm</span>
+                            <img src="<%=request.getContextPath()%>/static/images/user_logo.png" class="user-image"
+                                 alt="User Image">
+                            <span class="hidden-xs"><%=adminName%></span>
                         </a>
-
                         <ul class="dropdown-menu">
                             <li class="user-header" style="color: white">
-                                <img src="../../static/images/user_logo.png" class="img-circle" alt="User Image">
+                                <img src="<%=request.getContextPath()%>/static/images/user_logo.png" class="img-circle"
+                                     alt="User Image">
                                 <p style="color: white">
-                                    SemiWarm
+                                    <%=adminName%>
                                 </p>
                                 <small>权限等级</small>
-                                10
+                                <%=privilegeLevel%>
                             </li>
-
                             <li class="user-body">
                                 <div class="row">
                                     <div class="col-xs-4">
@@ -123,41 +124,35 @@ desired effect
                                     </div>
                                 </div>
                             </li>
-
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="#" class="btn btn-default btn-flat">设 置</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="<%=request.getContextPath()%>/signIn" class="btn btn-default btn-flat">退 出</a>
                                 </div>
                             </li>
                         </ul>
-
                     </li>
-
                 </ul>
-
             </div>
-
         </nav>
-
     </header>
 
+    <%--左侧导航栏--%>
     <aside class="main-sidebar">
-
         <section class="sidebar">
-
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../../static/images/user_logo.png" class="img-circle" alt="User Image">
+                    <img src="<%=request.getContextPath()%>/static/images/user_logo.png" class="img-circle"
+                         alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>SemiWarm</p>
+                    <p><%=adminName%>
+                    </p>
                     <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                 </div>
             </div>
-
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="">
@@ -168,7 +163,6 @@ desired effect
                     </span>
                 </div>
             </form>
-
             <ul class="sidebar-menu">
                 <%--主页--%>
                 <li class="active">
@@ -249,13 +243,11 @@ desired effect
                         </li>
                     </ul>
                 </li>
-
             </ul>
-
         </section>
-
     </aside>
 
+    <%--主要内容区--%>
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
@@ -273,11 +265,14 @@ desired effect
         <section class="content">
 
             <!-- 页面内容 -->
+            管理员ID : <%=adminId%>
+            管理员名称 : <%=adminName%>
+            管理员权限等级 : <%=privilegeLevel%>
 
         </section>
     </div>
 </div>
-
+<%--引用文件--%>
 <script src="<%=request.getContextPath()%>/static/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/app.min.js"></script>

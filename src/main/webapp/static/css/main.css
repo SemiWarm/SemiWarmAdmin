@@ -4,10 +4,12 @@ body {
     background: #F7FAFC;
     text-align: center;
 }
+
 .canvas-background {
     position: absolute;
     z-index: -1;
 }
+
 .login-card {
     width: 320px;
     height: 360px;
@@ -25,69 +27,74 @@ body {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
-.login-form{
+
+.login-form {
     margin: 58px auto;
 }
-.logo{
+
+.logo {
     margin: 0 auto;
     width: 200px;
     height: 80px;
     background: url("../images/logo.png") no-repeat;
     background-size: contain;
 }
-.hide-text{
+
+.hide-text {
     font: 0/0 a;
     color: transparent;
     text-shadow: none;
     border: 0;
 }
+
 .group-inputs {
     border: 1px solid #e0e0e0;
-    border-radius: 3px;
+    border-radius: 4px;
     width: 280px;
-    margin: 18px auto;
+    margin: 15px auto;
 }
-.input-wrapper{
-}
-.account{
-    width: 280px;
+
+.account {
     margin: 0 auto;
-    border-top: none;
-    border-right: none;
     border-bottom: 1px solid #e0e0e0;
-    border-left: none;
 }
-.password{
-    width: 280px;
-    margin: 0 auto;
+
+.password {
+    margin: -1px auto 0 auto;
     border-top: 1px solid #e0e0e0;
-    border-right: none;
-    border-bottom: none;
-    border-left: none;
 }
+
 .input-wrapper input {
-    padding: 8px 10px;
-    width: 275px;
+    width: 274px;
     height: 40px;
     border-color: transparent;
-    line-height: 18px;
     outline: none;
     text-align: center;
 }
-.button-wrapper {
-}
-.sign-button {
-    width: 282px;
+
+.signIn-button {
+    width: 280px;
     height: 45px;
     background: #0F88EB;
     box-shadow: none;
     border: 0;
-    border-radius: 3px;
+    border-radius: 4px;
     line-height: 40px;
     color: #FFFFFF;
     font-size: 15px;
 }
-.card{
+
+.message-info {
+    width: 280px;
+    margin: 0 auto;
+    padding: 5px;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+}
+
+.card {
     width: 500px;
     height: 250px;
     position: absolute;
@@ -102,13 +109,15 @@ body {
 
     border-radius: 10px;
     background: #FFFFFF;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
-.card p{
+
+.card p {
     text-align: center;
 }
+
 /*解决屎黄色输入框问题*/
 input:-webkit-autofill {
-    -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+    -webkit-box-shadow: 0 0 0 50px white inset; /* Change the color to your own background color */
 }

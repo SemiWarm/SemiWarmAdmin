@@ -7,7 +7,7 @@ import java.util.Date;
  * 管理员类
  * Created by alibct on 2017/3/10.
  */
-public class Administrator implements Serializable{
+public class Administrator implements Serializable {
     private Long adminId; // 管理员ID
     private String adminName; // 管理员名称
     private String password; // 密码

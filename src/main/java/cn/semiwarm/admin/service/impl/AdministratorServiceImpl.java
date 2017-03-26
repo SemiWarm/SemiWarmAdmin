@@ -1,11 +1,13 @@
 package cn.semiwarm.admin.service.impl;
 
 import cn.semiwarm.admin.entity.Administrator;
+import cn.semiwarm.admin.entity.SignInResponse;
 import cn.semiwarm.admin.mapper.AdministratorMapper;
 import cn.semiwarm.admin.service.AdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * 管理员业务实现类
@@ -22,18 +24,33 @@ public class AdministratorServiceImpl implements AdministratorService {
         this.administratorMapper = administratorMapper;
     }
 
-    public ModelAndView signIn(Administrator administrator) throws Exception {
+    /**
+     * 管理员登录接口
+     *
+     * @param session       会话
+     * @param administrator 管理员信息
+     * @return SignInResponse
+     * @throws Exception 异常信息
+     */
+    public SignInResponse signIn(HttpSession session, Administrator administrator) throws Exception {
 
-        ModelAndView view = new ModelAndView("main"); // 实例化jsp界面就是前面写的那个main.jsp
+        SignInResponse response = new SignInResponse();
 
         Administrator administratorInfo = administratorMapper.verifyAdministratorByName(administrator);
 
         if (null != administratorInfo) {
-            view.addObject("message",administratorInfo.toString());
+            // 设置返回信息
+            response.setSuccess(1);
+            response.setMessage("登录成功!");
+            // 存储Session
+            session.setAttribute("adminId", administratorInfo.getAdminId());
+            session.setAttribute("adminName", administratorInfo.getAdminName());
+            session.setAttribute("privilegeLevel", administratorInfo.getPrivilegeLevel());
         } else {
-            view.addObject("message","用户名或密码有误！");
+            response.setSuccess(0);
+            response.setMessage("用户名或密码有误!");
         }
 
-        return view;
+        return response;
     }
 }

@@ -11,8 +11,10 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class MainController {
+
     @RequestMapping(value = "/main", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
-    public ModelAndView main(){
+    public ModelAndView main() {
         return new ModelAndView("main");
     }
+
 }

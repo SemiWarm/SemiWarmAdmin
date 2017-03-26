@@ -28,7 +28,6 @@
     <!--一定要添加，否则还是会出现emoji不能加载的问题-->
     <mvc:resources mapping="/plugins/**" location="/static/plugins/"/>
     <mvc:resources mapping="/view/**" location="/static/view/"/>
-    <!--上传文件路径-->
     <mvc:resources mapping="/upload/images/**" location="/file/upload/images/"/>
     <mvc:default-servlet-handler/>
 

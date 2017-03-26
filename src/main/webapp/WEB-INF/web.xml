@@ -12,9 +12,6 @@
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 
   <!-- 配置前端控制器DispatcherServlet -->
@@ -96,7 +93,7 @@
   <!--配置错误页面-->
   <error-page>
     <error-code>404</error-code>
-    <location>/static/view/404.html</location>
+    <location>/static/view/404.jsp</location>
   </error-page>
 
 </web-app>
