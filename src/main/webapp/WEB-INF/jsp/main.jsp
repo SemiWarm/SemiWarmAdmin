@@ -93,6 +93,7 @@ desired effect
                             <li class="user-body">
                                 <div class="row">
                                     <div class="col-xs-4">
+                                        <%--消息图标--%>
                                         <ul class="nav navbar-nav">
                                             <li>
                                                 <a href="#">
@@ -103,6 +104,7 @@ desired effect
                                         </ul>
                                     </div>
                                     <div class="col-xs-4">
+                                        <%--通知图标--%>
                                         <ul class="nav navbar-nav">
                                             <li>
                                                 <a href="#">
@@ -113,6 +115,7 @@ desired effect
                                         </ul>
                                     </div>
                                     <div class="col-xs-4">
+                                        <%--任务图标--%>
                                         <ul class="nav navbar-nav">
                                             <li>
                                                 <a href="#">
@@ -126,9 +129,11 @@ desired effect
                             </li>
                             <li class="user-footer">
                                 <div class="pull-left">
+                                    <%--设置界面--%>
                                     <a href="#" class="btn btn-default btn-flat">设 置</a>
                                 </div>
                                 <div class="pull-right">
+                                    <%--退出登录按钮--%>
                                     <a href="<%=request.getContextPath()%>/signIn" class="btn btn-default btn-flat">退 出</a>
                                 </div>
                             </li>
@@ -153,9 +158,10 @@ desired effect
                     <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                 </div>
             </div>
+            <%--搜索表单--%>
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="">
+                    <input type="text" name="search-field" class="form-control">
                     <span class="input-group-btn">
                     <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
                             class="fa fa-search"></i>
@@ -184,13 +190,13 @@ desired effect
                         <li>
                             <a href="#">
                                 <i class="fa fa-plus-square"></i>
-                                <span> 新增Splash</span>
+                                <span> Splash管理</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="fa fa-pencil-square"></i>
-                                <span> 编辑Splash</span>
+                                <span> Splash编辑</span>
                             </a>
                         </li>
                     </ul>
@@ -208,13 +214,13 @@ desired effect
                         <li>
                             <a href="#">
                                 <i class="fa fa-plus-square"></i>
-                                <span> 新增用户</span>
+                                <span> 用户管理</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="fa fa-pencil-square"></i>
-                                <span> 编辑用户</span>
+                                <span> 用户编辑</span>
                             </a>
                         </li>
                     </ul>
@@ -230,15 +236,15 @@ desired effect
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="#">
+                            <a href="<%=request.getContextPath()%>/goods">
                                 <i class="fa fa-plus-square"></i>
-                                <span> 新增商品</span>
+                                <span> 商品管理</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="fa fa-pencil-square"></i>
-                                <span> 编辑商品</span>
+                                <span> 商品编辑</span>
                             </a>
                         </li>
                     </ul>
@@ -265,9 +271,6 @@ desired effect
         <section class="content">
 
             <!-- 页面内容 -->
-            管理员ID : <%=adminId%>
-            管理员名称 : <%=adminName%>
-            管理员权限等级 : <%=privilegeLevel%>
 
         </section>
     </div>

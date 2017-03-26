@@ -17,4 +17,9 @@ public class MainController {
         return new ModelAndView("main");
     }
 
+    @RequestMapping(value = "/goods", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public ModelAndView goods() {
+        return new ModelAndView("goods");
+    }
+
 }

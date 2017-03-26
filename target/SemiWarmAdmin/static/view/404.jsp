@@ -15,7 +15,7 @@
 <div class="card">
     <h2>404 Not Found</h2>
     <p>请求的页面不存在...</p>
-    <a href="<%=request.getContextPath()%>/signIn">返回首页</a>
+    <a href="<%=request.getContextPath()%>/main">返回首页</a>
 </div>
 </body>
 </html>

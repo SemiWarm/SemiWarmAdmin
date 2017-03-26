@@ -137,41 +137,53 @@
 
     $(function () {
 
+        // 将错误信息提示框设为不可见
         $('#message-info').css('display', 'none');
 
+        // 监听回车事件
         $('body').keydown(function (e) {
             if (e.keyCode == 13) {
                 doLogin();
             }
         });
 
+        // 监听登录按钮事件
         $('#signIn-button').click(function () {
             doLogin();
         });
     });
 
+    // 登录逻辑
     var doLogin = function () {
         $.ajax({
             // 请求发送方式
             type: 'post',
             // 请求地址
             url: '<%=request.getContextPath()%>/signIn',
-            // 用户输入的帐号密码
+            // 请求数据，用户名和密码
             data: {'adminName': $('#adminName').val(), 'password': $('#password').val()},
             // 异步，不写默认为True
             async: false,
-            //请求成功后的回调
+            // 请求成功后的回调
             success: function (signInResponse) {
+                // 登录成功状态码为 1
                 if (signInResponse["success"] == 1) {
+                    // 隐藏错误信息提示框
                     $('#message-info').css('display', 'none');
+                    // 设置成功提示信息
                     $('#message').text(signInResponse["message"]);
+                    // 跳转到主页
                     window.location.href = "<%=request.getContextPath()%>/main";
                 } else if (signInResponse["success"] == 0) {
+                    // 登录失败状态码为 0
+                    // 设置错误提示信息
                     $('#message').text(signInResponse["message"]);
+                    // 显示错误提示框
                     $('#message-info').css('display', 'block');
                 }
             },
             error: function (errorMessage) {
+                // 其它错误信息
                 $('#message').text(errorMessage);
                 $('#message-info').css('display', 'block');
             }
