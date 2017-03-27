@@ -64,27 +64,25 @@ desired effect
 <div class="wrapper">
     <%--顶部导航条--%>
     <header class="main-header">
-        <a href="#" class="logo">
+        <a class="logo" href="#">
             <span class="logo-mini"><b>半</b>暖</span>
             <span class="logo-lg"><b>S</b>emi<b>W</b>arm</span>
         </a>
 
         <nav class="navbar navbar-static-top" role="navigation">
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <a class="sidebar-toggle" data-toggle="offcanvas" href="#" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<%=request.getContextPath()%>/static/images/user_logo.png" class="user-image"
-                                 alt="User Image">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <img class="user-image" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
                             <span class="hidden-xs"><%=adminName%></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header" style="color: white">
-                                <img src="<%=request.getContextPath()%>/static/images/user_logo.png" class="img-circle"
-                                     alt="User Image">
+                                <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
                                 <p style="color: white">
                                     <%=adminName%>
                                 </p>
@@ -131,11 +129,11 @@ desired effect
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <%--设置界面--%>
-                                    <a href="#" class="btn btn-default btn-flat">设 置</a>
+                                    <a class="btn btn-default btn-flat" href="#">设 置</a>
                                 </div>
                                 <div class="pull-right">
                                     <%--退出登录按钮--%>
-                                    <a href="<%=request.getContextPath()%>/signIn" class="btn btn-default btn-flat">退 出</a>
+                                    <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/signIn">退 出</a>
                                 </div>
                             </li>
                         </ul>
@@ -150,8 +148,7 @@ desired effect
         <section class="sidebar">
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<%=request.getContextPath()%>/static/images/user_logo.png" class="img-circle"
-                         alt="User Image">
+                    <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p><%=adminName%>
@@ -160,13 +157,11 @@ desired effect
                 </div>
             </div>
             <%--搜索表单--%>
-            <form action="#" method="get" class="sidebar-form">
+            <form class="sidebar-form" action="#" method="get">
                 <div class="input-group">
-                    <input type="text" name="search-field" class="form-control">
+                    <input class="form-control" name="txtSearch" type="text">
                     <span class="input-group-btn">
-                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
-                            class="fa fa-search"></i>
-                    </button>
+                        <button class="btn btn-flat" id="btnSearch" name="btnSearch" type="submit"><i class="fa fa-search"></i></button>
                     </span>
                 </div>
             </form>

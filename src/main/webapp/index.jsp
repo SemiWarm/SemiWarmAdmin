@@ -35,10 +35,10 @@
                 </div>
             </div>
             <div class="button-wrapper">
-                <button id="signIn-button" name="signIn-button" type="button" class="signIn-button">登录</button>
+                <button class="signIn-button" id="signIn-button" name="signIn-button" type="button">登录</button>
             </div>
         </form>
-        <div id="message-info" class="message-info">
+        <div class="message-info" id="message-info">
             <span id="message"></span>
         </div>
     </div>
@@ -61,8 +61,8 @@
         });
 
         // 监听登录按钮事件
-        $('#signIn-button').click(function () {
-            doLogin();
+        $('#signIn-button').bind('click',function () {
+           doLogin();
         });
     });
 

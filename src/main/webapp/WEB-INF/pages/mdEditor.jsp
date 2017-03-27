@@ -20,7 +20,7 @@
 <body>
 <div id="container">
     <div>
-        <button id="getHtml" type="button" class="btn btn-primary">显示HTML代码</button>
+        <button class="btn btn-primary" id="getHtml" type="button">显示HTML代码</button>
     </div>
     <div id="mdEditor">
         <textarea class="editormd-markdown-textarea" name="markdown-area" style="display:none;"># 请输入标题</textarea>
