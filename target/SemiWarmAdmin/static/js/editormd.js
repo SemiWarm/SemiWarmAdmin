@@ -3365,7 +3365,7 @@
 
     // Emoji graphics files url path
     editormd.emoji     = {
-        path  : "static/plugins/emoji-dialog/emoji/",
+        path  : "http://www.semiwarm.cn/admin/plugins/emoji-dialog/emoji/",
         ext   : ".png"
     };
 

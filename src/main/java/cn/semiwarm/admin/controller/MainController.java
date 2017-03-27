@@ -22,4 +22,9 @@ public class MainController {
         return new ModelAndView("goods");
     }
 
+    @RequestMapping(value = "/editor", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public ModelAndView editor() {
+        return new ModelAndView("mdEditor");
+    }
+
 }
