@@ -52,7 +52,7 @@
             margin: 0 auto;
             width: 200px;
             height: 80px;
-            background: url("../images/logo.png") no-repeat;
+            background: url("<%=request.getContextPath()%>/static/images/logo.png") no-repeat;
             background-size: contain;
         }
 
