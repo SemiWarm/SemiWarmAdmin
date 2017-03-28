@@ -9,13 +9,13 @@
     <schema id="3" parent="1" name="information_schema"/>
     <schema id="4" parent="1" name="mysql"/>
     <schema id="5" parent="1" name="test"/>
-    <table id="6" parent="2" name="ADMINISTRATOR">
+    <table id="6" parent="2" name="Administrator">
       <Comment>管理员表</Comment>
     </table>
-    <table id="7" parent="2" name="USER">
+    <table id="7" parent="2" name="User">
       <Comment>用户表</Comment>
     </table>
-    <table id="8" parent="2" name="USERINFO">
+    <table id="8" parent="2" name="UserInfo">
       <Comment>用户信息表</Comment>
     </table>
     <column id="9" parent="6" name="admin_id">

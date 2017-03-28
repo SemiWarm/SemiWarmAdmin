@@ -25,7 +25,7 @@ public class AdministratorMapperTest {
         Administrator admin = new Administrator();
         Long adminId = new Date().getTime();
         admin.setAdminId(adminId);
-        admin.setAdminName("admin");
+        admin.setAdminName("SemiWarm");
         admin.setPassword("941001");
         admin.setPrivilegeLevel(10);
         admin.setStatus(true);

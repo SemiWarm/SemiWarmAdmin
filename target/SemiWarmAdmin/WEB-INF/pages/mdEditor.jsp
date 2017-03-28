@@ -20,7 +20,7 @@
 <body>
 <div id="container">
     <div>
-        <button id="getHtml" type="button" class="btn btn-primary"></button>
+        <button class="btn btn-primary" id="getHtml" type="button">显示HTML代码</button>
     </div>
     <div id="mdEditor">
         <textarea class="editormd-markdown-textarea" name="markdown-area" style="display:none;"># 请输入标题</textarea>
@@ -29,6 +29,7 @@
 </div>
 <script src="<%=request.getContextPath()%>/static/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/editormd.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     var editor;
     $(function () {

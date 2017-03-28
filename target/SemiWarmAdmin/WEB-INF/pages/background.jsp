@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/main.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap.min.css">
     <script src="<%=request.getContextPath()%>/static/js/jquery.min.js"></script>
+    <script src="<%=request.getContextPath()%>/static/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container canvas-background">
