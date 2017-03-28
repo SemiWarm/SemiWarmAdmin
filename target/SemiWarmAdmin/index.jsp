@@ -16,8 +16,103 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>半暖-社区化导购商城</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/main.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap.min.css">
+    <%--建议将自定义的Style文件放在本地，防止出现服务器无法加载的问题--%>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+            -webkit-font-smoothing: subpixel-antialiased;
+            background: #F7FAFC;
+            text-align: center;
+        }
+
+        .login-card {
+            width: 320px;
+            height: 360px;
+            position: absolute;
+            z-index: 0;
+
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+
+            border-radius: 10px;
+            background: #FFFFFF;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-form {
+            margin: 58px auto;
+        }
+
+        .logo {
+            margin: 0 auto;
+            width: 200px;
+            height: 80px;
+            background: url("../images/logo.png") no-repeat;
+            background-size: contain;
+        }
+
+        .hide-text {
+            font: 0/0 a;
+            color: transparent;
+            text-shadow: none;
+            border: 0;
+        }
+
+        .group-inputs {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            width: 280px;
+            margin: 15px auto;
+        }
+        .account {
+            margin: 0 auto;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .password {
+            margin: -1px auto 0 auto;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .input-wrapper input {
+            width: 274px;
+            height: 40px;
+            border-color: transparent;
+            outline: none;
+            text-align: center;
+        }
+
+        .signIn-button {
+            width: 280px;
+            height: 45px;
+            background: #0F88EB;
+            box-shadow: none;
+            border: 0;
+            border-radius: 4px;
+            line-height: 40px;
+            color: #FFFFFF;
+            font-size: 15px;
+        }
+
+        .message-info {
+            width: 280px;
+            margin: 8px auto;
+            padding: 5px;
+            border: 1px solid #ebccd1;
+            border-radius: 4px;
+            color: #a94442;
+            background-color: #f2dede;
+        }
+
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 50px white inset;
+        }
+    </style>
 </head>
 <body>
 <div class="login-card">
@@ -35,7 +130,7 @@
                 </div>
             </div>
             <div class="button-wrapper">
-                <button class="signIn-button" id="signIn-button" name="signIn-button" type="button">登录</button>
+                <button class="signIn-button" id="signIn-button" type="button">登录</button>
             </div>
         </form>
         <div class="message-info" id="message-info">

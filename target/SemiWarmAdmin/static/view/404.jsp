@@ -9,7 +9,30 @@
 <html>
 <head>
     <title>404 Not Found</title>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/main.css">
+    <style>
+        .card {
+            width: 500px;
+            height: 250px;
+            position: absolute;
+            z-index: 0;
+            text-align: center;
+
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+
+            border-radius: 10px;
+            background: #FFFFFF;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .card p {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div class="card">
