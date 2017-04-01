@@ -121,11 +121,11 @@
         <form id="signInForm">
             <div class="group-inputs">
                 <div class="input-wrapper account">
-                    <input id="adminName" name="adminName" type="text" aria-label="请输入用户名" placeholder="请输入用户名"
+                    <input id="administratorName" name="administratorName" type="text" aria-label="请输入管理员名称" placeholder="请输入管理员名称"
                            required>
                 </div>
                 <div class="input-wrapper password">
-                    <input id="password" name="password" type="password" aria-label="请输入密码" placeholder="请输入密码"
+                    <input id="password" name="password" type="password" aria-label="请输入登录密码" placeholder="请输入登录密码"
                            required>
                 </div>
             </div>
@@ -150,7 +150,7 @@
 
         // 监听回车事件
         $('body').keydown(function (e) {
-            if (e.keyCode == 13) {
+            if (e.keyCode === 13) {
                 doLogin();
             }
         });
@@ -169,7 +169,7 @@
             // 请求地址
             url: '<%=request.getContextPath()%>/signIn',
             // 请求数据，用户名和密码
-            data: {'adminName': $('#adminName').val(), 'password': $('#password').val()},
+            data: {'administratorName': $('#administratorName').val(), 'password': $('#password').val()},
             // 异步，不写默认为True
             async: false,
             // 请求成功后的回调

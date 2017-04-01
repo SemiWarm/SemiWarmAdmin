@@ -7,10 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    Long adminId = (Long) session.getAttribute("adminId");
-    String adminName = (String) session.getAttribute("adminName");
+    Long administratorId = (Long) session.getAttribute("administratorId");
+    String administratorName = (String) session.getAttribute("administratorName");
     Integer privilegeLevel = (Integer) session.getAttribute("privilegeLevel");
-    if (null == adminId) {
+    if (null == administratorId) {
         response.sendRedirect(request.getContextPath() + "/signIn");
         return;
     }
@@ -77,14 +77,16 @@ desired effect
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <img class="user-image" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
-                            <span class="hidden-xs"><%=adminName%></span>
+                            <img class="user-image" src="<%=request.getContextPath()%>/static/images/user_logo.png"
+                                 alt="User Image">
+                            <span class="hidden-xs"><%=administratorName%></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header" style="color: white">
-                                <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
+                                <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png"
+                                     alt="User Image">
                                 <p style="color: white">
-                                    <%=adminName%>
+                                    <%=administratorName%>
                                 </p>
                                 <small>权限等级</small>
                                 <%=privilegeLevel%>
@@ -133,7 +135,8 @@ desired effect
                                 </div>
                                 <div class="pull-right">
                                     <%--退出登录按钮--%>
-                                    <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/signIn">退 出</a>
+                                    <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/signIn">退
+                                        出</a>
                                 </div>
                             </li>
                         </ul>
@@ -148,10 +151,11 @@ desired effect
         <section class="sidebar">
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
+                    <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png"
+                         alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p><%=adminName%>
+                    <p><%=administratorName%>
                     </p>
                     <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                 </div>
@@ -159,9 +163,10 @@ desired effect
             <%--搜索表单--%>
             <form class="sidebar-form" action="#" method="get">
                 <div class="input-group">
-                    <input class="form-control" name="txtSearch" type="text">
+                    <input class="form-control" name="txtSearch" type="text" title="请输入搜索内容">
                     <span class="input-group-btn">
-                        <button class="btn btn-flat" id="btnSearch" name="btnSearch" type="submit"><i class="fa fa-search"></i></button>
+                        <button class="btn btn-flat" id="btnSearch" name="btnSearch" type="submit"><i
+                                class="fa fa-search"></i></button>
                     </span>
                 </div>
             </form>

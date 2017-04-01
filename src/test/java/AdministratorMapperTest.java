@@ -22,16 +22,16 @@ public class AdministratorMapperTest {
     // 标记为测试类
     @Test
     public void testAdd() { // 光标放在这里右键'Debug'，然后看控制台的打印日志，出现添加成功后就OK了
-        Administrator admin = new Administrator();
-        Long adminId = new Date().getTime();
-        admin.setAdminId(adminId);
-        admin.setAdminName("SemiWarm");
-        admin.setPassword("941001");
-        admin.setPrivilegeLevel(10);
-        admin.setStatus(true);
+        Administrator administrator = new Administrator();
+        Long administratorId = new Date().getTime();
+        administrator.setAdministratorId(administratorId);
+        administrator.setAdministratorName("SemiWarm");
+        administrator.setPassword("941001");
+        administrator.setPrivilegeLevel(10);
+        administrator.setStatus(true);
 
         int result;
-        result = administratorMapper.add(admin);
+        result = administratorMapper.add(administrator);
 
         if (result > 0) {
             System.out.println("添加成功！");

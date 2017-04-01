@@ -43,12 +43,12 @@ public class AdministratorServiceImpl implements AdministratorService {
             response.setSuccess(1);
             response.setMessage("登录成功!");
             // 存储Session
-            session.setAttribute("adminId", administratorInfo.getAdminId());
-            session.setAttribute("adminName", administratorInfo.getAdminName());
+            session.setAttribute("administratorId", administratorInfo.getAdministratorId());
+            session.setAttribute("administratorName", administratorInfo.getAdministratorName());
             session.setAttribute("privilegeLevel", administratorInfo.getPrivilegeLevel());
         } else {
             response.setSuccess(0);
-            response.setMessage("用户名或密码有误!");
+            response.setMessage("管理员名称或密码有误!");
         }
 
         return response;

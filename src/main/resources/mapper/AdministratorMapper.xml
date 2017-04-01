@@ -3,29 +3,29 @@
 <!-- namespace是指明Mybatis扫描的目录，即cn.semiwarm.admin.mapper.xxxMapper -->
 <mapper namespace="cn.semiwarm.admin.mapper.AdministratorMapper">
     <insert id="add" parameterType="cn.semiwarm.admin.entity.Administrator">
-        INSERT INTO Administrator (admin_id, admin_name, password, privilege_level, status, create_at)
-            VALUE (#{adminId}, #{adminName}, password(#{password}), #{privilegeLevel}, #{status}, #{createAt})
+        INSERT INTO Administrator (administrator_id, administrator_name, password, privilege_level, status, create_at)
+            VALUE (#{administratorId}, #{administratorName}, password(#{password}), #{privilegeLevel}, #{status}, #{createAt})
     </insert>
 
     <delete id="delete" parameterType="cn.semiwarm.admin.entity.Administrator">
         DELETE FROM Administrator
-        WHERE admin_id = #{adminId}
+        WHERE administrator_id = #{administratorId}
     </delete>
 
     <update id="update" parameterType="cn.semiwarm.admin.entity.Administrator">
         UPDATE Administrator
         SET
-            admin_name      = #{adminName},
+            administrator_name      = #{administratorName},
             password        = password(#{password}),
             privilege_level = #{privilegeLevel},
             status          = #{status}
-        WHERE admin_id = #{adminId}
+        WHERE administrator_id = #{administratorId}
     </update>
 
     <select id="findById" parameterType="String" resultType="cn.semiwarm.admin.entity.Administrator">
         SELECT *
         FROM Administrator
-        WHERE admin_id = #{adminId}
+        WHERE administrator_id = #{administratorId}
     </select>
 
     <select id="findAll" resultType="cn.semiwarm.admin.entity.Administrator">
@@ -37,6 +37,6 @@
             resultType="cn.semiwarm.admin.entity.Administrator">
         SELECT *
         FROM Administrator
-        WHERE admin_name = #{adminName} AND password = password(#{password})
+        WHERE administrator_name = #{administratorName} AND password = password(#{password})
     </select>
 </mapper>

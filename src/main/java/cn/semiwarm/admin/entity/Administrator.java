@@ -8,27 +8,27 @@ import java.util.Date;
  * Created by alibct on 2017/3/10.
  */
 public class Administrator implements Serializable {
-    private Long adminId; // 管理员ID
-    private String adminName; // 管理员名称
+    private Long administratorId; // 管理员ID
+    private String administratorName; // 管理员名称
     private String password; // 密码
     private Integer privilegeLevel; // 权限等级默认一级，最高十级
     private Boolean status; // 是否可用
     private Date createAt; // 创建时间
 
-    public Long getAdminId() {
-        return adminId;
+    public Long getAdministratorId() {
+        return administratorId;
     }
 
-    public void setAdminId(Long adminId) {
-        this.adminId = adminId;
+    public void setAdministratorId(Long administratorId) {
+        this.administratorId = administratorId;
     }
 
-    public String getAdminName() {
-        return adminName;
+    public String getAdministratorName() {
+        return administratorName;
     }
 
-    public void setAdminName(String adminName) {
-        this.adminName = adminName;
+    public void setAdministratorName(String administratorName) {
+        this.administratorName = administratorName;
     }
 
     public String getPassword() {
@@ -66,8 +66,8 @@ public class Administrator implements Serializable {
     @Override
     public String toString() {
         return "Administrator{" +
-                "adminId=" + adminId +
-                ", adminName='" + adminName + '\'' +
+                "administratorId=" + administratorId +
+                ", administratorName='" + administratorName + '\'' +
                 ", password='" + password + '\'' +
                 ", privilegeLevel=" + privilegeLevel +
                 ", status=" + status +
