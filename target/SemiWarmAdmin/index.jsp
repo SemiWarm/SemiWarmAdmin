@@ -175,14 +175,15 @@
             // 请求成功后的回调
             success: function (signInResponse) {
                 // 登录成功状态码为 1
-                if (signInResponse["success"] == 1) {
+                if (signInResponse["success"] === 1) {
+                    $('#signIn-button').text("登录中...");
                     // 隐藏错误信息提示框
                     $('#message-info').css('display', 'none');
                     // 设置成功提示信息
                     $('#message').text(signInResponse["message"]);
                     // 跳转到主页
                     window.location.href = "<%=request.getContextPath()%>/main";
-                } else if (signInResponse["success"] == 0) {
+                } else if (signInResponse["success"] === 0) {
                     // 登录失败状态码为 0
                     // 设置错误提示信息
                     $('#message').text(signInResponse["message"]);
