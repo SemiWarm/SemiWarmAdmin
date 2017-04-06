@@ -163,6 +163,7 @@
 
     // 登录逻辑
     var doLogin = function () {
+        $('#signIn-button').text("登录中...");
         $.ajax({
             // 请求发送方式
             type: 'post',
@@ -171,12 +172,11 @@
             // 请求数据，用户名和密码
             data: {'administratorName': $('#administratorName').val(), 'password': $('#password').val()},
             // 异步，不写默认为True
-            async: false,
+            async: true,
             // 请求成功后的回调
             success: function (signInResponse) {
                 // 登录成功状态码为 1
                 if (signInResponse["success"] === 1) {
-                    $('#signIn-button').text("登录中...");
                     // 隐藏错误信息提示框
                     $('#message-info').css('display', 'none');
                     // 设置成功提示信息
@@ -185,6 +185,7 @@
                     window.location.href = "<%=request.getContextPath()%>/main";
                 } else if (signInResponse["success"] === 0) {
                     // 登录失败状态码为 0
+                    $('#signIn-button').text("登录");
                     // 设置错误提示信息
                     $('#message').text(signInResponse["message"]);
                     // 显示错误提示框
@@ -192,6 +193,7 @@
                 }
             },
             error: function (errorMessage) {
+                $('#signIn-button').text("登录");
                 // 其它错误信息
                 $('#message').text(errorMessage);
                 $('#message-info').css('display', 'block');

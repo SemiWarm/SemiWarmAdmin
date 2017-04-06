@@ -7,10 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    Long adminId = (Long) session.getAttribute("adminId");
-    String adminName = (String) session.getAttribute("adminName");
+    Long administratorId = (Long) session.getAttribute("administratorId");
+    String administratorName = (String) session.getAttribute("administratorName");
     Integer privilegeLevel = (Integer) session.getAttribute("privilegeLevel");
-    if (null == adminId) {
+    if (null == administratorId) {
         response.sendRedirect(request.getContextPath() + "/signIn");
         return;
     }
@@ -78,13 +78,13 @@ desired effect
                     <li class="dropdown user user-menu">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <img class="user-image" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
-                            <span class="hidden-xs"><%=adminName%></span>
+                            <span class="hidden-xs"><%=administratorName%></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header" style="color: white">
                                 <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
                                 <p style="color: white">
-                                    <%=adminName%>
+                                    <%=administratorName%>
                                 </p>
                                 <small>权限等级</small>
                                 <%=privilegeLevel%>
@@ -151,7 +151,7 @@ desired effect
                     <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p><%=adminName%>
+                    <p><%=administratorName%>
                     </p>
                     <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                 </div>
