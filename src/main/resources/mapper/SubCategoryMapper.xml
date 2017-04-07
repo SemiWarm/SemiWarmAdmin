@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace是指明Mybatis扫描的目录，即cn.semiwarm.admin.mapper.xxxMapper -->
+<mapper namespace="cn.semiwarm.admin.mapper.SubCategoryMapper">
+
+    <insert id="add" parameterType="cn.semiwarm.admin.entity.SubCategory">
+        INSERT INTO SubCategory (sub_category_name, sub_category_banner, sub_category_title, sub_category_desc, sub_category_icon, sub_category_tag, category_id)
+        VALUES (#{subCategoryName}, #{subCategoryBanner}, #{subCategoryTitle}, #{subCategoryDesc}, #{subCategoryIcon},
+                #{subCategoryTag}, #{categoryId})
+    </insert>
+
+    <delete id="delete" parameterType="cn.semiwarm.admin.entity.SubCategory">
+        DELETE FROM SubCategory
+        WHERE sub_category_id = #{subCategoryId}
+    </delete>
+
+    <update id="update" parameterType="cn.semiwarm.admin.entity.SubCategory">
+        UPDATE SubCategory
+        SET
+            sub_category_name   = #{subCategoryName},
+            sub_category_banner = #{subCategoryBanner},
+            sub_category_title  = #{subCategoryTitle},
+            sub_category_desc   = #{subCategoryDesc},
+            sub_category_icon   = #{subCategoryIcon},
+            sub_category_tag    = #{subCategoryTag},
+            category_id         = #{categoryId}
+        WHERE sub_category_id = #{subCategoryId}
+    </update>
+
+    <select id="findById" parameterType="cn.semiwarm.admin.entity.SubCategory">
+        SELECT *
+        FROM SubCategory
+        WHERE sub_category_id = #{subCategoryId}
+    </select>
+
+    <select id="findAll" parameterType="cn.semiwarm.admin.entity.SubCategory">
+        SELECT *
+        FROM SubCategory
+    </select>
+
+</mapper>

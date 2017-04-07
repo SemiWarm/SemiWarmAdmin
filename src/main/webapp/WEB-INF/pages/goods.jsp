@@ -20,6 +20,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/static/images/favicon.ico">
     <title>半暖商城-商品管理</title>
     <%--Tell the browser to be responsive to screen width--%>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -77,12 +78,14 @@ desired effect
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <img class="user-image" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
+                            <img class="user-image" src="<%=request.getContextPath()%>/static/images/user_logo.png"
+                                 alt="User Image">
                             <span class="hidden-xs"><%=administratorName%></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header" style="color: white">
-                                <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
+                                <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png"
+                                     alt="User Image">
                                 <p style="color: white">
                                     <%=administratorName%>
                                 </p>
@@ -133,7 +136,8 @@ desired effect
                                 </div>
                                 <div class="pull-right">
                                     <%--退出登录按钮--%>
-                                    <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/signIn">退 出</a>
+                                    <a class="btn btn-default btn-flat" href="<%=request.getContextPath()%>/signIn">退
+                                        出</a>
                                 </div>
                             </li>
                         </ul>
@@ -148,7 +152,8 @@ desired effect
         <section class="sidebar">
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png" alt="User Image">
+                    <img class="img-circle" src="<%=request.getContextPath()%>/static/images/user_logo.png"
+                         alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p><%=administratorName%>
@@ -159,9 +164,10 @@ desired effect
             <%--搜索表单--%>
             <form class="sidebar-form" action="#" method="get">
                 <div class="input-group">
-                    <input class="form-control" name="txtSearch" type="text">
+                    <input class="form-control" name="txtSearch" type="text" title="请输入搜索内容">
                     <span class="input-group-btn">
-                        <button class="btn btn-flat" id="btnSearch" name="btnSearch" type="submit"><i class="fa fa-search"></i></button>
+                        <button class="btn btn-flat" id="btnSearch" name="btnSearch" type="submit"><i
+                                class="fa fa-search"></i></button>
                     </span>
                 </div>
             </form>
@@ -245,6 +251,30 @@ desired effect
                         </li>
                     </ul>
                 </li>
+                <%--类目管理--%>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-th"></i>
+                        <span>类目管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="<%=request.getContextPath()%>/category">
+                                <i class="fa fa-plus-square"></i>
+                                <span> 类目管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-pencil-square"></i>
+                                <span> 类目编辑</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </section>
     </aside>
@@ -277,7 +307,8 @@ desired effect
                             <h3 class="box-title">增加商品</h3>
                             <div class="box-tools pull-right">
                                 <span class="btn btn-box-tool"><a href="#"><i class="fa fa-save"></i></a></span>
-                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
                             </div><!-- /.box-tools -->
                         </div><!-- /.box-header -->
                         <div class="box-body">
@@ -291,7 +322,8 @@ desired effect
                         <div class="box-header with-border">
                             <h3 class="box-title">查询商品</h3>
                             <div class="box-tools pull-right">
-                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
                             </div><!-- /.box-tools -->
                         </div><!-- /.box-header -->
                         <div class="box-body">
@@ -305,7 +337,8 @@ desired effect
                         <div class="box-header with-border">
                             <h3 class="box-title">删除商品</h3>
                             <div class="box-tools pull-right">
-                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
                             </div><!-- /.box-tools -->
                         </div><!-- /.box-header -->
                         <div class="box-body">

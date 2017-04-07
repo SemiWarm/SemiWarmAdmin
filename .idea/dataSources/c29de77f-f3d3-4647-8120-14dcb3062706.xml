@@ -12,185 +12,310 @@
     <table id="6" parent="2" name="Administrator">
       <Comment>管理员表</Comment>
     </table>
-    <table id="7" parent="2" name="User">
+    <table id="7" parent="2" name="Category">
+      <Comment>类目表</Comment>
+    </table>
+    <table id="8" parent="2" name="SubCategory">
+      <Comment>子类目表</Comment>
+    </table>
+    <table id="9" parent="2" name="User">
       <Comment>用户表</Comment>
     </table>
-    <table id="8" parent="2" name="UserInfo">
+    <table id="10" parent="2" name="UserInfo">
       <Comment>用户信息表</Comment>
     </table>
-    <column id="9" parent="6" name="password">
+    <column id="11" parent="6" name="password">
       <Position>3</Position>
       <Comment>密码</Comment>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="10" parent="6" name="privilege_level">
+    <column id="12" parent="6" name="privilege_level">
       <Position>4</Position>
       <Comment>权限等级</Comment>
       <DataType>tinyint(4)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <column id="11" parent="6" name="status">
+    <column id="13" parent="6" name="status">
       <Position>5</Position>
       <Comment>账号是否可用</Comment>
       <DataType>tinyint(1)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <column id="12" parent="6" name="create_at">
+    <column id="14" parent="6" name="create_at">
       <Position>6</Position>
       <Comment>管理员创建时间</Comment>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
-    <column id="13" parent="6" name="administrator_id">
+    <column id="15" parent="6" name="administrator_id">
       <Position>1</Position>
       <Comment>管理员ID</Comment>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="14" parent="6" name="administrator_name">
+    <column id="16" parent="6" name="administrator_name">
       <Position>2</Position>
       <Comment>管理员名称</Comment>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="15" parent="6" name="administrator_id">
+    <index id="17" parent="6" name="administrator_id">
       <ColNames>administrator_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="16" parent="6" name="administrator_name">
+    <index id="18" parent="6" name="administrator_name">
       <ColNames>administrator_name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="17" parent="6" name="PRIMARY">
+    <key id="19" parent="6" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>administrator_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="18" parent="6" name="administrator_id">
+    <key id="20" parent="6" name="administrator_id">
       <ColNames>administrator_id</ColNames>
       <UnderlyingIndexName>administrator_id</UnderlyingIndexName>
     </key>
-    <key id="19" parent="6" name="administrator_name">
+    <key id="21" parent="6" name="administrator_name">
       <ColNames>administrator_name</ColNames>
       <UnderlyingIndexName>administrator_name</UnderlyingIndexName>
     </key>
-    <column id="20" parent="7" name="user_id">
+    <column id="22" parent="7" name="category_id">
+      <Position>1</Position>
+      <Comment>类目ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="23" parent="7" name="category_name">
+      <Position>2</Position>
+      <Comment>类目名称</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="7" name="category_banner">
+      <Position>3</Position>
+      <Comment>类目banner</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="7" name="category_title">
+      <Position>4</Position>
+      <Comment>类目标题</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="7" name="category_desc">
+      <Position>5</Position>
+      <Comment>类目描述</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <index id="27" parent="7" name="category_id">
+      <ColNames>category_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="28" parent="7" name="category_name">
+      <ColNames>category_name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="29" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>category_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="30" parent="7" name="category_id">
+      <ColNames>category_id</ColNames>
+      <UnderlyingIndexName>category_id</UnderlyingIndexName>
+    </key>
+    <key id="31" parent="7" name="category_name">
+      <ColNames>category_name</ColNames>
+      <UnderlyingIndexName>category_name</UnderlyingIndexName>
+    </key>
+    <column id="32" parent="8" name="sub_category_id">
+      <Position>1</Position>
+      <Comment>子类目ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="33" parent="8" name="sub_category_name">
+      <Position>2</Position>
+      <Comment>子类目名称</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="8" name="sub_category_banner">
+      <Position>3</Position>
+      <Comment>子类目banner</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="8" name="sub_category_title">
+      <Position>4</Position>
+      <Comment>子类目标题</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="8" name="sub_category_desc">
+      <Position>5</Position>
+      <Comment>子类目描述</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="37" parent="8" name="sub_category_icon">
+      <Position>6</Position>
+      <Comment>子类目图标</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="8" name="sub_category_tag">
+      <Position>7</Position>
+      <Comment>子类目标签</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="39" parent="8" name="category_id">
+      <Position>8</Position>
+      <Comment>类目ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="40" parent="8" name="sub_category_id">
+      <ColNames>sub_category_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="41" parent="8" name="sub_category_name">
+      <ColNames>sub_category_name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="42" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>sub_category_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="43" parent="8" name="sub_category_id">
+      <ColNames>sub_category_id</ColNames>
+      <UnderlyingIndexName>sub_category_id</UnderlyingIndexName>
+    </key>
+    <key id="44" parent="8" name="sub_category_name">
+      <ColNames>sub_category_name</ColNames>
+      <UnderlyingIndexName>sub_category_name</UnderlyingIndexName>
+    </key>
+    <column id="45" parent="9" name="user_id">
       <Position>1</Position>
       <Comment>用户ID</Comment>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="21" parent="7" name="user_name">
+    <column id="46" parent="9" name="user_name">
       <Position>2</Position>
       <Comment>用户名</Comment>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="22" parent="7" name="user_phone">
+    <column id="47" parent="9" name="user_phone">
       <Position>3</Position>
       <Comment>手机号</Comment>
       <DataType>varchar(13)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="23" parent="7" name="password">
+    <column id="48" parent="9" name="password">
       <Position>4</Position>
       <Comment>密码</Comment>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="24" parent="7" name="status">
+    <column id="49" parent="9" name="status">
       <Position>5</Position>
       <Comment>账号是否可用</Comment>
       <DataType>tinyint(1)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <column id="25" parent="7" name="create_at">
+    <column id="50" parent="9" name="create_at">
       <Position>6</Position>
       <Comment>用户创建时间</Comment>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
-    <index id="26" parent="7" name="user_id">
+    <index id="51" parent="9" name="user_id">
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="27" parent="7" name="user_name">
+    <index id="52" parent="9" name="user_name">
       <ColNames>user_name</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="28" parent="7" name="user_phone">
+    <index id="53" parent="9" name="user_phone">
       <ColNames>user_phone</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="29" parent="7" name="PRIMARY">
+    <key id="54" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="30" parent="7" name="user_id">
+    <key id="55" parent="9" name="user_id">
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>user_id</UnderlyingIndexName>
     </key>
-    <key id="31" parent="7" name="user_name">
+    <key id="56" parent="9" name="user_name">
       <ColNames>user_name</ColNames>
       <UnderlyingIndexName>user_name</UnderlyingIndexName>
     </key>
-    <key id="32" parent="7" name="user_phone">
+    <key id="57" parent="9" name="user_phone">
       <ColNames>user_phone</ColNames>
       <UnderlyingIndexName>user_phone</UnderlyingIndexName>
     </key>
-    <column id="33" parent="8" name="user_id">
+    <column id="58" parent="10" name="user_id">
       <Position>1</Position>
       <Comment>用户ID</Comment>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="8" name="pay_password">
+    <column id="59" parent="10" name="pay_password">
       <Position>2</Position>
       <Comment>支付密码</Comment>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="35" parent="8" name="user_sex">
+    <column id="60" parent="10" name="user_sex">
       <Position>3</Position>
       <Comment>用户性别</Comment>
       <DataType>varchar(2)|0</DataType>
     </column>
-    <column id="36" parent="8" name="user_birthday">
+    <column id="61" parent="10" name="user_birthday">
       <Position>4</Position>
       <Comment>用户生日</Comment>
       <DataType>date|0</DataType>
     </column>
-    <column id="37" parent="8" name="user_photo">
+    <column id="62" parent="10" name="user_photo">
       <Position>5</Position>
       <Comment>用户头像</Comment>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <column id="38" parent="8" name="user_level">
+    <column id="63" parent="10" name="user_level">
       <Position>6</Position>
       <Comment>用户等级</Comment>
       <DataType>tinyint(4)|0</DataType>
     </column>
-    <column id="39" parent="8" name="user_email">
+    <column id="64" parent="10" name="user_email">
       <Position>7</Position>
       <Comment>用户邮箱</Comment>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <index id="40" parent="8" name="user_id">
+    <index id="65" parent="10" name="user_id">
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="41" parent="8" name="PRIMARY">
+    <key id="66" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="42" parent="8" name="user_id">
+    <key id="67" parent="10" name="user_id">
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>user_id</UnderlyingIndexName>
     </key>

@@ -14,14 +14,15 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/static/images/favicon.ico">
     <title>半暖-社区化导购商城</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap.min.css">
     <%--建议将自定义的Style文件放在本地，防止出现服务器无法加载的问题--%>
     <style>
         body {
-            font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
-            -webkit-font-smoothing: subpixel-antialiased;
+            /*font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;*/
+            /*-webkit-font-smoothing: subpixel-antialiased;*/
             background: #F7FAFC;
             text-align: center;
         }
@@ -143,10 +144,14 @@
 <script src="<%=request.getContextPath()%>/static/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
+    var messageInfo = $('#message-info');
+    var message = $('#message');
+    var signInButton = $('#signIn-button');
+
     $(function () {
 
         // 将错误信息提示框设为不可见
-        $('#message-info').css('display', 'none');
+        messageInfo.css('display', 'none');
 
         // 监听回车事件
         $('body').keydown(function (e) {
@@ -156,14 +161,15 @@
         });
 
         // 监听登录按钮事件
-        $('#signIn-button').bind('click',function () {
+        signInButton.bind('click',function () {
            doLogin();
         });
     });
 
     // 登录逻辑
     var doLogin = function () {
-        $('#signIn-button').text("登录中...");
+        signInButton.text("登录中...");
+        signInButton.attr("disabled",true);
         $.ajax({
             // 请求发送方式
             type: 'post',
@@ -178,25 +184,27 @@
                 // 登录成功状态码为 1
                 if (signInResponse["success"] === 1) {
                     // 隐藏错误信息提示框
-                    $('#message-info').css('display', 'none');
+                    messageInfo.css('display', 'none');
                     // 设置成功提示信息
-                    $('#message').text(signInResponse["message"]);
+                    message.text(signInResponse["message"]);
                     // 跳转到主页
                     window.location.href = "<%=request.getContextPath()%>/main";
                 } else if (signInResponse["success"] === 0) {
                     // 登录失败状态码为 0
-                    $('#signIn-button').text("登录");
+                    signInButton.text("登录");
+                    signInButton.attr("disabled",false);
                     // 设置错误提示信息
-                    $('#message').text(signInResponse["message"]);
+                    message.text(signInResponse["message"]);
                     // 显示错误提示框
-                    $('#message-info').css('display', 'block');
+                    messageInfo.css('display', 'block');
                 }
             },
             error: function (errorMessage) {
-                $('#signIn-button').text("登录");
+                signInButton.text("登录");
+                signInButton.attr("disabled",false);
                 // 其它错误信息
-                $('#message').text(errorMessage);
-                $('#message-info').css('display', 'block');
+                messageInfo.text(errorMessage);
+                messageInfo.css('display', 'block');
             }
         });
     }

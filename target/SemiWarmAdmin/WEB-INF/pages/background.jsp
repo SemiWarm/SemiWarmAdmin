@@ -14,6 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/static/images/favicon.ico">
     <title>半暖-社区化导购商城-背景</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/main.css"/>

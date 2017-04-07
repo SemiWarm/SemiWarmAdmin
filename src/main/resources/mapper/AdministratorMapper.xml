@@ -4,7 +4,8 @@
 <mapper namespace="cn.semiwarm.admin.mapper.AdministratorMapper">
     <insert id="add" parameterType="cn.semiwarm.admin.entity.Administrator">
         INSERT INTO Administrator (administrator_id, administrator_name, password, privilege_level, status, create_at)
-            VALUE (#{administratorId}, #{administratorName}, password(#{password}), #{privilegeLevel}, #{status}, #{createAt})
+        VALUES
+            (#{administratorId}, #{administratorName}, password(#{password}), #{privilegeLevel}, #{status}, #{createAt})
     </insert>
 
     <delete id="delete" parameterType="cn.semiwarm.admin.entity.Administrator">
@@ -15,10 +16,10 @@
     <update id="update" parameterType="cn.semiwarm.admin.entity.Administrator">
         UPDATE Administrator
         SET
-            administrator_name      = #{administratorName},
-            password        = password(#{password}),
-            privilege_level = #{privilegeLevel},
-            status          = #{status}
+            administrator_name = #{administratorName},
+            password           = password(#{password}),
+            privilege_level    = #{privilegeLevel},
+            status             = #{status}
         WHERE administrator_id = #{administratorId}
     </update>
 

@@ -20,6 +20,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/static/images/favicon.ico">
     <title>半暖商城-后台管理系统</title>
     <%--Tell the browser to be responsive to screen width--%>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -246,6 +247,30 @@ desired effect
                             <a href="#">
                                 <i class="fa fa-pencil-square"></i>
                                 <span> 商品编辑</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <%--类目管理--%>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-th"></i>
+                        <span>类目管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="<%=request.getContextPath()%>/category">
+                                <i class="fa fa-plus-square"></i>
+                                <span> 类目管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-pencil-square"></i>
+                                <span> 类目编辑</span>
                             </a>
                         </li>
                     </ul>
