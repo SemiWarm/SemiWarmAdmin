@@ -24,6 +24,7 @@
      -->
     <mvc:resources mapping="/css/**" location="/static/css/"/>
     <mvc:resources mapping="/images/**" location="/static/images/"/>
+    <mvc:resources mapping="/img/**" location="/static/img/"/>
     <mvc:resources mapping="/js/**" location="/static/js/"/>
     <!--一定要添加，否则还是会出现emoji不能加载的问题-->
     <mvc:resources mapping="/plugins/**" location="/static/plugins/"/>

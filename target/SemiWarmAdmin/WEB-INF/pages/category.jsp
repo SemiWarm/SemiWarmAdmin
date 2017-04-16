@@ -42,6 +42,12 @@
     <%--<script src="../../static/js/html5shiv.min.js"></script>--%>
     <%--<script src="../../static/js/respond.min.js"></script>--%>
     <%--[endif]--%>
+    <style>
+        .vertical-align {
+            display: flex;
+            align-items: center;
+        }
+    </style>
 </head>
 <%--
 BODY TAG OPTIONS:
@@ -342,9 +348,10 @@ desired effect
                                     <label class="col-md-2 control-label">Banner访问地址</label>
                                     <div class="col-md-10">
                                         <div class="input-group">
-                                            <input class="form-control" id="bannerAccessPath" name="bannerAccessPath"
+                                            <input class="form-control" id="categoryBanner" name="categoryBanner"
                                                    type="text"
-                                                   placeholder="http://www.semiwarm.cn/admin/upload/images/..." disabled
+                                                   placeholder="http://www.semiwarm.cn/admin/upload/images/categoryBanner/..."
+                                                   disabled
                                                    required>
                                             <span class="input-group-btn">
                                                 <button class="btn btn-primary" data-toggle="modal"
@@ -367,19 +374,13 @@ desired effect
                                                                 请选择类目Banner</h4>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <div class="row">
-                                                                <h4 class="col-md-12">类目Banner列表</h4>
-                                                            </div>
-                                                            <div class="row">
-                                                                <input class="file-loading" id="categoryBannerList"
-                                                                       name="categoryBannerList" type="file" multiple>
-                                                            </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default"
+                                                            <button class="btn btn-default" type="button"
                                                                     data-dismiss="modal">取 消
                                                             </button>
-                                                            <button type="button" class="btn btn-primary">确 定
+                                                            <button class="btn btn-primary" id="btnConfirm"
+                                                                    name="btnConfirm" type="button">确 定
                                                             </button>
                                                         </div>
                                                     </div>
@@ -391,7 +392,7 @@ desired effect
                                 <div class="row form-group">
                                     <label class="col-md-2 control-label">Banner本地上传</label>
                                     <div class="col-md-10">
-                                        <input class="form-control file-loading" id="categoryBanner"
+                                        <input class="form-control file-loading" id="categoryBannerUploader"
                                                name="image" type="file" multiple>
                                     </div>
                                 </div>
@@ -458,18 +459,18 @@ desired effect
     var categoryTitle = $('#categoryTitle');
     var categoryDesc = $('#categoryDesc');
     var categoryBanner = $('#categoryBanner');
-    var categoryBannerList = $('#categoryBannerList');
-    var bannerAccessPath = $('#bannerAccessPath');
+
+    var categorySelectModal = $('#categorySelectModal');
+    var modalBody = $('.modal-body');
+    var btnConfirm = $('#btnConfirm');
+
+    var categoryBannerUploader = $('#categoryBannerUploader');
     var btnSelectBanner = $('#btnSelectBanner');
 
     var btnCategoryReset = $('#btnCategoryReset');
     var btnCategoryAdd = $('#btnCategoryAdd');
 
-    btnSelectBanner.bind('click', function () {
-
-    });
-
-    categoryBanner.fileinput({
+    categoryBannerUploader.fileinput({
         language: 'zh', // 设置语言
         uploadUrl: '<%=request.getContextPath()%>/upload/categoryBanner/image', // 上传地址
         allowedFileExtensions: ['jpg', 'png', 'gif'], // 允许上传的文件后缀
@@ -483,26 +484,67 @@ desired effect
         enctype: 'multipart/form-data'
     });
 
-    categoryBannerList.fileinput({
-        language: 'zh', // 设置语言
-        theme: 'explorer',
-        showRemove: false, // 是否显示移除按钮
-        showUpload: false, // 是否显示上传按钮
-        showBrowse: false, // 是否显示选择按钮
-        showCaption: false, // 是否显示标题
-        showClose: false, // 是否显示右上角的关闭按钮
-        overwriteInitial: false,
-        initialPreviewAsData: true,
-        initialPreview: [
-            "http://lorempixel.com/1920/1080/nature/1",
-            "http://lorempixel.com/1920/1080/nature/2",
-            "http://lorempixel.com/1920/1080/nature/3"
-        ],
-        initialPreviewConfig: [
-            {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-            {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-            {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}
-        ]
+    // 上传完成后的回调
+    categoryBannerUploader.on('fileuploaded', function (event, data) {
+        var response = data.response;
+        categoryBanner.val(response["url"]);
+    });
+
+    // 模态框调用show方法之后执行的回调方法
+    categorySelectModal.on('show.bs.modal', function (e) {
+        console.log(e);
+        // 首先进行Ajax请求获取所有categoryBanner类型的图片信息
+        $.ajax({
+            type: 'get',
+            url: '<%=request.getContextPath()%>/categoryBanner/images',
+            async: true,
+            success: function (categoryBannerImages) {
+                var categoryBannerHtml = "";
+                $.each(categoryBannerImages, function (i, item) {
+                    categoryBannerHtml += "<div class='row vertical-align'>" +
+                        "<div class='col-md-8'>" +
+                        "<div class='thumbnail'>" +
+                        "<img src='" + item["imageAccessPath"] + "' alt='" + item["imageOriginalName"] + "'>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class='col-md-4'>" +
+                        "<div class='list-group'>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-success'>是否选择</label>" +
+                        "&nbsp;" +
+                        "<label><input name='isSelected' type='radio' value='" + item["imageAccessPath"] + "'></label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片名称</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageOriginalName"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片类型</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>categoryBanner</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片大小</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageSize"] + "</label>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>";
+                });
+                modalBody.html(categoryBannerHtml);
+            },
+            error: function (errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    });
+
+    btnConfirm.bind('click', function () {
+        var categoryBannerUrl = $('input:radio:checked').val();
+        categoryBanner.val(categoryBannerUrl);
+        categorySelectModal.modal('hide');
     });
 
     btnCategoryAdd.bind('click', function () {

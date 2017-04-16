@@ -20,4 +20,6 @@ public interface ImageMapper extends BaseMapper<Image> {
     Image findById(Serializable id);
 
     List<Image> findAll();
+
+    List<Image> findByImageType(Serializable imageType);
 }

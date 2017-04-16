@@ -25,13 +25,19 @@
             uploaded_at          = #{uploadedAt}
         WHERE image_uuid = #{imageUuid}
     </update>
-    <select id="findById" parameterType="cn.semiwarm.admin.entity.Image">
+    <select id="findById" parameterType="cn.semiwarm.admin.entity.Image" resultType="cn.semiwarm.admin.entity.Image">
         SELECT *
         FROM Image
         WHERE image_uuid = #{imageUuid}
     </select>
-    <select id="findAll" parameterType="cn.semiwarm.admin.entity.Image">
+    <select id="findAll" resultType="cn.semiwarm.admin.entity.Image">
         SELECT *
         FROM Image
+    </select>
+
+    <select id="findByImageType" parameterType="java.lang.String" resultType="cn.semiwarm.admin.entity.Image">
+        SELECT *
+        FROM Image
+        WHERE image_type = #{imageType}
     </select>
 </mapper>

@@ -42,4 +42,8 @@ public class ImageServiceImpl implements ImageService {
     public List<Image> findAllImage() throws Exception {
         return imageMapper.findAll();
     }
+
+    public List<Image> findImageByImageType(Serializable imageType) throws Exception {
+        return imageMapper.findByImageType(imageType);
+    }
 }

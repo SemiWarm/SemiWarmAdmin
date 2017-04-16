@@ -23,13 +23,13 @@
         WHERE category_id = #{categoryId}
     </update>
 
-    <select id="findById" parameterType="cn.semiwarm.admin.entity.Category">
+    <select id="findById" parameterType="cn.semiwarm.admin.entity.Category" resultType="cn.semiwarm.admin.entity.Category">
         SELECT *
         FROM Category
         WHERE category_id = #{categoryId}
     </select>
 
-    <select id="findAll" parameterType="cn.semiwarm.admin.entity.Category">
+    <select id="findAll" resultType="cn.semiwarm.admin.entity.Category">
         SELECT *
         FROM Category
     </select>

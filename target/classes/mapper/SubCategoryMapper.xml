@@ -27,13 +27,13 @@
         WHERE sub_category_id = #{subCategoryId}
     </update>
 
-    <select id="findById" parameterType="cn.semiwarm.admin.entity.SubCategory">
+    <select id="findById" parameterType="cn.semiwarm.admin.entity.SubCategory" resultType="cn.semiwarm.admin.entity.SubCategory">
         SELECT *
         FROM SubCategory
         WHERE sub_category_id = #{subCategoryId}
     </select>
 
-    <select id="findAll" parameterType="cn.semiwarm.admin.entity.SubCategory">
+    <select id="findAll" resultType="cn.semiwarm.admin.entity.SubCategory">
         SELECT *
         FROM SubCategory
     </select>

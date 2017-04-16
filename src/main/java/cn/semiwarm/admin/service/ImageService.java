@@ -20,4 +20,6 @@ public interface ImageService extends BaseService<Image> {
     Image findImageById(Serializable id) throws Exception;
 
     List<Image> findAllImage() throws Exception;
+
+    List<Image> findImageByImageType(Serializable imageType) throws Exception;
 }

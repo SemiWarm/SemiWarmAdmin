@@ -23,7 +23,7 @@
         WHERE administrator_id = #{administratorId}
     </update>
 
-    <select id="findById" parameterType="String" resultType="cn.semiwarm.admin.entity.Administrator">
+    <select id="findById" parameterType="java.lang.String" resultType="cn.semiwarm.admin.entity.Administrator">
         SELECT *
         FROM Administrator
         WHERE administrator_id = #{administratorId}
