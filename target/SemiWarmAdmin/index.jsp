@@ -21,8 +21,6 @@
     <%--建议将自定义的Style文件放在本地，防止出现服务器无法加载的问题--%>
     <style>
         body {
-            /*font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;*/
-            /*-webkit-font-smoothing: subpixel-antialiased;*/
             background: #F7FAFC;
             text-align: center;
         }

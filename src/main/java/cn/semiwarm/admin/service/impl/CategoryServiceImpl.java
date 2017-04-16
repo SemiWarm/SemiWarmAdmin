@@ -23,23 +23,23 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryMapper = categoryMapper;
     }
 
-    public int addCategory(Category category) {
+    public int addCategory(Category category) throws Exception {
         return categoryMapper.add(category);
     }
 
-    public int deleteCategory(Category category) {
+    public int deleteCategory(Category category) throws Exception {
         return categoryMapper.delete(category);
     }
 
-    public int updateCategory(Category category) {
+    public int updateCategory(Category category) throws Exception {
         return categoryMapper.update(category);
     }
 
-    public Category findCategoryById(Serializable id) {
+    public Category findCategoryById(Serializable id) throws Exception {
         return categoryMapper.findById(id);
     }
 
-    public List<Category> findAllCategory() {
+    public List<Category> findAllCategory() throws Exception {
         return categoryMapper.findAll();
     }
 }

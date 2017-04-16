@@ -44,7 +44,7 @@
             editorTheme: "solarized",
             imageUpload: true,
             imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL: "<%=request.getContextPath()%>/file/upload/editormd/images"
+            imageUploadURL: "<%=request.getContextPath()%>/upload/editormd/images"
         });
     });
 

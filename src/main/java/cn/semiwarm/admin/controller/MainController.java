@@ -13,22 +13,22 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
 
     @RequestMapping(value = "/main", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
-    public ModelAndView main() {
+    public ModelAndView main() throws Exception {
         return new ModelAndView("main");
     }
 
     @RequestMapping(value = "/goods", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
-    public ModelAndView goods() {
+    public ModelAndView goods() throws Exception {
         return new ModelAndView("goods");
     }
 
     @RequestMapping(value = "/category", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
-    public ModelAndView category() {
+    public ModelAndView category() throws Exception {
         return new ModelAndView("category");
     }
 
     @RequestMapping(value = "/editor", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
-    public ModelAndView editor() {
+    public ModelAndView editor() throws Exception {
         return new ModelAndView("mdEditor");
     }
 

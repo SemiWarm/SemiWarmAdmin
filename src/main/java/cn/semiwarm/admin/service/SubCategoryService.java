@@ -9,14 +9,14 @@ import java.util.List;
  * 子类目服务类
  * Created by alibct on 2017/4/6.
  */
-public interface SubCategoryService {
-    int addSubCategory(SubCategory subCategory);
+public interface SubCategoryService extends BaseService<SubCategory> {
+    int addSubCategory(SubCategory subCategory) throws Exception;
 
-    int deleteSubCategory(SubCategory subCategory);
+    int deleteSubCategory(SubCategory subCategory) throws Exception;
 
-    int updateSubCategory(SubCategory subCategory);
+    int updateSubCategory(SubCategory subCategory) throws Exception;
 
-    SubCategory findSubCategoryById(Serializable id);
+    SubCategory findSubCategoryById(Serializable id) throws Exception;
 
-    List<SubCategory> findAllSubCategory();
+    List<SubCategory> findAllSubCategory() throws Exception;
 }

@@ -23,23 +23,23 @@ public class SubCategoryServiceImpl implements SubCategoryService {
         this.subCategoryMapper = subCategoryMapper;
     }
 
-    public int addSubCategory(SubCategory subCategory) {
+    public int addSubCategory(SubCategory subCategory) throws Exception {
         return subCategoryMapper.add(subCategory);
     }
 
-    public int deleteSubCategory(SubCategory subCategory) {
+    public int deleteSubCategory(SubCategory subCategory) throws Exception {
         return subCategoryMapper.delete(subCategory);
     }
 
-    public int updateSubCategory(SubCategory subCategory) {
+    public int updateSubCategory(SubCategory subCategory) throws Exception {
         return subCategoryMapper.update(subCategory);
     }
 
-    public SubCategory findSubCategoryById(Serializable id) {
+    public SubCategory findSubCategoryById(Serializable id) throws Exception {
         return subCategoryMapper.findById(id);
     }
 
-    public List<SubCategory> findAllSubCategory() {
+    public List<SubCategory> findAllSubCategory() throws Exception {
         return subCategoryMapper.findAll();
     }
 }

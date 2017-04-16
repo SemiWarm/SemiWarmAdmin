@@ -9,14 +9,14 @@ import java.util.List;
  * 类目服务类
  * Created by alibct on 2017/4/6.
  */
-public interface CategoryService {
-    int addCategory(Category category);
+public interface CategoryService extends BaseService<Category> {
+    int addCategory(Category category) throws Exception;
 
-    int deleteCategory(Category category);
+    int deleteCategory(Category category) throws Exception;
 
-    int updateCategory(Category category);
+    int updateCategory(Category category) throws Exception;
 
-    Category findCategoryById(Serializable id);
+    Category findCategoryById(Serializable id) throws Exception;
 
-    List<Category> findAllCategory();
+    List<Category> findAllCategory() throws Exception;
 }

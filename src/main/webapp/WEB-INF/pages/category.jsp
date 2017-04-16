@@ -26,6 +26,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/fileinput.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/theme.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/font-awesome.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/ionicons.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/AdminLTE.min.css">
@@ -314,36 +315,94 @@ desired effect
                             </div><!-- /.box-tools -->
                         </div><!-- /.box-header -->
                         <div class="box-body">
-                            <form class="form-horizontal">
+                            <%--类目表单--%>
+                            <form class="form-horizontal" id="addCategoryForm" enctype="multipart/form-data">
                                 <div class="row form-group">
                                     <label class="col-md-2 control-label">类目名称</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" id="categoryName" type="text" placeholder="类目名称">
+                                        <input class="form-control" id="categoryName" name="categoryName" type="text"
+                                               placeholder="类目名称" required>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-md-2 control-label">类目标题</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" id="categoryTitle" type="text" placeholder="类目标题">
+                                        <input class="form-control" id="categoryTitle" name="categoryTitle" type="text"
+                                               placeholder="类目标题" required>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-md-2 control-label">类目描述</label>
                                     <div class="col-md-10">
-                                        <textarea class="form-control" id="categoryDesc" rows="3"
-                                                  placeholder="类目描述"></textarea>
+                                        <textarea class="form-control" id="categoryDesc" name="categoryDesc" rows="3"
+                                                  placeholder="类目描述" required></textarea>
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-md-2 control-label">类目Banner</label>
+                                    <label class="col-md-2 control-label">Banner访问地址</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" id="categoryBanner" type="file" multiple>
+                                        <div class="input-group">
+                                            <input class="form-control" id="bannerAccessPath" name="bannerAccessPath"
+                                                   type="text"
+                                                   placeholder="http://www.semiwarm.cn/admin/upload/images/..." disabled
+                                                   required>
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#categorySelectModal" id="btnSelectBanner"
+                                                        name="btnSelectBanner" type="button">
+                                                    <i class="glyphicon glyphicon-save" style="font-size: larger"></i>
+                                                     Banner
+                                                </button>
+                                            </span>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="categorySelectModal" tabindex="-1" role="dialog"
+                                                 aria-labelledby="categorySelectModalLabel">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close"><span
+                                                                    aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title" id="categorySelectModalLabel">
+                                                                请选择类目Banner</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <h4 class="col-md-12">类目Banner列表</h4>
+                                                            </div>
+                                                            <div class="row">
+                                                                <input class="file-loading" id="categoryBannerList"
+                                                                       name="categoryBannerList" type="file" multiple>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default"
+                                                                    data-dismiss="modal">取 消
+                                                            </button>
+                                                            <button type="button" class="btn btn-primary">确 定
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-md-2 control-label">Banner本地上传</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control file-loading" id="categoryBanner"
+                                               name="image" type="file" multiple>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-2"></div>
-                                    <button class="btn btn-warning col-md-2 col-md-offset-2" type="reset">重置</button>
-                                    <button class="btn btn-primary col-md-2 col-md-offset-2" type="submit">添加</button>
+                                    <button class="btn btn-warning col-md-2 col-md-offset-2" id="btnCategoryReset"
+                                            name="btnCategoryReset" type="reset">重置
+                                    </button>
+                                    <button class="btn btn-primary col-md-2 col-md-offset-2" id="btnCategoryAdd"
+                                            name="btnCategoryAdd" type="submit">添加
+                                    </button>
                                     <div class="col-md-2"></div>
                                 </div>
                             </form>
@@ -390,9 +449,65 @@ desired effect
 <script src="<%=request.getContextPath()%>/static/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/fileinput.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/theme.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/zh.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/app.min.js"></script>
 <script type="text/javascript">
-    $("#categoryBanner").fileinput({});
+
+    var categoryName = $('#categoryName');
+    var categoryTitle = $('#categoryTitle');
+    var categoryDesc = $('#categoryDesc');
+    var categoryBanner = $('#categoryBanner');
+    var categoryBannerList = $('#categoryBannerList');
+    var bannerAccessPath = $('#bannerAccessPath');
+    var btnSelectBanner = $('#btnSelectBanner');
+
+    var btnCategoryReset = $('#btnCategoryReset');
+    var btnCategoryAdd = $('#btnCategoryAdd');
+
+    btnSelectBanner.bind('click', function () {
+
+    });
+
+    categoryBanner.fileinput({
+        language: 'zh', // 设置语言
+        uploadUrl: '<%=request.getContextPath()%>/upload/categoryBanner/image', // 上传地址
+        allowedFileExtensions: ['jpg', 'png', 'gif'], // 允许上传的文件后缀
+        showRemove: true, // 是否显示移除按钮
+        removeClass: 'btn btn-warning', // 移除按钮主题
+        showUpload: false, // 是否显示上传按钮
+        showCaption: true, // 是否显示标题
+        dropZoneEnabled: false,
+        minFileCount: 1, // 最少文件数量
+        maxFileCount: 1, // 最多文件数量
+        enctype: 'multipart/form-data'
+    });
+
+    categoryBannerList.fileinput({
+        language: 'zh', // 设置语言
+        theme: 'explorer',
+        showRemove: false, // 是否显示移除按钮
+        showUpload: false, // 是否显示上传按钮
+        showBrowse: false, // 是否显示选择按钮
+        showCaption: false, // 是否显示标题
+        showClose: false, // 是否显示右上角的关闭按钮
+        overwriteInitial: false,
+        initialPreviewAsData: true,
+        initialPreview: [
+            "http://lorempixel.com/1920/1080/nature/1",
+            "http://lorempixel.com/1920/1080/nature/2",
+            "http://lorempixel.com/1920/1080/nature/3"
+        ],
+        initialPreviewConfig: [
+            {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+            {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+            {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}
+        ]
+    });
+
+    btnCategoryAdd.bind('click', function () {
+    });
+
 </script>
 </body>
 </html>
