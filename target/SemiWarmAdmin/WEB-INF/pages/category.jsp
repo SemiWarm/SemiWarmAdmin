@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/font-awesome.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/ionicons.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/sweetalert.css">
     <%--
     AdminLTE Skins. We have chosen the skin-blue for this starter
     page. However, you can choose any other skin. Make sure you
@@ -402,7 +403,7 @@ desired effect
                                             name="btnCategoryReset" type="reset">重置
                                     </button>
                                     <button class="btn btn-primary col-md-2 col-md-offset-2" id="btnCategoryAdd"
-                                            name="btnCategoryAdd" type="submit">添加
+                                            name="btnCategoryAdd" type="button">添加
                                     </button>
                                     <div class="col-md-2"></div>
                                 </div>
@@ -453,8 +454,10 @@ desired effect
 <script src="<%=request.getContextPath()%>/static/js/theme.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/zh.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/app.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/sweetalert.min.js"></script>
 <script type="text/javascript">
 
+    var addCategoryForm = $('#addCategoryForm');
     var categoryName = $('#categoryName');
     var categoryTitle = $('#categoryTitle');
     var categoryDesc = $('#categoryDesc');
@@ -548,7 +551,70 @@ desired effect
     });
 
     btnCategoryAdd.bind('click', function () {
+        if (checkInput().length > 0) {
+            sweetAlert("出错啦!", checkInput(), "error");
+        } else {
+            // 进行ajax请求
+            $.ajax({
+                type: 'post',
+                url: '<%=request.getContextPath()%>/categories',
+                data: {
+                    'categoryName': categoryName.val(),
+                    'categoryBanner': categoryBanner.val(),
+                    'categoryTitle': categoryTitle.val(),
+                    'categoryDesc': categoryDesc.val()
+                },
+                async: true,
+                success: function (categoryResponse) {
+                    if (categoryResponse["success"] === 1) {
+                        sweetAlert({title: "成功信息", text: categoryResponse["message"], type: "success"}, function () {
+                            addCategoryForm[0].reset();
+                        });
+
+                    } else {
+                        sweetAlert("错误信息", categoryResponse["message"], "error");
+                    }
+                },
+                error: function (errorMessage) {
+                    console.log(errorMessage);
+                    sweetAlert("出错啦!", "服务器异常!请求失败!", "error");
+                }
+            });
+        }
     });
+
+    var checkInput = function () {
+        var resultInfo = "";
+        if (IsNull(replaceHTML(categoryName.val()))) {
+            resultInfo += "请输入类目名称!\n";
+        }
+        if (IsNull(replaceHTML(categoryTitle.val()))) {
+            resultInfo += "请输入类目标题!\n";
+        }
+        if (IsNull(replaceHTML(categoryDesc.val()))) {
+            resultInfo += "请输入类目描述!\n";
+        }
+        if (IsNull(replaceHTML(categoryBanner.val()))) {
+            resultInfo += "请选择或上传类目Banner!";
+        }
+        return resultInfo;
+    };
+
+    /**
+     * 判断字符串是否为空
+     * @return {boolean}
+     */
+    function IsNull(str) {
+        return (Trim(str) === "");
+    }
+    function Trim(str) {
+        return str.replace(/(^\s*)|(\s*$)/g, "");
+    }
+    function replaceHTML(str) {
+        str = str.replace(/<[^>].*?>/g, "");
+        str = str.replace(/&nbsp;/g, "");
+        return str;
+    }
 
 </script>
 </body>

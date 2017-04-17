@@ -34,11 +34,21 @@ public class CategoryController {
     @ResponseBody
     public Response<Category> addCategory(Category category) throws Exception {
         Response<Category> categoryResponse = new Response<Category>();
-        int result = categoryService.addCategory(category);
-        if (result > 0) {
+        if (category != null) {
+            int result = categoryService.addCategory(category);
+            if (result > 0) {
+                categoryResponse.setSuccess(1);
+                categoryResponse.setMessage("类目添加成功!");
+                categoryResponse.setData(category);
+            } else {
+                categoryResponse.setSuccess(1);
+                categoryResponse.setMessage("类目添加失败!");
+                categoryResponse.setData(null);
+            }
+        } else {
             categoryResponse.setSuccess(1);
-            categoryResponse.setMessage("类目添加成功!");
-            categoryResponse.setData(category);
+            categoryResponse.setMessage("类目添加失败!");
+            categoryResponse.setData(null);
         }
         return categoryResponse;
     }
