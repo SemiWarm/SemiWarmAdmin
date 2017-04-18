@@ -312,10 +312,38 @@ desired effect
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <%--内容区域--%>
-                            <br>
+                                <%--工具栏--%>
+                            <div class="row" id="toolBar">
+                                <div class="col-lg-4 pull-left">
+                                    <div class="btn-toolbar pull-left" role="toolbar" aria-label="...">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                            <div class="input-group">
+                                                <input name="search" type="text" class="form-control" placeholder="ID|名称|描述">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="btn-toolbar pull-right" role="toolbar" aria-label="...">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                            <button type="button" class="btn btn-default"><i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-default"><i class="fa fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                <%--表格信息--%>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <table id="categoryTable"
+                                           data-toolbar="#toolBar"
                                            data-toggle="categoryTable"
                                            data-click-to-select="true">
                                         <thead>
