@@ -268,7 +268,7 @@ desired effect
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="<%=request.getContextPath()%>/categoryEdit">
                                 <i class="fa fa-pencil-square"></i>
                                 <span> 类目编辑</span>
                             </a>

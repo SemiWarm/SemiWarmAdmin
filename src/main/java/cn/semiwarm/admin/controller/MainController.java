@@ -27,6 +27,11 @@ public class MainController {
         return new ModelAndView("category");
     }
 
+    @RequestMapping(value = "/categoryEdit", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public ModelAndView categoryEdit() throws Exception {
+        return new ModelAndView("categoryEdit");
+    }
+
     @RequestMapping(value = "/editor", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     public ModelAndView editor() throws Exception {
         return new ModelAndView("mdEditor");

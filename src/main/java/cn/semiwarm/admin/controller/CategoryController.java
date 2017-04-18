@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * 类目控制器
  * Created by alibct on 2017/4/6.
@@ -21,6 +23,19 @@ public class CategoryController {
     @Autowired
     public CategoryController(CategoryServiceImpl categoryService) {
         this.categoryService = categoryService;
+    }
+
+
+    /**
+     * 获取所有类目信息
+     *
+     * @return 所有类目信息
+     * @throws Exception 异常
+     */
+    @RequestMapping(value = "/categories", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public List<Category> findAllCategory() throws Exception {
+        return categoryService.findAllCategory();
     }
 
     /**

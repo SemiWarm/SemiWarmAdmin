@@ -268,7 +268,7 @@ desired effect
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="<%=request.getContextPath()%>/categoryEdit">
                                 <i class="fa fa-pencil-square"></i>
                                 <span> 类目编辑</span>
                             </a>
@@ -306,38 +306,7 @@ desired effect
                         <div class="box-header with-border">
                             <h3 class="box-title">增加商品</h3>
                             <div class="box-tools pull-right">
-                                <span class="btn btn-box-tool"><a href="#"><i class="fa fa-save"></i></a></span>
                                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                </button>
-                            </div><!-- /.box-tools -->
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                            The body of the box
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
-                </div>
-
-                <div class="col-lg-12">
-                    <div class="box box-info collapsed-box">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">查询商品</h3>
-                            <div class="box-tools pull-right">
-                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                                </button>
-                            </div><!-- /.box-tools -->
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                            The body of the box
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
-                </div>
-
-                <div class="col-lg-12">
-                    <div class="box box-danger collapsed-box">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">删除商品</h3>
-                            <div class="box-tools pull-right">
-                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                                 </button>
                             </div><!-- /.box-tools -->
                         </div><!-- /.box-header -->
