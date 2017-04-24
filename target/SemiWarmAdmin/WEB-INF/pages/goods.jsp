@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/font-awesome.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/ionicons.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/fileinput.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/editormd.css">
     <%--
     AdminLTE Skins. We have chosen the skin-blue for this starter
     page. However, you can choose any other skin. Make sure you
@@ -311,7 +315,218 @@ desired effect
                             </div><!-- /.box-tools -->
                         </div><!-- /.box-header -->
                         <div class="box-body">
-                            The body of the box
+                            <!-- 增加商品开始 -->
+                            <div class="row">
+                                <div class="col-lg-10 col-lg-offset-1">
+                                    <form class="form-horizontal goods_form">
+                                        <!-- goodsId -->
+                                        <div class="form-group">
+                                            <label for="goodsId" class="col-lg-2 control-label">商品ID</label>
+                                            <div class="col-lg-9">
+                                                <input type="number" class="form-control" id="goodsId"
+                                                       placeholder="商品ID" required disabled>
+                                            </div>
+                                        </div>
+                                        <!-- goodsCategory -->
+                                        <div class="form-group">
+                                            <label for="goodsCategory" class="col-lg-2 control-label">商品类目</label>
+                                            <div class="col-lg-9">
+                                                <select class="selectpicker form-control" id="goodsCategory"
+                                                        title="商品类目">
+                                                    <optgroup label="推荐">
+                                                        <option>MUJI</option>
+                                                        <option>Coach</option>
+                                                    </optgroup>
+                                                    <optgroup label="家居">
+                                                        <option>UNIQLO</option>
+                                                        <option>A21</option>
+                                                    </optgroup>
+                                                    <optgroup label="服饰">
+                                                        <option>UNIQLO</option>
+                                                        <option>A21</option>
+                                                    </optgroup>
+                                                    <optgroup label="其它">
+                                                        <option>UNIQLO</option>
+                                                        <option>A21</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- goodsTitle -->
+                                        <div class="form-group">
+                                            <label for="goodsTitle" class="col-lg-2 control-label">商品标题</label>
+                                            <div class="col-lg-9">
+                                                <input type="text" class="form-control" id="goodsTitle"
+                                                       placeholder="商品标题" required autofocus>
+                                            </div>
+                                        </div>
+                                        <!-- goodsTags -->
+                                        <div class="form-group">
+                                            <label for="goodsTags" class="col-lg-2 control-label">商品标签</label>
+                                            <div class="col-lg-9">
+                                                <select class="selectpicker form-control" id="goodsTags" multiple
+                                                        title="商品标签"
+                                                        data-max-options="2">
+                                                    <option data-content="<span class='label label-success'>新品</span>">
+                                                        新品
+                                                    </option>
+                                                    <option data-content="<span class='label label-danger'>热门</span>">
+                                                        热门
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- goodsProvider -->
+                                        <div class="form-group">
+                                            <label for="goodsProvider" class="col-lg-2 control-label">商品提供商</label>
+                                            <div class="col-lg-9">
+                                                <select class="selectpicker form-control" id="goodsProvider"
+                                                        title="商品提供商">
+                                                    <optgroup label="家居">
+                                                        <option>MUJI</option>
+                                                        <option>Coach</option>
+                                                    </optgroup>
+                                                    <optgroup label="服饰">
+                                                        <option>UNIQLO</option>
+                                                        <option>A21</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- goodsPrice -->
+                                        <div class="form-group">
+                                            <label for="goodsPrice" class="col-lg-2 control-label">商品定价</label>
+                                            <div class="col-lg-9">
+                                                <input type="number" class="form-control" id="goodsPrice"
+                                                       placeholder="商品定价" required>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- goodsSpec -->
+                                        <div class="form-group">
+                                            <label for="goodsSpec" class="col-lg-2 control-label">商品规格</label>
+                                            <div class="col-lg-9">
+                                                <button class="btn btn-info col-lg-4" id="goodsSpec" data-toggle='modal'
+                                                        data-target='#addSpecParamModal'><span
+                                                        class="glyphicon glyphicon-plus"></span>添加规格
+                                                </button>
+                                                <div class="btn-toolbar pull-right" role="toolbar" aria-label="...">
+                                                    <div class="btn-group" role="group" aria-label="...">
+                                                        <button type="button" class="btn btn-default"><span
+                                                                class="glyphicon glyphicon-pencil"></span></button>
+                                                        <button type="button" class="btn btn-default"><span
+                                                                class="glyphicon glyphicon-trash"></span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="addSpecParamModal" tabindex="-1" role="dialog"
+                                                 aria-labelledby="addSpecParamModalLabel">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close"><span
+                                                                    aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title" id="addSpecParamModalLabel">
+                                                                添加规格参数</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <!-- 下拉菜单联动 -->
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button class="btn btn-default" type="button"
+                                                                    data-dismiss="modal">取消
+                                                            </button>
+                                                            <button class="btn btn-primary" id="btnConfirm"
+                                                                    type="button">确定
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- specParams -->
+                                            <div class="col-lg-9 col-lg-offset-2" style="padding-top: 5px">
+                                                <table id="specParamsTable" data-toggle="specParamsTable"
+                                                       data-click-to-select="true">
+                                                    <thead>
+                                                    <tr>
+                                                        <th rowspan="2" data-field="state" data-radio="true"
+                                                            data-halign="center"
+                                                            data-align="center"
+                                                            data-valign="middle">#
+                                                        </th>
+                                                        <th colspan="4" data-halign="center" data-align="center"
+                                                            data-valign="middle">参数明细
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th data-field="specName" data-halign="center"
+                                                            data-align="center" data-valign="middle">
+                                                            规格名称
+                                                        </th>
+                                                        <th data-field="specParam" data-halign="center"
+                                                            data-align="center"
+                                                            data-valign="middle">
+                                                            参数名称
+                                                        </th>
+                                                        <th data-field="goodsQuantity" data-halign="center"
+                                                            data-align="center"
+                                                            data-valign="middle">
+                                                            商品数量
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- goodsBanners -->
+                                        <div class="form-group">
+                                            <label for="goodsBanners" class="col-lg-2 control-label">商品图片</label>
+                                            <div class="col-lg-9">
+                                                <textarea class="form-control" rows="3" id="goodsBanners"
+                                                          placeholder="Urls:http://www.semiwarm.cn/upload/images/goods/..."
+                                                          required
+                                                          disabled></textarea>
+                                            </div>
+                                        </div>
+                                        <!-- goodsBannersUploader -->
+                                        <div class="form-group">
+                                            <label for="goodsBannersUploader"
+                                                   class="col-lg-2 control-label">商品图片上传</label>
+                                            <div class="col-lg-9">
+                                                <input class="form-control file-loading" id="goodsBannersUploader"
+                                                       name="image" type="file" multiple required>
+                                            </div>
+                                        </div>
+                                        <!-- goodsDesc -->
+                                        <div class="form-group">
+                                            <label for="goodsDesc" class="col-lg-2 control-label">商品简介</label>
+                                            <div class="col-lg-9">
+                                                <textarea class="form-control" rows="3" id="goodsDesc"
+                                                          placeholder="商品简介" required></textarea>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-10 col-lg-offset-1 text-center">
+                                    <h4>商品详情</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="mdEditor" class="editormd">
+                <textarea class="editormd-markdown-textarea" name="markdown-area"
+                          style="display:none;"># 请描述商品</textarea>
+                                        <textarea class="editormd-html-textarea" name="html-area"></textarea>
+                                    </div>
+                                </div>
+                            </div>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div>
@@ -325,5 +540,81 @@ desired effect
 <script src="<%=request.getContextPath()%>/static/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/app.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/bootstrap-select.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/fileinput.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/zh.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/bootstrap-table.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/bootstrap-table-zh-CN.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/marked.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/prettify.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/raphael.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/underscore.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/sequence-diagram.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/flowchart.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/jquery.flowchart.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/editormd.js"></script>
+<script type="text/javascript">
+    var goodsBannersUploader = $('#goodsBannersUploader');
+    var specParamsTable = $('#specParamsTable');
+    var editor;
+    var data = [{
+        "specName": "尺寸",
+        "specParam": "M",
+        "goodsQuantity": 20
+    }, {
+        "specName": "尺寸",
+        "specParam": "L",
+        "goodsQuantity": 20
+    }, {
+        "specName": "尺寸",
+        "specParam": "XL",
+        "goodsQuantity": 20
+    }, {
+        "specName": "颜色",
+        "specParam": "粉色",
+        "goodsQuantity": 20
+    }, {
+        "specName": "颜色",
+        "specParam": "湖蓝",
+        "goodsQuantity": 20
+    }, {
+        "specName": "颜色",
+        "specParam": "藏青",
+        "goodsQuantity": 20
+    }];
+    $(function () {
+        // 初始化上传域
+        goodsBannersUploader.fileinput({
+            language: 'zh', // 设置语言
+            uploadUrl: '<%=request.getContextPath()%>/upload/categoryBanner/image', // 上传地址
+            allowedFileExtensions: ['jpg', 'png', 'gif'], // 允许上传的文件后缀
+            showRemove: true, // 是否显示移除按钮
+            removeClass: 'btn btn-warning', // 移除按钮主题
+            showUpload: true, // 是否显示上传按钮
+            showCaption: true, // 是否显示标题
+            dropZoneEnabled: false,
+            minFileCount: 3, // 最少文件数量
+            maxFileCount: 5, // 最多文件数量
+            enctype: 'multipart/form-data'
+        });
+        // 初始化表格数据
+        specParamsTable.bootstrapTable({data: data});
+        // 初始化编辑器
+        $(function () {
+            editor = editormd("mdEditor", {
+                width: "90%",
+                height: 640,
+                syncScrolling: "single",
+                path: "<%=request.getContextPath()%>/static/lib/",
+                saveHTMLToTextarea: true,
+                emoji: true,
+                editorTheme: "solarized",
+                imageUpload: true,
+                imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                imageUploadURL: "<%=request.getContextPath()%>/upload/editormd/images"
+            });
+        });
+    });
+</script>
 </body>
 </html>
