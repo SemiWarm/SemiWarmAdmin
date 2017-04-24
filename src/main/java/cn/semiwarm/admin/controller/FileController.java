@@ -1,6 +1,7 @@
 package cn.semiwarm.admin.controller;
 
 import cn.semiwarm.admin.entity.Image;
+import cn.semiwarm.admin.entity.Response;
 import cn.semiwarm.admin.entity.UploadImageResponse;
 import cn.semiwarm.admin.service.impl.ImageServiceImpl;
 import cn.semiwarm.admin.utils.CommonFileUtils;
@@ -148,7 +149,7 @@ public class FileController {
      */
     @RequestMapping(value = "/upload/{type}/images", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
     @ResponseBody
-    public List<UploadImageResponse> uploadImages(HttpSession session, HttpServletRequest request, HttpServletResponse response, @PathVariable("type") String type, @RequestParam(value = "images", required = false) MultipartFile[] uploadImages) throws Exception {
+    public Response<List<UploadImageResponse>> uploadImages(HttpSession session, HttpServletRequest request, HttpServletResponse response, @PathVariable("type") String type, @RequestParam(value = "images", required = false) MultipartFile[] uploadImages) throws Exception {
         return null;
     }
 

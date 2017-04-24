@@ -393,8 +393,6 @@ desired effect
                                                        placeholder="商品定价" required>
                                             </div>
                                         </div>
-
-
                                         <!-- goodsSpec -->
                                         <div class="form-group">
                                             <label for="goodsSpec" class="col-lg-2 control-label">商品规格</label>
@@ -473,8 +471,6 @@ desired effect
                                                 </table>
                                             </div>
                                         </div>
-
-
                                         <!-- goodsBanners -->
                                         <div class="form-group">
                                             <label for="goodsBanners" class="col-lg-2 control-label">商品图片</label>
@@ -491,7 +487,7 @@ desired effect
                                                    class="col-lg-2 control-label">商品图片上传</label>
                                             <div class="col-lg-9">
                                                 <input class="form-control file-loading" id="goodsBannersUploader"
-                                                       name="image" type="file" multiple required>
+                                                       name="images" type="file" multiple required>
                                             </div>
                                         </div>
                                         <!-- goodsDesc -->
@@ -510,11 +506,12 @@ desired effect
                                     <h4>商品详情</h4>
                                 </div>
                             </div>
+                            <!-- goodsDetail -->
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div id="mdEditor" class="editormd">
-                <textarea class="editormd-markdown-textarea" name="markdown-area"
-                          style="display:none;"># 请描述商品</textarea>
+                                        <textarea class="editormd-markdown-textarea" name="markdown-area"
+                                                  style="display:none;"># 请描述商品</textarea>
                                         <textarea class="editormd-html-textarea" name="html-area"></textarea>
                                     </div>
                                 </div>
@@ -579,7 +576,7 @@ desired effect
         goodsBannersUploader.fileinput({
             language: 'zh', // 设置语言
             uploadUrl: '<%=request.getContextPath()%>/upload/goodsBanner/images', // 上传地址
-            allowedFileExtensions: ['jpg', 'png', 'gif'], // 允许上传的文件后缀
+            allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif'], // 允许上传的文件后缀
             showRemove: true, // 是否显示移除按钮
             removeClass: 'btn btn-warning', // 移除按钮主题
             showUpload: true, // 是否显示上传按钮

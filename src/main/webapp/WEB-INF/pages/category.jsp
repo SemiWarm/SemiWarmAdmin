@@ -324,21 +324,24 @@ desired effect
                             <%--类目表单--%>
                             <form class="form-horizontal" id="addCategoryForm" enctype="multipart/form-data">
                                 <div class="row form-group">
-                                    <label for="categoryName" class="col-md-2 control-label col-md-offset-2">类目名称</label>
+                                    <label for="categoryName"
+                                           class="col-md-2 control-label col-md-offset-2">类目名称</label>
                                     <div class="col-md-6">
                                         <input class="form-control" id="categoryName" name="categoryName" type="text"
                                                placeholder="类目名称" required>
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label for="categoryTitle" class="col-md-2 control-label col-md-offset-2">类目标题</label>
+                                    <label for="categoryTitle"
+                                           class="col-md-2 control-label col-md-offset-2">类目标题</label>
                                     <div class="col-md-6">
                                         <input class="form-control" id="categoryTitle" name="categoryTitle" type="text"
                                                placeholder="类目标题" required>
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label for="categoryDesc" class="col-md-2 control-label col-md-offset-2">类目描述</label>
+                                    <label for="categoryDesc"
+                                           class="col-md-2 control-label col-md-offset-2">类目描述</label>
                                     <div class="col-md-6">
                                         <textarea class="form-control" id="categoryDesc" name="categoryDesc" rows="2"
                                                   placeholder="类目描述" required></textarea>
@@ -393,7 +396,7 @@ desired effect
                                     <label for="categoryBannerUploader" class="col-md-2 control-label col-md-offset-2">Banner本地上传</label>
                                     <div class="col-md-6">
                                         <input class="form-control file-loading" id="categoryBannerUploader"
-                                               name="image" type="file" multiple>
+                                               name="image" type="file">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -443,7 +446,7 @@ desired effect
     categoryBannerUploader.fileinput({
         language: 'zh', // 设置语言
         uploadUrl: '<%=request.getContextPath()%>/upload/categoryBanner/image', // 上传地址
-        allowedFileExtensions: ['jpg', 'png', 'gif'], // 允许上传的文件后缀
+        allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg'], // 允许上传的文件后缀
         showRemove: true, // 是否显示移除按钮
         removeClass: 'btn btn-warning', // 移除按钮主题
         showUpload: false, // 是否显示上传按钮
