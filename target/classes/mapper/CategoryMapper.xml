@@ -4,8 +4,8 @@
 <mapper namespace="cn.semiwarm.admin.mapper.CategoryMapper">
 
     <insert id="add" parameterType="cn.semiwarm.admin.entity.Category">
-        INSERT INTO Category (category_name, category_banner, category_title, category_desc)
-        VALUES (#{categoryName}, #{categoryBanner}, #{categoryTitle}, #{categoryDesc})
+        INSERT INTO Category (category_name, category_banner, category_title, category_desc, status)
+        VALUES (#{categoryName}, #{categoryBanner}, #{categoryTitle}, #{categoryDesc}, #{status})
     </insert>
 
     <delete id="delete" parameterType="cn.semiwarm.admin.entity.Category">
@@ -19,14 +19,16 @@
             category_name   = #{categoryName},
             category_banner = #{categoryBanner},
             category_title  = #{categoryTitle},
-            category_desc   = #{categoryDesc}
+            category_desc   = #{categoryDesc},
+            status          = #{status}
         WHERE category_id = #{categoryId}
     </update>
 
-    <select id="findById" parameterType="cn.semiwarm.admin.entity.Category" resultType="cn.semiwarm.admin.entity.Category">
+    <select id="findById" parameterType="cn.semiwarm.admin.entity.Category"
+            resultType="cn.semiwarm.admin.entity.Category">
         SELECT *
         FROM Category
-        WHERE category_id = #{categoryId}
+        WHERE category_id = #{categoryId} AND status = TRUE
     </select>
 
     <select id="findAll" resultType="cn.semiwarm.admin.entity.Category">

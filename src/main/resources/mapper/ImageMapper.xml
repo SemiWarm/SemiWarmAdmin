@@ -3,9 +3,9 @@
 <!-- namespace是指明Mybatis扫描的目录，即cn.semiwarm.admin.mapper.xxxMapper -->
 <mapper namespace="cn.semiwarm.admin.mapper.ImageMapper">
     <insert id="add" parameterType="cn.semiwarm.admin.entity.Image">
-        INSERT INTO Image (image_uuid, image_original_name, image_name, image_extension_name, image_real_path, image_access_path, image_size, image_type, uploaded_by, uploaded_at)
+        INSERT INTO Image (image_uuid, image_original_name, image_name, image_extension_name, image_real_path, image_access_path, image_size, image_type, uploaded_by, uploaded_at, status)
         VALUES (#{imageUuid}, #{imageOriginalName}, #{imageName}, #{imageExtensionName}, #{imageRealPath},
-                #{imageAccessPath}, #{imageSize}, #{imageType}, #{uploadedBy}, #{uploadedAt})
+                              #{imageAccessPath}, #{imageSize}, #{imageType}, #{uploadedBy}, #{uploadedAt}, #{status})
     </insert>
     <delete id="delete" parameterType="cn.semiwarm.admin.entity.Image">
         DELETE FROM Image
@@ -22,13 +22,14 @@
             image_size           = #{imageSize},
             image_type           = #{imageType},
             uploaded_by          = #{uploadedBy},
-            uploaded_at          = #{uploadedAt}
+            uploaded_at          = #{uploadedAt},
+            status               = #{status}
         WHERE image_uuid = #{imageUuid}
     </update>
     <select id="findById" parameterType="cn.semiwarm.admin.entity.Image" resultType="cn.semiwarm.admin.entity.Image">
         SELECT *
         FROM Image
-        WHERE image_uuid = #{imageUuid}
+        WHERE image_uuid = #{imageUuid} AND status = TRUE
     </select>
     <select id="findAll" resultType="cn.semiwarm.admin.entity.Image">
         SELECT *
@@ -38,6 +39,6 @@
     <select id="findByImageType" parameterType="java.lang.String" resultType="cn.semiwarm.admin.entity.Image">
         SELECT *
         FROM Image
-        WHERE image_type = #{imageType}
+        WHERE image_type = #{imageType} AND status = TRUE
     </select>
 </mapper>

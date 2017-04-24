@@ -353,7 +353,7 @@ desired effect
                                             <th rowspan="2" data-field="categoryId" data-halign="center"
                                                 data-align="center" data-valign="middle">类目ID
                                             </th>
-                                            <th colspan="4" data-halign="center" data-align="center"
+                                            <th colspan="5" data-halign="center" data-align="center"
                                                 data-valign="middle">类目明细
                                             </th>
                                         </tr>
@@ -369,6 +369,9 @@ desired effect
                                             </th>
                                             <th data-field="categoryBanner" data-halign="center" data-align="center"
                                                 data-valign="middle">类目Banner
+                                            </th>
+                                            <th data-field="status" data-halign="center" data-align="center"
+                                                data-valign="middle">类目是否可用
                                             </th>
                                         </tr>
                                         </thead>

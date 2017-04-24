@@ -34,8 +34,8 @@ public class CategoryController {
      */
     @RequestMapping(value = "/categories", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     @ResponseBody
-    public List<Category> findAllCategory() throws Exception {
-        return categoryService.findAllCategory();
+    public List<Category> getAllCategories() throws Exception {
+        return categoryService.getAllCategories();
     }
 
     /**
@@ -50,6 +50,7 @@ public class CategoryController {
     public Response<Category> addCategory(Category category) throws Exception {
         Response<Category> categoryResponse = new Response<Category>();
         if (category != null) {
+            category.setStatus(true);
             int result = categoryService.addCategory(category);
             if (result > 0) {
                 categoryResponse.setSuccess(1);

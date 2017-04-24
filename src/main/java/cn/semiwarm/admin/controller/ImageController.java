@@ -27,7 +27,7 @@ public class ImageController {
 
     @RequestMapping(value = "/{imageType}/images", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     @ResponseBody
-    public List<Image> findImagesByType(@PathVariable("imageType") String imageType) throws Exception {
-        return imageService.findImageByImageType(imageType);
+    public List<Image> getImagesByType(@PathVariable("imageType") String imageType) throws Exception {
+        return imageService.getImagesByType(imageType);
     }
 }

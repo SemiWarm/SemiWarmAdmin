@@ -19,6 +19,7 @@ public class Image implements Serializable {
     private String imageType; // 图片类型->用于标识图片属于哪个类目
     private String uploadedBy; // 图片上传人
     private Date uploadedAt; // 图片上传日期
+    private Boolean status; // 图片是否可用
 
     public String getImageUuid() {
         return imageUuid;
@@ -100,6 +101,14 @@ public class Image implements Serializable {
         this.uploadedAt = uploadedAt;
     }
 
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Image{" +
@@ -113,6 +122,7 @@ public class Image implements Serializable {
                 ", imageType='" + imageType + '\'' +
                 ", uploadedBy='" + uploadedBy + '\'' +
                 ", uploadedAt=" + uploadedAt +
+                ", status=" + status +
                 '}';
     }
 }

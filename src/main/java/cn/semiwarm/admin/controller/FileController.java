@@ -57,18 +57,22 @@ public class FileController {
                 FileUtils.copyInputStreamToFile(uploadImage.getInputStream(), uploadFile);
 
                 // 需要将图片持久化到数据库中
-                imageService.addImage(image);
+                int result = imageService.addImage(image);
+                if (result > 0) {
+                    imageResponse.setSuccess(1);
+                    imageResponse.setMessage("图片上传成功!");
+                    imageResponse.setUrl(image.getImageAccessPath());
+                } else {
+                    imageResponse.setSuccess(0);
+                    imageResponse.setMessage("图片上传失败!");
+                    imageResponse.setUrl("");
+                }
 
-                imageResponse.setSuccess(1);
-                imageResponse.setMessage("图片上传成功！");
-                imageResponse.setUrl(image.getImageAccessPath());
-
-                System.out.println(image);
             }
 
         } catch (Exception e) {
             imageResponse.setSuccess(0);
-            imageResponse.setMessage("图片上传失败！");
+            imageResponse.setMessage("图片上传失败!");
             imageResponse.setUrl("");
             e.printStackTrace();
         }
@@ -104,11 +108,18 @@ public class FileController {
                 FileUtils.copyInputStreamToFile(uploadImage.getInputStream(), uploadFile);
 
                 // 将图片持久化到数据库中
-                imageService.addImage(image);
+                int result = imageService.addImage(image);
 
-                imageResponse.setSuccess(1);
-                imageResponse.setMessage("图片上传成功！");
-                imageResponse.setUrl(image.getImageAccessPath());
+                if (result > 0) {
+                    imageResponse.setSuccess(1);
+                    imageResponse.setMessage("图片上传成功!");
+                    imageResponse.setUrl(image.getImageAccessPath());
+                } else {
+                    imageResponse.setSuccess(0);
+                    imageResponse.setMessage("图片上传异常!");
+                    imageResponse.setUrl("");
+                }
+
 
             } else {
                 imageResponse.setSuccess(-1);
@@ -200,6 +211,7 @@ public class FileController {
         result.setImageSize(imageSize);
         result.setImageType(type);
         result.setUploadedBy(uploadedBy);
+        result.setStatus(true);
 
         return result;
 

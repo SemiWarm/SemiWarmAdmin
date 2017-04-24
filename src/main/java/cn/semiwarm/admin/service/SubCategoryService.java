@@ -16,7 +16,7 @@ public interface SubCategoryService extends BaseService<SubCategory> {
 
     int updateSubCategory(SubCategory subCategory) throws Exception;
 
-    SubCategory findSubCategoryById(Serializable id) throws Exception;
+    SubCategory getSubCategoryById(Serializable id) throws Exception;
 
-    List<SubCategory> findAllSubCategory() throws Exception;
+    List<SubCategory> getAllSubCategories() throws Exception;
 }

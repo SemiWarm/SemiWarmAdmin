@@ -16,7 +16,7 @@ public interface CategoryService extends BaseService<Category> {
 
     int updateCategory(Category category) throws Exception;
 
-    Category findCategoryById(Serializable id) throws Exception;
+    Category getCategoryById(Serializable id) throws Exception;
 
-    List<Category> findAllCategory() throws Exception;
+    List<Category> getAllCategories() throws Exception;
 }

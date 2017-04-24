@@ -16,6 +16,7 @@ public class SubCategory implements Serializable {
     private String subCategoryIcon; // 子类目图标
     private String subCategoryTag; // 子类目标签
     private Integer categoryId;  // 所属类目
+    private Boolean status; // 子类目是否可用
 
     public Integer getSubCategoryId() {
         return subCategoryId;
@@ -81,6 +82,14 @@ public class SubCategory implements Serializable {
         this.categoryId = categoryId;
     }
 
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "SubCategory{" +
@@ -92,6 +101,7 @@ public class SubCategory implements Serializable {
                 ", subCategoryIcon='" + subCategoryIcon + '\'' +
                 ", subCategoryTag='" + subCategoryTag + '\'' +
                 ", categoryId=" + categoryId +
+                ", status=" + status +
                 '}';
     }
 }

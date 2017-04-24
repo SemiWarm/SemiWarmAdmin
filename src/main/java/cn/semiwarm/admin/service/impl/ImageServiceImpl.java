@@ -35,15 +35,15 @@ public class ImageServiceImpl implements ImageService {
         return imageMapper.update(image);
     }
 
-    public Image findImageById(Serializable id) throws Exception {
+    public Image getImageById(Serializable id) throws Exception {
         return imageMapper.findById(id);
     }
 
-    public List<Image> findAllImage() throws Exception {
+    public List<Image> getAllImages() throws Exception {
         return imageMapper.findAll();
     }
 
-    public List<Image> findImageByImageType(Serializable imageType) throws Exception {
+    public List<Image> getImagesByType(Serializable imageType) throws Exception {
         return imageMapper.findByImageType(imageType);
     }
 }

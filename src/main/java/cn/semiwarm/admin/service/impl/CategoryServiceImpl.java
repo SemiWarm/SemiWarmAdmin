@@ -35,11 +35,11 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryMapper.update(category);
     }
 
-    public Category findCategoryById(Serializable id) throws Exception {
+    public Category getCategoryById(Serializable id) throws Exception {
         return categoryMapper.findById(id);
     }
 
-    public List<Category> findAllCategory() throws Exception {
+    public List<Category> getAllCategories() throws Exception {
         return categoryMapper.findAll();
     }
 }

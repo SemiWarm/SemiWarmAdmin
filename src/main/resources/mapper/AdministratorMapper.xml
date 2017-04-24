@@ -26,7 +26,7 @@
     <select id="findById" parameterType="java.lang.String" resultType="cn.semiwarm.admin.entity.Administrator">
         SELECT *
         FROM Administrator
-        WHERE administrator_id = #{administratorId}
+        WHERE administrator_id = #{administratorId} AND status = TRUE
     </select>
 
     <select id="findAll" resultType="cn.semiwarm.admin.entity.Administrator">
@@ -38,6 +38,6 @@
             resultType="cn.semiwarm.admin.entity.Administrator">
         SELECT *
         FROM Administrator
-        WHERE administrator_name = #{administratorName} AND password = password(#{password})
+        WHERE administrator_name = #{administratorName} AND password = password(#{password}) AND status = TRUE
     </select>
 </mapper>

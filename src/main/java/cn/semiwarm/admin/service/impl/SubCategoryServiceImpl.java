@@ -35,11 +35,11 @@ public class SubCategoryServiceImpl implements SubCategoryService {
         return subCategoryMapper.update(subCategory);
     }
 
-    public SubCategory findSubCategoryById(Serializable id) throws Exception {
+    public SubCategory getSubCategoryById(Serializable id) throws Exception {
         return subCategoryMapper.findById(id);
     }
 
-    public List<SubCategory> findAllSubCategory() throws Exception {
+    public List<SubCategory> getAllSubCategories() throws Exception {
         return subCategoryMapper.findAll();
     }
 }
