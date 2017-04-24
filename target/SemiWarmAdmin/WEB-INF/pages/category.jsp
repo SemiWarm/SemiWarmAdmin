@@ -324,29 +324,29 @@ desired effect
                             <%--类目表单--%>
                             <form class="form-horizontal" id="addCategoryForm" enctype="multipart/form-data">
                                 <div class="row form-group">
-                                    <label class="col-md-2 control-label">类目名称</label>
-                                    <div class="col-md-10">
+                                    <label for="categoryName" class="col-md-2 control-label col-md-offset-2">类目名称</label>
+                                    <div class="col-md-6">
                                         <input class="form-control" id="categoryName" name="categoryName" type="text"
                                                placeholder="类目名称" required>
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-md-2 control-label">类目标题</label>
-                                    <div class="col-md-10">
+                                    <label for="categoryTitle" class="col-md-2 control-label col-md-offset-2">类目标题</label>
+                                    <div class="col-md-6">
                                         <input class="form-control" id="categoryTitle" name="categoryTitle" type="text"
                                                placeholder="类目标题" required>
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-md-2 control-label">类目描述</label>
-                                    <div class="col-md-10">
-                                        <textarea class="form-control" id="categoryDesc" name="categoryDesc" rows="3"
+                                    <label for="categoryDesc" class="col-md-2 control-label col-md-offset-2">类目描述</label>
+                                    <div class="col-md-6">
+                                        <textarea class="form-control" id="categoryDesc" name="categoryDesc" rows="2"
                                                   placeholder="类目描述" required></textarea>
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-md-2 control-label">Banner访问地址</label>
-                                    <div class="col-md-10">
+                                    <label for="categoryBanner" class="col-md-2 control-label col-md-offset-2">Banner访问地址</label>
+                                    <div class="col-md-6">
                                         <div class="input-group">
                                             <input class="form-control" id="categoryBanner" name="categoryBanner"
                                                    type="text"
@@ -390,21 +390,19 @@ desired effect
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-md-2 control-label">Banner本地上传</label>
-                                    <div class="col-md-10">
+                                    <label for="categoryBannerUploader" class="col-md-2 control-label col-md-offset-2">Banner本地上传</label>
+                                    <div class="col-md-6">
                                         <input class="form-control file-loading" id="categoryBannerUploader"
                                                name="image" type="file" multiple>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-2"></div>
-                                    <button class="btn btn-warning col-md-2 col-md-offset-2" id="btnCategoryReset"
+                                    <button class="btn btn-warning col-md-2 col-md-offset-4" id="btnCategoryReset"
                                             name="btnCategoryReset" type="reset">重置
                                     </button>
                                     <button class="btn btn-primary col-md-2 col-md-offset-2" id="btnCategoryAdd"
                                             name="btnCategoryAdd" type="button">添加
                                     </button>
-                                    <div class="col-md-2"></div>
                                 </div>
                             </form>
                         </div><!-- /.box-body -->
