@@ -12,7 +12,6 @@
     Integer privilegeLevel = (Integer) session.getAttribute("privilegeLevel");
     if (null == administratorId) {
         response.sendRedirect(request.getContextPath() + "/signIn");
-        return;
     }
 %>
 <!DOCTYPE html>
@@ -323,27 +322,34 @@ desired effect
                         <div class="box-body">
                             <%--类目表单--%>
                             <form class="form-horizontal" id="addCategoryForm" enctype="multipart/form-data">
+                                <%--类目名称--%>
                                 <div class="row form-group">
-                                    <label for="categoryName" class="col-md-2 control-label col-md-offset-2">类目名称</label>
+                                    <label for="categoryName"
+                                           class="col-md-2 control-label col-md-offset-2">类目名称</label>
                                     <div class="col-md-6">
                                         <input class="form-control" id="categoryName" name="categoryName" type="text"
                                                placeholder="类目名称" required>
                                     </div>
                                 </div>
+                                <%--类目标题--%>
                                 <div class="row form-group">
-                                    <label for="categoryTitle" class="col-md-2 control-label col-md-offset-2">类目标题</label>
+                                    <label for="categoryTitle"
+                                           class="col-md-2 control-label col-md-offset-2">类目标题</label>
                                     <div class="col-md-6">
                                         <input class="form-control" id="categoryTitle" name="categoryTitle" type="text"
                                                placeholder="类目标题" required>
                                     </div>
                                 </div>
+                                <%--类目描述--%>
                                 <div class="row form-group">
-                                    <label for="categoryDesc" class="col-md-2 control-label col-md-offset-2">类目描述</label>
+                                    <label for="categoryDesc"
+                                           class="col-md-2 control-label col-md-offset-2">类目描述</label>
                                     <div class="col-md-6">
                                         <textarea class="form-control" id="categoryDesc" name="categoryDesc" rows="2"
                                                   placeholder="类目描述" required></textarea>
                                     </div>
                                 </div>
+                                <%--Banner访问地址--%>
                                 <div class="row form-group">
                                     <label for="categoryBanner" class="col-md-2 control-label col-md-offset-2">Banner访问地址</label>
                                     <div class="col-md-6">
@@ -374,6 +380,22 @@ desired effect
                                                                 请选择类目Banner</h4>
                                                         </div>
                                                         <div class="modal-body">
+                                                            <%--图片信息--%>
+                                                            <div id="imagesContainer">
+
+                                                            </div>
+                                                            <nav aria-label="...">
+                                                                <ul class="pager">
+                                                                    <li id="pageIndicatorPrevious" class="previous">
+                                                                        <a href="#"><span
+                                                                                aria-hidden="true">&larr;</span>&nbsp;上一页</a>
+                                                                    </li>
+                                                                    <li id="pageIndicatorNext" class="next"><a
+                                                                            href="#">下一页&nbsp;<span
+                                                                            aria-hidden="true">&rarr;</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </nav>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button class="btn btn-default" type="button"
@@ -389,13 +411,15 @@ desired effect
                                         </div>
                                     </div>
                                 </div>
+                                <%--Banner本地上传--%>
                                 <div class="row form-group">
                                     <label for="categoryBannerUploader" class="col-md-2 control-label col-md-offset-2">Banner本地上传</label>
                                     <div class="col-md-6">
                                         <input class="form-control file-loading" id="categoryBannerUploader"
-                                               name="image" type="file" multiple>
+                                               name="image" type="file">
                                     </div>
                                 </div>
+                                <%--footer--%>
                                 <div class="row">
                                     <button class="btn btn-warning col-md-2 col-md-offset-4" id="btnCategoryReset"
                                             name="btnCategoryReset" type="reset">重置
@@ -430,8 +454,12 @@ desired effect
     var categoryDesc = $('#categoryDesc');
     var categoryBanner = $('#categoryBanner');
 
+    var categoryBannersPageInfo;
+
     var categorySelectModal = $('#categorySelectModal');
-    var modalBody = $('.modal-body');
+    var imagesContainer = $('#imagesContainer');
+    var pageIndicatorPrevious = $('#pageIndicatorPrevious');
+    var pageIndicatorNext = $('#pageIndicatorNext');
     var btnConfirm = $('#btnConfirm');
 
     var categoryBannerUploader = $('#categoryBannerUploader');
@@ -440,37 +468,20 @@ desired effect
     var btnCategoryReset = $('#btnCategoryReset');
     var btnCategoryAdd = $('#btnCategoryAdd');
 
-    categoryBannerUploader.fileinput({
-        language: 'zh', // 设置语言
-        uploadUrl: '<%=request.getContextPath()%>/upload/categoryBanner/image', // 上传地址
-        allowedFileExtensions: ['jpg', 'png', 'gif'], // 允许上传的文件后缀
-        showRemove: true, // 是否显示移除按钮
-        removeClass: 'btn btn-warning', // 移除按钮主题
-        showUpload: false, // 是否显示上传按钮
-        showCaption: true, // 是否显示标题
-        dropZoneEnabled: false,
-        minFileCount: 1, // 最少文件数量
-        maxFileCount: 1, // 最多文件数量
-        enctype: 'multipart/form-data'
-    });
-
-    // 上传完成后的回调
-    categoryBannerUploader.on('fileuploaded', function (event, data) {
-        var response = data.response;
-        categoryBanner.val(response["url"]);
-    });
-
-    // 模态框调用show方法之后执行的回调方法
-    categorySelectModal.on('show.bs.modal', function (e) {
-        console.log(e);
+    $(function () {
         // 首先进行Ajax请求获取所有categoryBanner类型的图片信息
         $.ajax({
             type: 'get',
-            url: '<%=request.getContextPath()%>/categoryBanner/images',
-            async: true,
-            success: function (categoryBannerImages) {
+            url: '<%=request.getContextPath()%>/categoryBanner/images/pageNum/1/pageSize/2',
+            async: false,
+            success: function (pageInfo) {
+                categoryBannersPageInfo = pageInfo;
+                pageIndicatorPrevious.addClass("disabled");
+                if (categoryBannersPageInfo["hasNextPage"] === false){
+                    pageIndicatorNext.addClass("disabled");
+                }
                 var categoryBannerHtml = "";
-                $.each(categoryBannerImages, function (i, item) {
+                $.each(categoryBannersPageInfo["list"], function (i, item) {
                     // 动态生成图片信息
                     categoryBannerHtml += "<div class='row vertical-align'>" +
                         "<div class='col-md-8'>" +
@@ -504,7 +515,141 @@ desired effect
                         "</div>" +
                         "</div>";
                 });
-                modalBody.html(categoryBannerHtml);
+                imagesContainer.html(categoryBannerHtml);
+            },
+            error: function (errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    });
+
+    categoryBannerUploader.fileinput({
+        language: 'zh', // 设置语言
+        uploadUrl: '<%=request.getContextPath()%>/upload/categoryBanner/image', // 上传地址
+        allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg'], // 允许上传的文件后缀
+        showRemove: true, // 是否显示移除按钮
+        removeClass: 'btn btn-warning', // 移除按钮主题
+        showUpload: false, // 是否显示上传按钮
+        showCaption: true, // 是否显示标题
+        dropZoneEnabled: false,
+        minFileCount: 1, // 最少文件数量
+        maxFileCount: 1, // 最多文件数量
+        enctype: 'multipart/form-data'
+    });
+
+    // 上传完成后的回调
+    categoryBannerUploader.on('fileuploaded', function (event, data) {
+        var response = data.response;
+        categoryBanner.val(response["url"]);
+    });
+
+    // 上一页按钮
+    pageIndicatorPrevious.bind('click', function () {
+        console.log(categoryBannersPageInfo["hasPreviousPage"]);
+        pageIndicatorNext.removeClass("disabled");
+        $.ajax({
+            type: 'get',
+            url: "<%=request.getContextPath()%>/categoryBanner/images/pageNum/" + categoryBannersPageInfo["prePage"] + "/pageSize/2",
+            async: false,
+            success: function (pageInfo) {
+                categoryBannersPageInfo = pageInfo;
+                if (categoryBannersPageInfo["hasPreviousPage"] === false){
+                    pageIndicatorPrevious.addClass("disabled");
+                }
+                var categoryBannerHtml = "";
+                $.each(categoryBannersPageInfo["list"], function (i, item) {
+                    // 动态生成图片信息
+                    categoryBannerHtml += "<div class='row vertical-align'>" +
+                        "<div class='col-md-8'>" +
+                        "<div class='thumbnail'>" +
+                        "<img src='" + item["imageAccessPath"] + "' alt='" + item["imageOriginalName"] + "'>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class='col-md-4'>" +
+                        "<div class='list-group'>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-success'>是否选择</label>" +
+                        "&nbsp;" +
+                        "<label><input name='isSelected' type='radio' value='" + item["imageAccessPath"] + "'></label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片名称</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageOriginalName"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片类型</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>categoryBanner</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片大小</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageSize"] + "</label>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>";
+                });
+                imagesContainer.html("");
+                imagesContainer.html(categoryBannerHtml);
+            },
+            error: function (errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    });
+
+    // 下一页按钮
+    pageIndicatorNext.bind('click', function () {
+        console.log(categoryBannersPageInfo["hasNextPage"]);
+        pageIndicatorPrevious.removeClass("disabled");
+        $.ajax({
+            type: 'get',
+            url: "<%=request.getContextPath()%>/categoryBanner/images/pageNum/" + categoryBannersPageInfo["nextPage"] + "/pageSize/2",
+            async: false,
+            success: function (pageInfo) {
+                categoryBannersPageInfo = pageInfo;
+                if (categoryBannersPageInfo["hasNextPage"] === false){
+                    pageIndicatorNext.addClass("disabled");
+                }
+                var categoryBannerHtml = "";
+                $.each(categoryBannersPageInfo["list"], function (i, item) {
+                    // 动态生成图片信息
+                    categoryBannerHtml += "<div class='row vertical-align'>" +
+                        "<div class='col-md-8'>" +
+                        "<div class='thumbnail'>" +
+                        "<img src='" + item["imageAccessPath"] + "' alt='" + item["imageOriginalName"] + "'>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class='col-md-4'>" +
+                        "<div class='list-group'>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-success'>是否选择</label>" +
+                        "&nbsp;" +
+                        "<label><input name='isSelected' type='radio' value='" + item["imageAccessPath"] + "'></label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片名称</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageOriginalName"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片类型</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>categoryBanner</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片大小</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageSize"] + "</label>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>";
+                });
+                imagesContainer.html("");
+                imagesContainer.html(categoryBannerHtml);
             },
             error: function (errorMessage) {
                 console.log(errorMessage);

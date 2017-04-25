@@ -3,6 +3,8 @@ package cn.semiwarm.admin.service.impl;
 import cn.semiwarm.admin.entity.Image;
 import cn.semiwarm.admin.mapper.ImageMapper;
 import cn.semiwarm.admin.service.ImageService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +45,9 @@ public class ImageServiceImpl implements ImageService {
         return imageMapper.findAll();
     }
 
-    public List<Image> getImagesByType(Serializable imageType) throws Exception {
-        return imageMapper.findByImageType(imageType);
+    public PageInfo<Image> getImagesByType(Serializable imageType, int pageNum, int pageSize) throws Exception {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Image> images = imageMapper.findByImageType(imageType);
+        return new PageInfo<Image>(images);
     }
 }

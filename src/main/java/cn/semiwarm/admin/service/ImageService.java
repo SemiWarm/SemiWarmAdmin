@@ -1,6 +1,7 @@
 package cn.semiwarm.admin.service;
 
 import cn.semiwarm.admin.entity.Image;
+import com.github.pagehelper.PageInfo;
 
 import java.io.Serializable;
 import java.util.List;
@@ -21,5 +22,6 @@ public interface ImageService extends BaseService<Image> {
 
     List<Image> getAllImages() throws Exception;
 
-    List<Image> getImagesByType(Serializable imageType) throws Exception;
+    // 分页实现
+    PageInfo<Image> getImagesByType(Serializable imageType, int pageNum, int pageSize) throws Exception;
 }

@@ -510,8 +510,8 @@ desired effect
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div id="mdEditor" class="editormd">
-                <textarea class="editormd-markdown-textarea" name="markdown-area"
-                          style="display:none;"># 请描述商品</textarea>
+                                        <textarea class="editormd-markdown-textarea" name="markdown-area"
+                                                  style="display:none;"># 请描述商品</textarea>
                                         <textarea class="editormd-html-textarea" name="html-area"></textarea>
                                     </div>
                                 </div>

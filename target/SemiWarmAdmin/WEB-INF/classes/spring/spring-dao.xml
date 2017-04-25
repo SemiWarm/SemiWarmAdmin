@@ -78,10 +78,43 @@
                     <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
                     <property name="properties">
                         <value>
+                            <!--
+                            分页插件会自动检测当前的数据库链接,自动选择合适的分页方式.
+                            你可以配置helperDialect属性来指定分页插件使用哪种方言.
+                            配置时可以使用下面的缩写值：
+                            oracle,mysql,mariadb,sqlite,hsqldb,postgresql,db2,sqlserver,informix,h2,sqlserver2012,derby
+                            特别注意:使用SqlServer2012数据库时,需要手动指定为sqlserver2012,否则会使用SqlServer2005的方式进行分页。
+                            你也可以实现AbstractHelperDialect,然后配置该属性为实现类的全限定名称即可使用自定义的实现方法.
+                            -->
                             helperDialect=mysql
+                            <!--
+                            分页合理化参数,默认值为false.
+                            当该参数设置为true时,pageNum<=0时会查询第一页,pageNum>pages(超过总数时),会查询最后一页.
+                            默认false 时，直接根据参数进行查询.
+                            -->
                             reasonable=true
+                            <!--
+                            支持通过Mapper接口参数来传递分页参数,默认值false.
+                            分页插件会从查询方法的参数值中,自动根据上面params配置的字段中取值,查找到合适的值时就会自动分页.
+                            使用方法可以参考测试代码中的com.github.pagehelper.test.basic包下的ArgumentsMapTest和ArgumentsObjTest.
+                            -->
                             supportMethodsArguments=true
+                            <!--
+                            为了支持startPage(Object params)方法,增加了该参数来配置参数映射,用于从对象中根据属性名取值.
+                            可以配置pageNum,pageSize,count,pageSizeZero,reasonable.
+                            不配置映射的用默认值.
+                            默认值为
+                            pageNum=pageNum;
+                            pageSize=pageSize;
+                            count=countSql;
+                            reasonable=reasonable;
+                            pageSizeZero=pageSizeZero.
+                            -->
                             params=count=countSql
+                            <!--
+                            默认值为false.
+                            设置为true时,允许在运行时根据多数据源自动识别对应方言的分页(不支持自动选择sqlserver2012,只能使用sqlserver).
+                            -->
                             autoRuntimeDialect=true
                         </value>
                     </property>
