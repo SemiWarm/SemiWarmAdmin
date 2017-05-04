@@ -24,6 +24,7 @@
     <%--Tell the browser to be responsive to screen width--%>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/fileinput.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/theme.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/font-awesome.min.css">
@@ -307,9 +308,8 @@ desired effect
 
             <!-- 页面内容 -->
             <br>
-            <!-- 页面内容 -->
+            <%--增加类目--%>
             <div class="row">
-
                 <div class="col-lg-12">
                     <div class="box box-success">
                         <div class="box-header with-border">
@@ -361,8 +361,8 @@ desired effect
                                                    required>
                                             <span class="input-group-btn">
                                                 <button class="btn btn-primary" data-toggle="modal"
-                                                        data-target="#categorySelectModal" id="btnSelectBanner"
-                                                        name="btnSelectBanner" type="button">
+                                                        data-target="#categorySelectModal"
+                                                        type="button">
                                                     <i class="glyphicon glyphicon-save" style="font-size: larger"></i>
                                                      Banner
                                                 </button>
@@ -381,16 +381,18 @@ desired effect
                                                         </div>
                                                         <div class="modal-body">
                                                             <%--图片信息--%>
-                                                            <div id="imagesContainer">
+                                                            <div id="categoryBannerContainer">
 
                                                             </div>
                                                             <nav aria-label="...">
                                                                 <ul class="pager">
-                                                                    <li id="pageIndicatorPrevious" class="previous">
+                                                                    <li id="categoryBannerPageIndicatorPrevious"
+                                                                        class="previous">
                                                                         <a href="#"><span
                                                                                 aria-hidden="true">&larr;</span>&nbsp;上一页</a>
                                                                     </li>
-                                                                    <li id="pageIndicatorNext" class="next"><a
+                                                                    <li id="categoryBannerPageIndicatorNext"
+                                                                        class="next"><a
                                                                             href="#">下一页&nbsp;<span
                                                                             aria-hidden="true">&rarr;</span></a>
                                                                     </li>
@@ -401,7 +403,8 @@ desired effect
                                                             <button class="btn btn-default" type="button"
                                                                     data-dismiss="modal">取 消
                                                             </button>
-                                                            <button class="btn btn-primary" id="btnConfirm"
+                                                            <button class="btn btn-primary"
+                                                                    id="btnSelectCategoryBannerConfirm"
                                                                     name="btnConfirm" type="button">确 定
                                                             </button>
                                                         </div>
@@ -432,7 +435,265 @@ desired effect
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div>
+            </div>
 
+            <%--增加子类目--%>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box box-success collapsed-box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">增加子类目</h3>
+                            <div class="box-tools pull-right">
+                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div><!-- /.box-tools -->
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <form class="form-horizontal" id="addSubCategoryForm" enctype="multipart/form-data">
+                                <!-- Category -->
+                                <div class="row form-group">
+                                    <label for="goodsCategory"
+                                           class="col-md-2 col-md-offset-2 control-label">商品类目</label>
+                                    <div class="col-lg-6">
+                                        <select class="selectpicker form-control" id="goodsCategory" title="商品类目">
+                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;推荐&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;精甄细选，百里挑一。">
+                                                推荐
+                                            </option>
+                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;家居&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;温馨舒适，泰若自然。">
+                                                家居
+                                            </option>
+                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;餐厨&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;倾心谧爱，囿于厨房。">
+                                                餐厨
+                                            </option>
+                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;配件&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;除却配角，亦为主角。">
+                                                配件
+                                            </option>
+                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;服饰&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;细织润肤，薄如蝉翼。">
+                                                服饰
+                                            </option>
+                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;洗护&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;亲肤之物，严选自然。">
+                                                洗护
+                                            </option>
+                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;婴童&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;爱，始于心，止于心。">
+                                                婴童
+                                            </option>
+                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;杂货&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;杂乱无章，方为始终。">
+                                                杂货
+                                            </option>
+                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;饮食&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;庶民以食为天，顺意。">
+                                                饮食
+                                            </option>
+                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;其它&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;若为甄选，不别其它。">
+                                                其它
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- subCategoryName -->
+                                <div class="row form-group">
+                                    <label for="subCategoryName"
+                                           class="col-md-2 col-md-offset-2 control-label">子类目名称</label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" id="subCategoryName" placeholder="子类目名称"
+                                               required>
+                                    </div>
+                                </div>
+
+                                <!--Banner访问地址-->
+                                <div class="row form-group">
+                                    <label for="subCategoryBanner" class="col-md-2 col-md-offset-2 control-label">Banner访问地址</label>
+                                    <div class="col-lg-6">
+                                        <div class="input-group">
+                                            <input class="form-control" id="subCategoryBanner" name="subCategoryBanner"
+                                                   type="text"
+                                                   placeholder="http://www.semiwarm.cn/admin/upload/images/subCategoryBanner/..."
+                                                   disabled
+                                                   required>
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#subCategorySelectModal"
+                                                        type="button">
+                                                    <i class="glyphicon glyphicon-save" style="font-size: larger"></i>
+                                                    Banner
+                                                </button>
+                                            </span>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="subCategorySelectModal" tabindex="-1"
+                                                 role="dialog"
+                                                 aria-labelledby="subCategorySelectModalLabel">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close"><span
+                                                                    aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title" id="subCategorySelectModalLabel">
+                                                                请选择子类目Banner</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div id="subCategoryBannerContainer">
+
+                                                            </div>
+                                                            <nav aria-label="...">
+                                                                <ul class="pager">
+                                                                    <li id="subCategoryBannerPageIndicatorPrevious"
+                                                                        class="previous">
+                                                                        <a href="#"><span
+                                                                                aria-hidden="true">&larr;</span>&nbsp;上一页</a>
+                                                                    </li>
+                                                                    <li id="subCategoryBannerPageIndicatorNext"
+                                                                        class="next"><a
+                                                                            href="#">下一页&nbsp;<span
+                                                                            aria-hidden="true">&rarr;</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </nav>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button class="btn btn-default" type="button"
+                                                                    data-dismiss="modal">取 消
+                                                            </button>
+                                                            <button class="btn btn-primary"
+                                                                    id="btnSelectSubCategoryBannerConfirm"
+                                                                    name="btnSelectSubCategoryBannerConfirm" type="button">确 定
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Banner本地上传-->
+                                <div class="row form-group">
+                                    <label for="subCategoryBannerUploader"
+                                           class="col-md-2 col-md-offset-2 control-label">Banner本地上传</label>
+                                    <div class="col-lg-6">
+                                        <input class="form-control file-loading" id="subCategoryBannerUploader"
+                                               name="image" type="file">
+                                    </div>
+                                </div>
+
+                                <!-- subCategoryTitle -->
+                                <div class="row form-group">
+                                    <label for="subCategoryTitle" class="col-md-2 col-md-offset-2 control-label">子类目标题</label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" id="subCategoryTitle"
+                                               placeholder="子类目标题" required>
+                                    </div>
+                                </div>
+
+                                <!-- subCategoryDesc -->
+                                <div class="form-group">
+                                    <label for="subCategoryDesc" class="col-md-2 col-md-offset-2 control-label">子类目描述</label>
+                                    <div class="col-lg-6">
+                                        <textarea class="form-control" rows="3" id="subCategoryDesc" placeholder="子类目描述"
+                                                  required></textarea>
+                                    </div>
+                                </div>
+
+                                <!--子类目图标访问地址-->
+                                <div class="row form-group">
+                                    <label for="subCategoryIcon" class="col-md-2 col-md-offset-2 control-label">子类目图标访问地址</label>
+                                    <div class="col-lg-6">
+                                        <div class="input-group">
+                                            <input class="form-control" id="subCategoryIcon" name="subCategoryIcon"
+                                                   type="text"
+                                                   placeholder="http://www.semiwarm.cn/admin/upload/images/subCategoryIcon/..."
+                                                   disabled
+                                                   required>
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#subCategoryIconSelectModal"
+                                                        type="button">
+                                                    <i class="glyphicon glyphicon-save" style="font-size: larger"></i>
+                                                    Icon
+                                                </button>
+                                            </span>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="subCategoryIconSelectModal" tabindex="-1"
+                                                 role="dialog"
+                                                 aria-labelledby="subCategoryIconSelectModalLabel">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close"><span
+                                                                    aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title"
+                                                                id="subCategoryIconSelectModalLabel">
+                                                                请选择子类目图标</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div id="subCategoryIconContainer">
+
+                                                            </div>
+                                                            <nav aria-label="...">
+                                                                <ul class="pager">
+                                                                    <li id="iconPageIndicatorPrevious" class="previous">
+                                                                        <a href="#"><span
+                                                                                aria-hidden="true">&larr;</span>&nbsp;上一页</a>
+                                                                    </li>
+                                                                    <li id="iconPageIndicatorNext" class="next"><a
+                                                                            href="#">下一页&nbsp;<span
+                                                                            aria-hidden="true">&rarr;</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </nav>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button class="btn btn-default" type="button"
+                                                                    data-dismiss="modal">取 消
+                                                            </button>
+                                                            <button class="btn btn-primary" id="btnSelectIconConfirm"
+                                                                    name="btnSelectIconConfirm" type="button">确 定
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--子类目图标本地上传-->
+                                <div class="row form-group">
+                                    <label for="subCategoryIconUploader"
+                                           class="col-md-2 col-md-offset-2 control-label">子类目图标本地上传</label>
+                                    <div class="col-lg-6">
+                                        <input class="form-control file-loading" id="subCategoryIconUploader"
+                                               name="image" type="file">
+                                    </div>
+                                </div>
+
+                                <!-- subCategoryTags -->
+                                <div class="row form-group">
+                                    <label for="subCategoryTags" class="col-md-2 col-md-offset-2 control-label">子类目标签</label>
+                                    <div class="col-lg-6">
+                                        <select class="selectpicker form-control" id="subCategoryTags" multiple
+                                                title="子类目标签"
+                                                data-max-options="2">
+                                            <option data-content="<span class='label label-success'>新品</span>">新品
+                                            </option>
+                                            <option data-content="<span class='label label-danger'>热门</span>">热门
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <%--footer--%>
+                                <div class="row">
+                                    <button class="btn btn-warning col-md-2 col-md-offset-4" id="btnSubCategoryReset"
+                                            name="btnCategoryReset" type="reset">重置
+                                    </button>
+                                    <button class="btn btn-primary col-md-2 col-md-offset-2" id="btnSubCategoryAdd"
+                                            name="btnCategoryAdd" type="button">添加
+                                    </button>
+                                </div>
+                            </form>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                </div>
             </div>
 
         </section>
@@ -441,6 +702,7 @@ desired effect
 <%--引用文件--%>
 <script src="<%=request.getContextPath()%>/static/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/bootstrap-select.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/fileinput.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/theme.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/zh.js"></script>
@@ -457,16 +719,23 @@ desired effect
     var categoryBannersPageInfo;
 
     var categorySelectModal = $('#categorySelectModal');
-    var imagesContainer = $('#imagesContainer');
-    var pageIndicatorPrevious = $('#pageIndicatorPrevious');
-    var pageIndicatorNext = $('#pageIndicatorNext');
-    var btnConfirm = $('#btnConfirm');
+    var categoryBannerContainer = $('#categoryBannerContainer');
+    var categoryBannerPageIndicatorPrevious = $('#categoryBannerPageIndicatorPrevious');
+    var categoryBannerPageIndicatorNext = $('#categoryBannerPageIndicatorNext');
+    var btnSelectCategoryBannerConfirm = $('#btnSelectCategoryBannerConfirm');
 
     var categoryBannerUploader = $('#categoryBannerUploader');
-    var btnSelectBanner = $('#btnSelectBanner');
 
     var btnCategoryReset = $('#btnCategoryReset');
     var btnCategoryAdd = $('#btnCategoryAdd');
+
+
+
+
+    // ***********************我是分割线***********************
+
+    var subCategoryBannerUploader = $('#subCategoryBannerUploader');
+    var subCategoryIconUploader = $('#subCategoryIconUploader');
 
     $(function () {
         // 首先进行Ajax请求获取所有categoryBanner类型的图片信息
@@ -476,9 +745,9 @@ desired effect
             async: false,
             success: function (pageInfo) {
                 categoryBannersPageInfo = pageInfo;
-                pageIndicatorPrevious.addClass("disabled");
-                if (categoryBannersPageInfo["hasNextPage"] === false){
-                    pageIndicatorNext.addClass("disabled");
+                categoryBannerPageIndicatorPrevious.addClass("disabled");
+                if (categoryBannersPageInfo["hasNextPage"] === false) {
+                    categoryBannerPageIndicatorNext.addClass("disabled");
                 }
                 var categoryBannerHtml = "";
                 $.each(categoryBannersPageInfo["list"], function (i, item) {
@@ -515,7 +784,7 @@ desired effect
                         "</div>" +
                         "</div>";
                 });
-                imagesContainer.html(categoryBannerHtml);
+                categoryBannerContainer.html(categoryBannerHtml);
             },
             error: function (errorMessage) {
                 console.log(errorMessage);
@@ -537,6 +806,35 @@ desired effect
         enctype: 'multipart/form-data'
     });
 
+
+    subCategoryBannerUploader.fileinput({
+        language: 'zh', // 设置语言
+        uploadUrl: '<%=request.getContextPath()%>/upload/categoryBanner/image', // 上传地址
+        allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg'], // 允许上传的文件后缀
+        showRemove: true, // 是否显示移除按钮
+        removeClass: 'btn btn-warning', // 移除按钮主题
+        showUpload: false, // 是否显示上传按钮
+        showCaption: true, // 是否显示标题
+        dropZoneEnabled: false,
+        minFileCount: 1, // 最少文件数量
+        maxFileCount: 1, // 最多文件数量
+        enctype: 'multipart/form-data'
+    });
+
+    subCategoryIconUploader.fileinput({
+        language: 'zh', // 设置语言
+        uploadUrl: '<%=request.getContextPath()%>/upload/categoryBanner/image', // 上传地址
+        allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg'], // 允许上传的文件后缀
+        showRemove: true, // 是否显示移除按钮
+        removeClass: 'btn btn-warning', // 移除按钮主题
+        showUpload: false, // 是否显示上传按钮
+        showCaption: true, // 是否显示标题
+        dropZoneEnabled: false,
+        minFileCount: 1, // 最少文件数量
+        maxFileCount: 1, // 最多文件数量
+        enctype: 'multipart/form-data'
+    });
+
     // 上传完成后的回调
     categoryBannerUploader.on('fileuploaded', function (event, data) {
         var response = data.response;
@@ -544,17 +842,17 @@ desired effect
     });
 
     // 上一页按钮
-    pageIndicatorPrevious.bind('click', function () {
+    categoryBannerPageIndicatorPrevious.bind('click', function () {
         console.log(categoryBannersPageInfo["hasPreviousPage"]);
-        pageIndicatorNext.removeClass("disabled");
+        categoryBannerPageIndicatorNext.removeClass("disabled");
         $.ajax({
             type: 'get',
             url: "<%=request.getContextPath()%>/categoryBanner/images/pageNum/" + categoryBannersPageInfo["prePage"] + "/pageSize/2",
             async: false,
             success: function (pageInfo) {
                 categoryBannersPageInfo = pageInfo;
-                if (categoryBannersPageInfo["hasPreviousPage"] === false){
-                    pageIndicatorPrevious.addClass("disabled");
+                if (categoryBannersPageInfo["hasPreviousPage"] === false) {
+                    categoryBannerPageIndicatorPrevious.addClass("disabled");
                 }
                 var categoryBannerHtml = "";
                 $.each(categoryBannersPageInfo["list"], function (i, item) {
@@ -591,8 +889,8 @@ desired effect
                         "</div>" +
                         "</div>";
                 });
-                imagesContainer.html("");
-                imagesContainer.html(categoryBannerHtml);
+                categoryBannerContainer.html("");
+                categoryBannerContainer.html(categoryBannerHtml);
             },
             error: function (errorMessage) {
                 console.log(errorMessage);
@@ -601,17 +899,17 @@ desired effect
     });
 
     // 下一页按钮
-    pageIndicatorNext.bind('click', function () {
+    categoryBannerPageIndicatorNext.bind('click', function () {
         console.log(categoryBannersPageInfo["hasNextPage"]);
-        pageIndicatorPrevious.removeClass("disabled");
+        categoryBannerPageIndicatorPrevious.removeClass("disabled");
         $.ajax({
             type: 'get',
             url: "<%=request.getContextPath()%>/categoryBanner/images/pageNum/" + categoryBannersPageInfo["nextPage"] + "/pageSize/2",
             async: false,
             success: function (pageInfo) {
                 categoryBannersPageInfo = pageInfo;
-                if (categoryBannersPageInfo["hasNextPage"] === false){
-                    pageIndicatorNext.addClass("disabled");
+                if (categoryBannersPageInfo["hasNextPage"] === false) {
+                    categoryBannerPageIndicatorNext.addClass("disabled");
                 }
                 var categoryBannerHtml = "";
                 $.each(categoryBannersPageInfo["list"], function (i, item) {
@@ -648,8 +946,8 @@ desired effect
                         "</div>" +
                         "</div>";
                 });
-                imagesContainer.html("");
-                imagesContainer.html(categoryBannerHtml);
+                categoryBannerContainer.html("");
+                categoryBannerContainer.html(categoryBannerHtml);
             },
             error: function (errorMessage) {
                 console.log(errorMessage);
@@ -657,7 +955,7 @@ desired effect
         });
     });
 
-    btnConfirm.bind('click', function () {
+    btnSelectCategoryBannerConfirm.bind('click', function () {
         // 获取选择的图片的访问地址
         var categoryBannerUrl = $('input:radio:checked').val();
         categoryBanner.val(categoryBannerUrl);

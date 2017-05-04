@@ -45,6 +45,14 @@ public class ImageServiceImpl implements ImageService {
         return imageMapper.findAll();
     }
 
+    /**
+     * 分页查询
+     * @param imageType 图片类型
+     * @param pageNum 显示第几页
+     * @param pageSize 显示几个数据
+     * @return PageInfo
+     * @throws Exception 异常
+     */
     public PageInfo<Image> getImagesByType(Serializable imageType, int pageNum, int pageSize) throws Exception {
         PageHelper.startPage(pageNum, pageSize);
         List<Image> images = imageMapper.findByImageType(imageType);
