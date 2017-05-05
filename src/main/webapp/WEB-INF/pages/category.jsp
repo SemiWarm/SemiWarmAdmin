@@ -50,9 +50,12 @@
             align-items: center;
         }
 
-        .disabled {
+        li.disabled:hover, li.disabled:focus {
             /*解决li标签设为disabled后还能点击的bug*/
             pointer-events: none;
+            cursor: not-allowed;
+            text-decoration: none;
+            background-color: transparent;
             opacity: 0.7;
         }
     </style>
