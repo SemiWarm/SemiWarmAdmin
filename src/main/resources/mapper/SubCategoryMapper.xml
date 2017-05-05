@@ -40,4 +40,11 @@
         FROM SubCategory
     </select>
 
+    <select id="findByCategoryId" parameterType="java.lang.Integer"
+            resultType="cn.semiwarm.admin.entity.SubCategory">
+        SELECT *
+        FROM SubCategory
+        WHERE status = TRUE AND category_id = #{categoryId}
+    </select>
+
 </mapper>

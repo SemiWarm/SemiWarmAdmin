@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: alibct
@@ -325,22 +326,13 @@ desired effect
                                             <div class="col-lg-9">
                                                 <select class="selectpicker form-control" id="goodsCategory"
                                                         title="商品类目">
-                                                    <optgroup label="推荐">
-                                                        <option>MUJI</option>
-                                                        <option>Coach</option>
-                                                    </optgroup>
-                                                    <optgroup label="家居">
-                                                        <option>UNIQLO</option>
-                                                        <option>A21</option>
-                                                    </optgroup>
-                                                    <optgroup label="服饰">
-                                                        <option>UNIQLO</option>
-                                                        <option>A21</option>
-                                                    </optgroup>
-                                                    <optgroup label="其它">
-                                                        <option>UNIQLO</option>
-                                                        <option>A21</option>
-                                                    </optgroup>
+                                                    <c:forEach items="${goodsCategory}" var="category">
+                                                        <optgroup label="${category.key.categoryName}">
+                                                            <c:forEach items="${category.value}" var="subCategory">
+                                                                <option value="${subCategory.subCategoryId}">${subCategory.subCategoryName}</option>
+                                                            </c:forEach>
+                                                        </optgroup>
+                                                    </c:forEach>
                                                 </select>
                                             </div>
                                         </div>
@@ -359,11 +351,20 @@ desired effect
                                                 <select class="selectpicker form-control" id="goodsTags" multiple
                                                         title="商品标签"
                                                         data-max-options="2">
-                                                    <option data-content="<span class='label label-success'>新品</span>">
-                                                        新品
+                                                    <option value="上新"
+                                                            data-content="<span class='label label-success'>上新</span>">上新
                                                     </option>
-                                                    <option data-content="<span class='label label-danger'>热门</span>">
-                                                        热门
+                                                    <option value="热门"
+                                                            data-content="<span class='label label-danger'>热门</span>">热门
+                                                    </option>
+                                                    <option value="人气"
+                                                            data-content="<span class='label label-warning'>人气</span>">人气
+                                                    </option>
+                                                    <option value="推荐"
+                                                            data-content="<span class='label label-info'>推荐</span>">推荐
+                                                    </option>
+                                                    <option value="促销"
+                                                            data-content="<span class='label label-danger'>促销</span>">促销
                                                     </option>
                                                 </select>
                                             </div>

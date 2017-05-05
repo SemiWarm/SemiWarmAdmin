@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: alibct
@@ -47,6 +48,11 @@
         .vertical-align {
             display: flex;
             align-items: center;
+        }
+
+        .disabled {
+            pointer-events: none;
+            opacity: 0.7;
         }
     </style>
 </head>
@@ -388,12 +394,12 @@ desired effect
                                                                 <ul class="pager">
                                                                     <li id="categoryBannerPageIndicatorPrevious"
                                                                         class="previous">
-                                                                        <a href="#"><span
+                                                                        <a href="javascript:void(0);"><span
                                                                                 aria-hidden="true">&larr;</span>&nbsp;上一页</a>
                                                                     </li>
                                                                     <li id="categoryBannerPageIndicatorNext"
                                                                         class="next"><a
-                                                                            href="#">下一页&nbsp;<span
+                                                                            href="javascript:void(0);">下一页&nbsp;<span
                                                                             aria-hidden="true">&rarr;</span></a>
                                                                     </li>
                                                                 </ul>
@@ -452,40 +458,16 @@ desired effect
                             <form class="form-horizontal" id="addSubCategoryForm" enctype="multipart/form-data">
                                 <!-- Category -->
                                 <div class="row form-group">
-                                    <label for="goodsCategory"
-                                           class="col-md-2 col-md-offset-2 control-label">商品类目</label>
+                                    <label for="category"
+                                           class="col-md-2 col-md-offset-2 control-label">类目选择</label>
                                     <div class="col-lg-6">
-                                        <select class="selectpicker form-control" id="goodsCategory" title="商品类目">
-                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;推荐&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;精甄细选，百里挑一。">
-                                                推荐
-                                            </option>
-                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;家居&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;温馨舒适，泰若自然。">
-                                                家居
-                                            </option>
-                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;餐厨&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;倾心谧爱，囿于厨房。">
-                                                餐厨
-                                            </option>
-                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;配件&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;除却配角，亦为主角。">
-                                                配件
-                                            </option>
-                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;服饰&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;细织润肤，薄如蝉翼。">
-                                                服饰
-                                            </option>
-                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;洗护&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;亲肤之物，严选自然。">
-                                                洗护
-                                            </option>
-                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;婴童&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;爱，始于心，止于心。">
-                                                婴童
-                                            </option>
-                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;杂货&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;杂乱无章，方为始终。">
-                                                杂货
-                                            </option>
-                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;饮食&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;庶民以食为天，顺意。">
-                                                饮食
-                                            </option>
-                                            <option data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;其它&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;若为甄选，不别其它。">
-                                                其它
-                                            </option>
+                                        <select class="selectpicker form-control" id="category" title="类目选择">
+                                            <c:forEach items="${categories}" var="category">
+                                                <option value="${category.categoryId}"
+                                                        data-content="<span class='glyphicon glyphicon-check'></span>&nbsp;${category.categoryName}&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right'></span>&nbsp;${category.categoryDesc}">
+                                                        ${category.categoryName}
+                                                </option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
@@ -498,7 +480,6 @@ desired effect
                                                required>
                                     </div>
                                 </div>
-
                                 <!--Banner访问地址-->
                                 <div class="row form-group">
                                     <label for="subCategoryBanner" class="col-md-2 col-md-offset-2 control-label">Banner访问地址</label>
@@ -538,12 +519,12 @@ desired effect
                                                                 <ul class="pager">
                                                                     <li id="subCategoryBannerPageIndicatorPrevious"
                                                                         class="previous">
-                                                                        <a href="#"><span
+                                                                        <a href="javascript:void(0);"><span
                                                                                 aria-hidden="true">&larr;</span>&nbsp;上一页</a>
                                                                     </li>
                                                                     <li id="subCategoryBannerPageIndicatorNext"
                                                                         class="next"><a
-                                                                            href="#">下一页&nbsp;<span
+                                                                            href="javascript:void(0);">下一页&nbsp;<span
                                                                             aria-hidden="true">&rarr;</span></a>
                                                                     </li>
                                                                 </ul>
@@ -555,7 +536,8 @@ desired effect
                                                             </button>
                                                             <button class="btn btn-primary"
                                                                     id="btnSelectSubCategoryBannerConfirm"
-                                                                    name="btnSelectSubCategoryBannerConfirm" type="button">确 定
+                                                                    name="btnSelectSubCategoryBannerConfirm"
+                                                                    type="button">确 定
                                                             </button>
                                                         </div>
                                                     </div>
@@ -576,22 +558,22 @@ desired effect
 
                                 <!-- subCategoryTitle -->
                                 <div class="row form-group">
-                                    <label for="subCategoryTitle" class="col-md-2 col-md-offset-2 control-label">子类目标题</label>
+                                    <label for="subCategoryTitle"
+                                           class="col-md-2 col-md-offset-2 control-label">子类目标题</label>
                                     <div class="col-lg-6">
                                         <input type="text" class="form-control" id="subCategoryTitle"
                                                placeholder="子类目标题" required>
                                     </div>
                                 </div>
-
                                 <!-- subCategoryDesc -->
-                                <div class="form-group">
-                                    <label for="subCategoryDesc" class="col-md-2 col-md-offset-2 control-label">子类目描述</label>
+                                <div class="row form-group">
+                                    <label for="subCategoryDesc"
+                                           class="col-md-2 col-md-offset-2 control-label">子类目描述</label>
                                     <div class="col-lg-6">
                                         <textarea class="form-control" rows="3" id="subCategoryDesc" placeholder="子类目描述"
                                                   required></textarea>
                                     </div>
                                 </div>
-
                                 <!--子类目图标访问地址-->
                                 <div class="row form-group">
                                     <label for="subCategoryIcon" class="col-md-2 col-md-offset-2 control-label">子类目图标访问地址</label>
@@ -631,11 +613,11 @@ desired effect
                                                             <nav aria-label="...">
                                                                 <ul class="pager">
                                                                     <li id="iconPageIndicatorPrevious" class="previous">
-                                                                        <a href="#"><span
+                                                                        <a href="javascript:void(0);"><span
                                                                                 aria-hidden="true">&larr;</span>&nbsp;上一页</a>
                                                                     </li>
                                                                     <li id="iconPageIndicatorNext" class="next"><a
-                                                                            href="#">下一页&nbsp;<span
+                                                                            href="javascript:void(0);">下一页&nbsp;<span
                                                                             aria-hidden="true">&rarr;</span></a>
                                                                     </li>
                                                                 </ul>
@@ -664,30 +646,40 @@ desired effect
                                                name="image" type="file">
                                     </div>
                                 </div>
-
                                 <!-- subCategoryTags -->
                                 <div class="row form-group">
-                                    <label for="subCategoryTags" class="col-md-2 col-md-offset-2 control-label">子类目标签</label>
+                                    <label for="subCategoryTags"
+                                           class="col-md-2 col-md-offset-2 control-label">子类目标签</label>
                                     <div class="col-lg-6">
                                         <select class="selectpicker form-control" id="subCategoryTags" multiple
                                                 title="子类目标签"
                                                 data-max-options="2">
-                                            <option data-content="<span class='label label-success'>新品</span>">新品
+                                            <option value="上新"
+                                                    data-content="<span class='label label-success'>上新</span>">上新
                                             </option>
-                                            <option data-content="<span class='label label-danger'>热门</span>">热门
+                                            <option value="热门"
+                                                    data-content="<span class='label label-danger'>热门</span>">热门
+                                            </option>
+                                            <option value="人气"
+                                                    data-content="<span class='label label-warning'>人气</span>">人气
+                                            </option>
+                                            <option value="推荐" data-content="<span class='label label-info'>推荐</span>">
+                                                推荐
+                                            </option>
+                                            <option value="促销"
+                                                    data-content="<span class='label label-danger'>促销</span>">促销
                                             </option>
                                         </select>
                                     </div>
                                 </div>
 
-
                                 <%--footer--%>
                                 <div class="row">
                                     <button class="btn btn-warning col-md-2 col-md-offset-4" id="btnSubCategoryReset"
-                                            name="btnCategoryReset" type="reset">重置
+                                            name="btnSubCategoryReset" type="reset">重置
                                     </button>
                                     <button class="btn btn-primary col-md-2 col-md-offset-2" id="btnSubCategoryAdd"
-                                            name="btnCategoryAdd" type="button">添加
+                                            name="btnSubCategoryAdd" type="button">添加
                                     </button>
                                 </div>
                             </form>
@@ -710,6 +702,7 @@ desired effect
 <script src="<%=request.getContextPath()%>/static/js/sweetalert.min.js"></script>
 <script type="text/javascript">
 
+    // 类目
     var addCategoryForm = $('#addCategoryForm');
     var categoryName = $('#categoryName');
     var categoryTitle = $('#categoryTitle');
@@ -717,6 +710,8 @@ desired effect
     var categoryBanner = $('#categoryBanner');
 
     var categoryBannersPageInfo;
+    var subCategoryBannersPageInfo;
+    var subCategoryIconsPageInfo;
 
     var categorySelectModal = $('#categorySelectModal');
     var categoryBannerContainer = $('#categoryBannerContainer');
@@ -730,9 +725,45 @@ desired effect
     var btnCategoryAdd = $('#btnCategoryAdd');
 
 
-
-
     // ***********************我是分割线***********************
+
+    // 子类目
+    var addSubCategoryForm = $('#addSubCategoryForm');
+
+    // 类目选择
+    var category = $('#category');
+    // 子类目名称
+    var subCategoryName = $('#subCategoryName');
+    // 子类目Banner
+    var subCategoryBanner = $('#subCategoryBanner');
+    // 子类目标题
+    var subCategoryTitle = $('#subCategoryTitle');
+    // 子类目描述
+    var subCategoryDesc = $('#subCategoryDesc');
+    // 子类目图标
+    var subCategoryIcon = $('#subCategoryIcon');
+    // 子类目标签
+    var subCategoryTags = $('#subCategoryTags');
+
+    var subCategorySelectModal = $('#subCategorySelectModal');
+
+    var btnSelectSubCategoryBannerConfirm = $('#btnSelectSubCategoryBannerConfirm');
+
+    var subCategoryIconSelectModal = $('#subCategoryIconSelectModal');
+
+    var btnSelectIconConfirm = $('#btnSelectIconConfirm');
+
+    var btnSubCategoryAdd = $('#btnSubCategoryAdd');
+
+    var subCategoryBannerPageIndicatorPrevious = $('#subCategoryBannerPageIndicatorPrevious');
+    var subCategoryBannerPageIndicatorNext = $('#subCategoryBannerPageIndicatorNext');
+
+    var iconPageIndicatorPrevious = $('#iconPageIndicatorPrevious');
+    var iconPageIndicatorNext = $('#iconPageIndicatorNext');
+
+    var subCategoryBannerContainer = $('#subCategoryBannerContainer');
+    var subCategoryIconContainer = $('#subCategoryIconContainer');
+
 
     var subCategoryBannerUploader = $('#subCategoryBannerUploader');
     var subCategoryIconUploader = $('#subCategoryIconUploader');
@@ -742,7 +773,7 @@ desired effect
         $.ajax({
             type: 'get',
             url: '<%=request.getContextPath()%>/categoryBanner/images/pageNum/1/pageSize/2',
-            async: false,
+            async: true,
             success: function (pageInfo) {
                 categoryBannersPageInfo = pageInfo;
                 categoryBannerPageIndicatorPrevious.addClass("disabled");
@@ -773,7 +804,7 @@ desired effect
                         "<div class='list-group-item'>" +
                         "<label class='label label-danger'>图片类型</label>" +
                         "&nbsp;" +
-                        "<label class='label label-default'>categoryBanner</label>" +
+                        "<label class='label label-default'>" + item["imageType"] + "</label>" +
                         "</div>" +
                         "<div class='list-group-item'>" +
                         "<label class='label label-danger'>图片大小</label>" +
@@ -785,6 +816,110 @@ desired effect
                         "</div>";
                 });
                 categoryBannerContainer.html(categoryBannerHtml);
+            },
+            error: function (errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+
+        $.ajax({
+            type: 'get',
+            url: '<%=request.getContextPath()%>/subCategoryBanner/images/pageNum/1/pageSize/2',
+            async: true,
+            success: function (pageInfo) {
+                subCategoryBannersPageInfo = pageInfo;
+                subCategoryBannerPageIndicatorPrevious.addClass("disabled");
+                if (subCategoryBannersPageInfo["hasNextPage"] === false) {
+                    subCategoryBannerPageIndicatorNext.addClass("disabled");
+                }
+                var subCategoryBannerHtml = "";
+                $.each(subCategoryBannersPageInfo["list"], function (i, item) {
+                    // 动态生成图片信息
+                    subCategoryBannerHtml += "<div class='row vertical-align'>" +
+                        "<div class='col-md-8'>" +
+                        "<div class='thumbnail'>" +
+                        "<img src='" + item["imageAccessPath"] + "' alt='" + item["imageOriginalName"] + "'>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class='col-md-4'>" +
+                        "<div class='list-group'>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-success'>是否选择</label>" +
+                        "&nbsp;" +
+                        "<label><input name='isSelected' type='radio' value='" + item["imageAccessPath"] + "'></label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片名称</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageOriginalName"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片类型</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageType"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片大小</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageSize"] + "</label>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>";
+                });
+                subCategoryBannerContainer.html(subCategoryBannerHtml);
+            },
+            error: function (errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+
+        $.ajax({
+            type: 'get',
+            url: '<%=request.getContextPath()%>/subCategoryIcon/images/pageNum/1/pageSize/2',
+            async: true,
+            success: function (pageInfo) {
+                subCategoryIconsPageInfo = pageInfo;
+                iconPageIndicatorPrevious.addClass("disabled");
+                if (subCategoryIconsPageInfo["hasNextPage"] === false) {
+                    iconPageIndicatorNext.addClass("disabled");
+                }
+                var subCategoryIconHtml = "";
+                $.each(subCategoryIconsPageInfo["list"], function (i, item) {
+                    // 动态生成图片信息
+                    subCategoryIconHtml += "<div class='row vertical-align'>" +
+                        "<div class='col-md-8'>" +
+                        "<div class='thumbnail'>" +
+                        "<img src='" + item["imageAccessPath"] + "' alt='" + item["imageOriginalName"] + "'>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class='col-md-4'>" +
+                        "<div class='list-group'>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-success'>是否选择</label>" +
+                        "&nbsp;" +
+                        "<label><input name='isSelected' type='radio' value='" + item["imageAccessPath"] + "'></label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片名称</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageOriginalName"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片类型</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageType"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片大小</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageSize"] + "</label>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>";
+                });
+                subCategoryIconContainer.html(subCategoryIconHtml);
             },
             error: function (errorMessage) {
                 console.log(errorMessage);
@@ -806,10 +941,9 @@ desired effect
         enctype: 'multipart/form-data'
     });
 
-
     subCategoryBannerUploader.fileinput({
         language: 'zh', // 设置语言
-        uploadUrl: '<%=request.getContextPath()%>/upload/categoryBanner/image', // 上传地址
+        uploadUrl: '<%=request.getContextPath()%>/upload/subCategoryBanner/image', // 上传地址
         allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg'], // 允许上传的文件后缀
         showRemove: true, // 是否显示移除按钮
         removeClass: 'btn btn-warning', // 移除按钮主题
@@ -823,7 +957,7 @@ desired effect
 
     subCategoryIconUploader.fileinput({
         language: 'zh', // 设置语言
-        uploadUrl: '<%=request.getContextPath()%>/upload/categoryBanner/image', // 上传地址
+        uploadUrl: '<%=request.getContextPath()%>/upload/subCategoryIcon/image', // 上传地址
         allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg'], // 允许上传的文件后缀
         showRemove: true, // 是否显示移除按钮
         removeClass: 'btn btn-warning', // 移除按钮主题
@@ -835,13 +969,25 @@ desired effect
         enctype: 'multipart/form-data'
     });
 
-    // 上传完成后的回调
+    // 类目Banner上传完成后的回调
     categoryBannerUploader.on('fileuploaded', function (event, data) {
         var response = data.response;
         categoryBanner.val(response["url"]);
     });
 
-    // 上一页按钮
+    // 子类目Banner上传后的回调
+    subCategoryBannerUploader.on('fileuploaded', function (event, data) {
+        var response = data.response;
+        subCategoryBanner.val(response["url"]);
+    });
+
+    // 子类目图标上传后的回调
+    subCategoryIconUploader.on('fileuploaded', function (event, data) {
+        var response = data.response;
+        subCategoryIcon.val(response["url"]);
+    });
+
+    // 类目banner上一页按钮
     categoryBannerPageIndicatorPrevious.bind('click', function () {
         console.log(categoryBannersPageInfo["hasPreviousPage"]);
         categoryBannerPageIndicatorNext.removeClass("disabled");
@@ -897,8 +1043,7 @@ desired effect
             }
         });
     });
-
-    // 下一页按钮
+    // 类目banner下一页按钮
     categoryBannerPageIndicatorNext.bind('click', function () {
         console.log(categoryBannersPageInfo["hasNextPage"]);
         categoryBannerPageIndicatorPrevious.removeClass("disabled");
@@ -955,6 +1100,229 @@ desired effect
         });
     });
 
+    // 子类目bannner上一页按钮
+    subCategoryBannerPageIndicatorPrevious.bind('click', function () {
+        subCategoryBannerPageIndicatorNext.removeClass("disabled");
+        $.ajax({
+            type: 'get',
+            url: "<%=request.getContextPath()%>/subCategoryBanner/images/pageNum/" + subCategoryBannersPageInfo["prePage"] + "/pageSize/2",
+            async: false,
+            success: function (pageInfo) {
+                subCategoryBannersPageInfo = pageInfo;
+                if (subCategoryBannersPageInfo["hasPreviousPage"] === false) {
+                    subCategoryBannerPageIndicatorPrevious.addClass("disabled");
+                }
+                var subCategoryBannerHtml = "";
+                $.each(subCategoryBannersPageInfo["list"], function (i, item) {
+                    // 动态生成图片信息
+                    subCategoryBannerHtml += "<div class='row vertical-align'>" +
+                        "<div class='col-md-8'>" +
+                        "<div class='thumbnail'>" +
+                        "<img src='" + item["imageAccessPath"] + "' alt='" + item["imageOriginalName"] + "'>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class='col-md-4'>" +
+                        "<div class='list-group'>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-success'>是否选择</label>" +
+                        "&nbsp;" +
+                        "<label><input name='isSelected' type='radio' value='" + item["imageAccessPath"] + "'></label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片名称</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageOriginalName"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片类型</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageType"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片大小</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageSize"] + "</label>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>";
+                });
+                subCategoryBannerContainer.html("");
+                subCategoryBannerContainer.html(subCategoryBannerHtml);
+            },
+            error: function (errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    });
+    // 子类目banner下一页按钮
+    subCategoryBannerPageIndicatorNext.bind('click', function () {
+        subCategoryBannerPageIndicatorPrevious.removeClass("disabled");
+        $.ajax({
+            type: 'get',
+            url: "<%=request.getContextPath()%>/subCategoryBanner/images/pageNum/" + subCategoryBannersPageInfo["nextPage"] + "/pageSize/2",
+            async: false,
+            success: function (pageInfo) {
+                subCategoryBannersPageInfo = pageInfo;
+                if (subCategoryBannersPageInfo["hasNextPage"] === false) {
+                    subCategoryBannerPageIndicatorNext.addClass("disabled");
+                }
+                var subCategoryBannerHtml = "";
+                $.each(subCategoryBannersPageInfo["list"], function (i, item) {
+                    // 动态生成图片信息
+                    subCategoryBannerHtml += "<div class='row vertical-align'>" +
+                        "<div class='col-md-8'>" +
+                        "<div class='thumbnail'>" +
+                        "<img src='" + item["imageAccessPath"] + "' alt='" + item["imageOriginalName"] + "'>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class='col-md-4'>" +
+                        "<div class='list-group'>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-success'>是否选择</label>" +
+                        "&nbsp;" +
+                        "<label><input name='isSelected' type='radio' value='" + item["imageAccessPath"] + "'></label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片名称</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageOriginalName"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片类型</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageType"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片大小</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageSize"] + "</label>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>";
+                });
+                subCategoryBannerContainer.html("");
+                subCategoryBannerContainer.html(subCategoryBannerHtml);
+            },
+            error: function (errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    });
+
+    // 子类目图标上一页按钮
+    iconPageIndicatorPrevious.bind('click', function () {
+        iconPageIndicatorNext.removeClass("disabled");
+        $.ajax({
+            type: 'get',
+            url: "<%=request.getContextPath()%>/subCategoryIcon/images/pageNum/" + subCategoryIconsPageInfo["prePage"] + "/pageSize/2",
+            async: false,
+            success: function (pageInfo) {
+                subCategoryIconsPageInfo = pageInfo;
+                if (subCategoryIconsPageInfo["hasPreviousPage"] === false) {
+                    iconPageIndicatorPrevious.addClass("disabled");
+                }
+                var subCategoryIconHtml = "";
+                $.each(subCategoryIconsPageInfo["list"], function (i, item) {
+                    // 动态生成图片信息
+                    subCategoryIconHtml += "<div class='row vertical-align'>" +
+                        "<div class='col-md-8'>" +
+                        "<div class='thumbnail'>" +
+                        "<img src='" + item["imageAccessPath"] + "' alt='" + item["imageOriginalName"] + "'>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class='col-md-4'>" +
+                        "<div class='list-group'>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-success'>是否选择</label>" +
+                        "&nbsp;" +
+                        "<label><input name='isSelected' type='radio' value='" + item["imageAccessPath"] + "'></label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片名称</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageOriginalName"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片类型</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageType"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片大小</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageSize"] + "</label>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>";
+                });
+                subCategoryIconContainer.html("");
+                subCategoryIconContainer.html(subCategoryIconHtml);
+            },
+            error: function (errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    });
+    // 子类目图标下一页按钮
+    iconPageIndicatorNext.bind('click', function () {
+        iconPageIndicatorPrevious.removeClass("disabled");
+        $.ajax({
+            type: 'get',
+            url: "<%=request.getContextPath()%>/subCategoryIcon/images/pageNum/" + subCategoryIconsPageInfo["nextPage"] + "/pageSize/2",
+            async: false,
+            success: function (pageInfo) {
+                subCategoryIconsPageInfo = pageInfo;
+                if (subCategoryIconsPageInfo["hasNextPage"] === false) {
+                    iconPageIndicatorNext.addClass("disabled");
+                }
+                var subCategoryIconHtml = "";
+                $.each(subCategoryIconsPageInfo["list"], function (i, item) {
+                    // 动态生成图片信息
+                    subCategoryIconHtml += "<div class='row vertical-align'>" +
+                        "<div class='col-md-8'>" +
+                        "<div class='thumbnail'>" +
+                        "<img src='" + item["imageAccessPath"] + "' alt='" + item["imageOriginalName"] + "'>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class='col-md-4'>" +
+                        "<div class='list-group'>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-success'>是否选择</label>" +
+                        "&nbsp;" +
+                        "<label><input name='isSelected' type='radio' value='" + item["imageAccessPath"] + "'></label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片名称</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageOriginalName"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片类型</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageType"] + "</label>" +
+                        "</div>" +
+                        "<div class='list-group-item'>" +
+                        "<label class='label label-danger'>图片大小</label>" +
+                        "&nbsp;" +
+                        "<label class='label label-default'>" + item["imageSize"] + "</label>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>";
+                });
+                subCategoryIconContainer.html("");
+                subCategoryIconContainer.html(subCategoryIconHtml);
+            },
+            error: function (errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+    });
+
+    // 类目banner确认选择按钮
     btnSelectCategoryBannerConfirm.bind('click', function () {
         // 获取选择的图片的访问地址
         var categoryBannerUrl = $('input:radio:checked').val();
@@ -962,9 +1330,26 @@ desired effect
         categorySelectModal.modal('hide');
     });
 
+    // 子类目banner确认选择按钮
+    btnSelectSubCategoryBannerConfirm.bind('click', function () {
+        // 获取选择的图片的访问地址
+        var subCategoryBannerUrl = $('input:radio:checked').val();
+        subCategoryBanner.val(subCategoryBannerUrl);
+        subCategorySelectModal.modal('hide');
+    });
+
+    // 子类目图标确认选择按钮
+    btnSelectIconConfirm.bind('click', function () {
+        // 获取选择的图片的访问地址
+        var subCategoryIconUrl = $('input:radio:checked').val();
+        subCategoryIcon.val(subCategoryIconUrl);
+        subCategoryIconSelectModal.modal('hide');
+    });
+
+    // 添加类目按钮
     btnCategoryAdd.bind('click', function () {
-        if (checkInput().length > 0) {
-            sweetAlert("出错啦!", checkInput(), "error");
+        if (checkCategoryFormInput().length > 0) {
+            sweetAlert("出错啦!", checkCategoryFormInput(), "error");
         } else {
             // 进行ajax请求
             $.ajax({
@@ -995,7 +1380,45 @@ desired effect
         }
     });
 
-    var checkInput = function () {
+    // 添加子类目按钮
+    btnSubCategoryAdd.bind('click', function () {
+        if (checkSubCategoryFormInput().length > 0) {
+            sweetAlert("出错啦!", checkSubCategoryFormInput(), "error");
+        } else {
+            // 进行ajax请求
+            $.ajax({
+                type: 'post',
+                url: '<%=request.getContextPath()%>/subCategories',
+                data: {
+                    'subCategoryName': subCategoryName.val(),
+                    'subCategoryBanner': subCategoryBanner.val(),
+                    'subCategoryTitle': subCategoryTitle.val(),
+                    'subCategoryDesc': subCategoryDesc.val(),
+                    'subCategoryIcon': subCategoryIcon.val(),
+                    'subCategoryTag': subCategoryTags.val().toString(),
+                    'categoryId': category.val()
+                },
+                async: true,
+                success: function (subCategoryResponse) {
+                    if (subCategoryResponse["success"] === 1) {
+                        sweetAlert({title: "成功信息", text: subCategoryResponse["message"], type: "success"}, function () {
+                            addSubCategoryForm[0].reset();
+                        });
+
+                    } else {
+                        sweetAlert("错误信息", subCategoryResponse["message"], "error");
+                    }
+                },
+                error: function (errorMessage) {
+                    console.log(errorMessage);
+                    sweetAlert("出错啦!", "服务器异常!请求失败!", "error");
+                }
+            });
+        }
+    });
+
+    // 检查类目表单函数
+    var checkCategoryFormInput = function () {
         var resultInfo = "";
         if (IsNull(replaceHTML(categoryName.val()))) {
             resultInfo += "请输入类目名称!\n";
@@ -1008,6 +1431,33 @@ desired effect
         }
         if (IsNull(replaceHTML(categoryBanner.val()))) {
             resultInfo += "请选择或上传类目Banner!";
+        }
+        return resultInfo;
+    };
+
+    // 检查子类目表单函数
+    var checkSubCategoryFormInput = function () {
+        var resultInfo = "";
+        if (IsNull(replaceHTML(category.val()))) {
+            resultInfo += "请选择所属类目!\n";
+        }
+        if (IsNull(replaceHTML(subCategoryName.val()))) {
+            resultInfo += "请输入子类目名称!\n";
+        }
+        if (IsNull(replaceHTML(subCategoryBanner.val()))) {
+            resultInfo += "请选择或上传子类目Banner!\n";
+        }
+        if (IsNull(replaceHTML(subCategoryTitle.val()))) {
+            resultInfo += "请输入子类目标题!\n";
+        }
+        if (IsNull(replaceHTML(subCategoryDesc.val()))) {
+            resultInfo += "请输入子类目描述!\n";
+        }
+        if (IsNull(replaceHTML(subCategoryIcon.val()))) {
+            resultInfo += "请选择或上传子类目图标!\n";
+        }
+        if (subCategoryTags.val() === null) {
+            resultInfo += "请选择子类目标签!\n";
         }
         return resultInfo;
     };

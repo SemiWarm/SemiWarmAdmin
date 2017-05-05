@@ -42,4 +42,8 @@ public class SubCategoryServiceImpl implements SubCategoryService {
     public List<SubCategory> getAllSubCategories() throws Exception {
         return subCategoryMapper.findAll();
     }
+
+    public List<SubCategory> getAllSubCategoriesByCategoryId(Integer categoryId) throws Exception {
+        return subCategoryMapper.findByCategoryId(categoryId);
+    }
 }
