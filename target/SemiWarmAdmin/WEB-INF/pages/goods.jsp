@@ -184,6 +184,30 @@ desired effect
                         <span>主页</span>
                     </a>
                 </li>
+                <%--图片管理模块--%>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-file-image-o" style="font-size: larger"></i>
+                        <span>图片管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="<%=request.getContextPath()%>/image">
+                                <i class="fa fa-plus-square"></i>
+                                <span> 图片管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-pencil-square"></i>
+                                <span> 图片编辑</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <%--Splash管理模块--%>
                 <li class="treeview">
                     <a href="#">
@@ -352,13 +376,15 @@ desired effect
                                                         title="商品标签"
                                                         data-max-options="2">
                                                     <option value="上新"
-                                                            data-content="<span class='label label-success'>上新</span>">上新
+                                                            data-content="<span class='label label-success'>上新</span>">
+                                                        上新
                                                     </option>
                                                     <option value="热门"
                                                             data-content="<span class='label label-danger'>热门</span>">热门
                                                     </option>
                                                     <option value="人气"
-                                                            data-content="<span class='label label-warning'>人气</span>">人气
+                                                            data-content="<span class='label label-warning'>人气</span>">
+                                                        人气
                                                     </option>
                                                     <option value="推荐"
                                                             data-content="<span class='label label-info'>推荐</span>">推荐
@@ -402,8 +428,8 @@ desired effect
                                                         data-target='#addSpecParamModal'><span
                                                         class="glyphicon glyphicon-plus"></span>添加规格
                                                 </button>
-                                                <div class="btn-toolbar pull-right" role="toolbar" aria-label="...">
-                                                    <div class="btn-group" role="group" aria-label="...">
+                                                <div class="btn-toolbar pull-right" role="toolbar">
+                                                    <div class="btn-group" role="group">
                                                         <button type="button" class="btn btn-default"><span
                                                                 class="glyphicon glyphicon-pencil"></span></button>
                                                         <button type="button" class="btn btn-default"><span
@@ -544,9 +570,9 @@ desired effect
 <script src="<%=request.getContextPath()%>/static/js/jquery.flowchart.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/editormd.js"></script>
 <script type="text/javascript">
-    var goodsBannersUploader = $('#goodsBannersUploader');
-    var specParamsTable = $('#specParamsTable');
-    var editor;
+    var goodsBannersUploader = $('#goodsBannersUploader'); // 图片上传工具
+    var specParamsTable = $('#specParamsTable'); // 规格参数表
+    var editor; // 商品详情数据存放变量
     var data = [{
         "specName": "尺寸",
         "specParam": "M",
@@ -572,6 +598,16 @@ desired effect
         "specParam": "藏青",
         "goodsQuantity": 20
     }];
+
+    // 初始化变量
+    var goodsCategory = $('#goodsCategory'); // 所属子类目
+    var goodsTitle = $('#goodsTitle'); // 商品标题
+    var goodsTags = $('#goodsTags'); // 商品标签
+    var goodsProvider = $('#goodsProvider'); // 商品供应商
+    var goodsPrice = $('#goodsPrice'); // 商品定价
+    var goodsBanners = $('#goodsBanners'); // 商品图片
+    var goodsDesc = $('#goodsDesc'); // 商品简介
+
     $(function () {
         // 初始化上传域
         goodsBannersUploader.fileinput({
@@ -587,23 +623,26 @@ desired effect
             maxFileCount: 5, // 最多文件数量
             enctype: 'multipart/form-data'
         });
+        // 上传完成后的回调函数
+        goodsBannersUploader.on('fileuploaded', function (event, data) {
+            var responses = data.response;
+            console.log(responses);
+        });
+        // 初始化编辑器
+        editor = editormd("mdEditor", {
+            width: "90%",
+            height: 640,
+            syncScrolling: "single",
+            path: "<%=request.getContextPath()%>/static/lib/",
+            saveHTMLToTextarea: true,
+            emoji: true,
+            editorTheme: "solarized",
+            imageUpload: true,
+            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL: "<%=request.getContextPath()%>/upload/editormd/images"
+        });
         // 初始化表格数据
         specParamsTable.bootstrapTable({data: data});
-        // 初始化编辑器
-        $(function () {
-            editor = editormd("mdEditor", {
-                width: "90%",
-                height: 640,
-                syncScrolling: "single",
-                path: "<%=request.getContextPath()%>/static/lib/",
-                saveHTMLToTextarea: true,
-                emoji: true,
-                editorTheme: "solarized",
-                imageUpload: true,
-                imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-                imageUploadURL: "<%=request.getContextPath()%>/upload/editormd/images"
-            });
-        });
     });
 </script>
 </body>

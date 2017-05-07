@@ -198,6 +198,30 @@ desired effect
                         <span>主页</span>
                     </a>
                 </li>
+                <%--图片管理模块--%>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-file-image-o" style="font-size: larger"></i>
+                        <span>图片管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="<%=request.getContextPath()%>/image">
+                                <i class="fa fa-plus-square"></i>
+                                <span> 图片管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-pencil-square"></i>
+                                <span> 图片编辑</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <%--Splash管理模块--%>
                 <li class="treeview">
                     <a href="#">

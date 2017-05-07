@@ -180,6 +180,30 @@ desired effect
                         <span>主页</span>
                     </a>
                 </li>
+                <%--图片管理模块--%>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-file-image-o" style="font-size: larger"></i>
+                        <span>图片管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="<%=request.getContextPath()%>/image">
+                                <i class="fa fa-plus-square"></i>
+                                <span> 图片管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-pencil-square"></i>
+                                <span> 图片编辑</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <%--Splash管理模块--%>
                 <li class="treeview">
                     <a href="#">
@@ -312,15 +336,17 @@ desired effect
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <%--内容区域--%>
-                                <%--工具栏--%>
+                            <%--工具栏--%>
                             <div class="row" id="toolBar">
                                 <div class="col-lg-4 pull-left">
                                     <div class="btn-toolbar pull-left" role="toolbar" aria-label="...">
                                         <div class="btn-group" role="group" aria-label="...">
                                             <div class="input-group">
-                                                <input name="search" type="text" class="form-control" placeholder="ID|名称|描述">
+                                                <input name="search" type="text" class="form-control"
+                                                       placeholder="ID|名称|描述">
                                                 <span class="input-group-btn">
-                                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                                    <button class="btn btn-default" type="button"><i
+                                                            class="fa fa-search"></i></button>
                                                 </span>
                                             </div>
                                         </div>
@@ -339,7 +365,7 @@ desired effect
                                     </div>
                                 </div>
                             </div>
-                                <%--表格信息--%>
+                            <%--表格信息--%>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <table id="categoryTable"

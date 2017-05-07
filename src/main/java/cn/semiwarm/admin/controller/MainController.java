@@ -34,6 +34,11 @@ public class MainController {
         return new ModelAndView("main");
     }
 
+    @RequestMapping(value = "/image", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public ModelAndView image() throws Exception {
+        return new ModelAndView("image");
+    }
+
     @RequestMapping(value = "/goods", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     public ModelAndView goods() throws Exception {
 
