@@ -446,22 +446,6 @@ desired effect
             });
         });
     });
-
-    /**
-     * 判断字符串是否为空
-     * @return {boolean}
-     */
-    function IsNull(str) {
-        return (Trim(str) === "");
-    }
-    function Trim(str) {
-        return str.replace(/(^\s*)|(\s*$)/g, "");
-    }
-    function replaceHTML(str) {
-        str = str.replace(/<[^>].*?>/g, "");
-        str = str.replace(/&nbsp;/g, "");
-        return str;
-    }
 </script>
 </body>
 </html>

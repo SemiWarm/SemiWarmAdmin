@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace是指明Mybatis扫描的目录，即cn.semiwarm.admin.mapper.xxxMapper -->
+<mapper namespace="cn.semiwarm.admin.mapper.GoodsSpecParamMapper">
+    <insert id="add" parameterType="cn.semiwarm.admin.entity.GoodsSpecParam">
+        INSERT INTO GoodsSpecParam (spec_param_id, spec_param_name, spec_param_value, goods_quantity, goods_id)
+        VALUES (#{specParamId}, #{specParamName}, #{specParamValue}, #{goodsQuantity}, #{goodsId})
+    </insert>
+    <delete id="delete" parameterType="cn.semiwarm.admin.entity.GoodsSpecParam">
+        DELETE FROM GoodsSpecParam
+        WHERE spec_param_id = #{specParamId}
+    </delete>
+    <update id="update" parameterType="cn.semiwarm.admin.entity.GoodsSpecParam">
+        UPDATE GoodsSpecParam
+        SET spec_param_name  = #{specParamName},
+            spec_param_value = #{specParamValue},
+            goods_quantity   = #{goodsQuantity},
+            goods_id         = #{goodsId}
+        WHERE spec_param_id = #{specParamId}
+    </update>
+    <select id="findById" parameterType="java.lang.Long" resultType="cn.semiwarm.admin.entity.GoodsSpecParam">
+        SELECT *
+        FROM GoodsSpecParam
+        WHERE spec_param_id = #{specParamId}
+    </select>
+    <select id="findAll" resultType="cn.semiwarm.admin.entity.GoodsSpecParam">
+        SELECT *
+        FROM GoodsSpecParam
+    </select>
+</mapper>

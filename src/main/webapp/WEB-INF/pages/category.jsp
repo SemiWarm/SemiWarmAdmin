@@ -1394,8 +1394,8 @@ desired effect
                     if (categoryResponse["success"] === 1) {
                         sweetAlert({title: "成功信息", text: categoryResponse["message"], type: "success"}, function () {
                             addCategoryForm[0].reset();
+                            categoryBannerUploader.fileinput('clear');
                         });
-
                     } else {
                         sweetAlert("错误信息", categoryResponse["message"], "error");
                     }
@@ -1431,6 +1431,8 @@ desired effect
                     if (subCategoryResponse["success"] === 1) {
                         sweetAlert({title: "成功信息", text: subCategoryResponse["message"], type: "success"}, function () {
                             addSubCategoryForm[0].reset();
+                            subCategoryBannerUploader.fileinput('clear');
+                            subCategoryIconUploader.fileinput('clear');
                         });
 
                     } else {

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace是指明Mybatis扫描的目录，即cn.semiwarm.admin.mapper.xxxMapper -->
+<mapper namespace="cn.semiwarm.admin.mapper.GoodsMapper">
+    <insert id="add" parameterType="cn.semiwarm.admin.entity.Goods">
+        INSERT INTO Goods (goods_id, sub_category_id, goods_title, goods_tags, provider_id, goods_price, goods_banners, goods_desc, goods_markdown_detail, goods_html_detail)
+        VALUES
+            (#{goodsId}, #{subCategoryId}, #{goodsTitle}, #{goodsTags}, #{providerId}, #{goodsPrice}, #{goodsBanners},
+             #{goodsDesc}, #{goodsMarkdownDetail}, #{goodsHtmlDetail})
+    </insert>
+    <delete id="delete" parameterType="cn.semiwarm.admin.entity.Goods">
+        DELETE FROM Goods
+        WHERE goods_id = #{goodsId}
+    </delete>
+    <update id="update" parameterType="cn.semiwarm.admin.entity.Goods">
+        UPDATE Goods
+        SET sub_category_id       = #{subCategoryId},
+            goods_title           = #{goodsTitle},
+            goods_tags            = #{goodsTags},
+            provider_id           = #{providerId},
+            goods_price           = #{goodsPrice},
+            goods_banners         = #{goodsBanners},
+            goods_desc            = #{goodsDesc},
+            goods_markdown_detail = #{goodsMarkdownDetail},
+            goods_html_detail     = #{goodsHtmlDetail}
+        WHERE goods_id = #{goodsId}
+    </update>
+    <select id="findById" parameterType="java.lang.Long" resultType="cn.semiwarm.admin.entity.Goods">
+        SELECT *
+        FROM Goods
+        WHERE goods_id = #{goodsId}
+    </select>
+    <select id="findAll" resultType="cn.semiwarm.admin.entity.Goods">
+        SELECT *
+        FROM Goods
+    </select>
+</mapper>

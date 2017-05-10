@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/fileinput.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/bootstrap-table.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/editormd.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/sweetalert.css">
     <%--
     AdminLTE Skins. We have chosen the skin-blue for this starter
     page. However, you can choose any other skin. Make sure you
@@ -45,6 +46,12 @@
     <%--<script src="../../static/js/html5shiv.min.js"></script>--%>
     <%--<script src="../../static/js/respond.min.js"></script>--%>
     <%--[endif]--%>
+    <style>
+        .vertical-align {
+            display: flex;
+            align-items: center;
+        }
+    </style>
 </head>
 <%--
 BODY TAG OPTIONS:
@@ -327,7 +334,7 @@ desired effect
         <section class="content">
 
             <br>
-            <!-- 页面内容 -->
+            <!-- 添加商品 -->
             <div class="row">
 
                 <div class="col-lg-12">
@@ -343,7 +350,7 @@ desired effect
                             <!-- 增加商品开始 -->
                             <div class="row">
                                 <div class="col-lg-10 col-lg-offset-1">
-                                    <form class="form-horizontal goods_form">
+                                    <form class="form-horizontal">
                                         <!-- goodsCategory -->
                                         <div class="form-group">
                                             <label for="goodsCategory" class="col-lg-2 control-label">商品类目</label>
@@ -365,7 +372,7 @@ desired effect
                                             <label for="goodsTitle" class="col-lg-2 control-label">商品标题</label>
                                             <div class="col-lg-9">
                                                 <input type="text" class="form-control" id="goodsTitle"
-                                                       placeholder="商品标题" required autofocus>
+                                                       placeholder="商品标题" required>
                                             </div>
                                         </div>
                                         <!-- goodsTags -->
@@ -401,14 +408,9 @@ desired effect
                                             <div class="col-lg-9">
                                                 <select class="selectpicker form-control" id="goodsProvider"
                                                         title="商品提供商">
-                                                    <optgroup label="家居">
-                                                        <option>MUJI</option>
-                                                        <option>Coach</option>
-                                                    </optgroup>
-                                                    <optgroup label="服饰">
-                                                        <option>UNIQLO</option>
-                                                        <option>A21</option>
-                                                    </optgroup>
+                                                    <c:forEach items="${goodsProviders}" var="goodsProvider">
+                                                        <option value="${goodsProvider.providerId}">${goodsProvider.providerName}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </div>
                                         </div>
@@ -430,12 +432,54 @@ desired effect
                                                 </button>
                                                 <div class="btn-toolbar pull-right" role="toolbar">
                                                     <div class="btn-group" role="group">
-                                                        <button type="button" class="btn btn-default"><span
-                                                                class="glyphicon glyphicon-pencil"></span></button>
-                                                        <button type="button" class="btn btn-default"><span
+                                                        <button id="btnRemoveSpecRow" type="button"
+                                                                class="btn btn-default"><span
                                                                 class="glyphicon glyphicon-trash"></span></button>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <!-- specParams -->
+                                            <div class="col-lg-9 col-lg-offset-2"
+                                                 style="padding-top: 5px">
+                                                <table id="specParamsTable" data-toggle="table"
+                                                       data-click-to-select="true">
+                                                    <thead>
+                                                    <tr>
+                                                        <th rowspan="2" data-field="state"
+                                                            data-radio="true"
+                                                            data-halign="center"
+                                                            data-align="center"
+                                                            data-valign="middle">#
+                                                        </th>
+                                                        <th colspan="5" data-halign="center"
+                                                            data-align="center"
+                                                            data-valign="middle">参数明细
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th data-field="id" data-halign="center"
+                                                            data-align="center" data-valign="middle">
+                                                            规格ID
+                                                        </th>
+                                                        <th data-field="specName" data-halign="center"
+                                                            data-align="center" data-valign="middle">
+                                                            规格名称
+                                                        </th>
+                                                        <th data-field="specParam" data-halign="center"
+                                                            data-align="center"
+                                                            data-valign="middle">
+                                                            参数名称
+                                                        </th>
+                                                        <th data-field="goodsQuantity"
+                                                            data-halign="center"
+                                                            data-align="center"
+                                                            data-valign="middle">
+                                                            商品数量
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
                                             </div>
                                             <!-- Modal -->
                                             <div class="modal fade" id="addSpecParamModal" tabindex="-1" role="dialog"
@@ -451,6 +495,28 @@ desired effect
                                                         </div>
                                                         <div class="modal-body">
                                                             <!-- 下拉菜单联动 -->
+                                                            <div id="addSpecModal">
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <label for="goodsCount"
+                                                                               class="col-lg-2 control-label">商品数量</label>
+                                                                        <div class="col-lg-10">
+                                                                            <input type="number" class="form-control"
+                                                                                   id="goodsCount"
+                                                                                   placeholder="商品数量" required>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <label class="btn btn-info col-lg-12" id="newSpec"
+                                                                           role="button"><span
+                                                                            class="glyphicon glyphicon-plus"></span>新增规格</label>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button class="btn btn-default" type="button"
@@ -462,40 +528,6 @@ desired effect
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- specParams -->
-                                            <div class="col-lg-9 col-lg-offset-2" style="padding-top: 5px">
-                                                <table id="specParamsTable" data-toggle="specParamsTable"
-                                                       data-click-to-select="true">
-                                                    <thead>
-                                                    <tr>
-                                                        <th rowspan="2" data-field="state" data-radio="true"
-                                                            data-halign="center"
-                                                            data-align="center"
-                                                            data-valign="middle">#
-                                                        </th>
-                                                        <th colspan="4" data-halign="center" data-align="center"
-                                                            data-valign="middle">参数明细
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th data-field="specName" data-halign="center"
-                                                            data-align="center" data-valign="middle">
-                                                            规格名称
-                                                        </th>
-                                                        <th data-field="specParam" data-halign="center"
-                                                            data-align="center"
-                                                            data-valign="middle">
-                                                            参数名称
-                                                        </th>
-                                                        <th data-field="goodsQuantity" data-halign="center"
-                                                            data-align="center"
-                                                            data-valign="middle">
-                                                            商品数量
-                                                        </th>
-                                                    </tr>
-                                                    </thead>
-                                                </table>
                                             </div>
                                         </div>
                                         <!-- goodsBanners -->
@@ -543,8 +575,162 @@ desired effect
                                     </div>
                                 </div>
                             </div>
+                            <%--footer--%>
+                            <div class="row">
+                                <button class="btn btn-warning col-lg-2 col-lg-offset-2" id="btnGoodsReset"
+                                        name="btnGoodsReset" type="reset">重置
+                                </button>
+                                <div class="col-lg-4">
+
+                                </div>
+                                <button class="btn btn-primary col-lg-2" id="btnGoodsAdd"
+                                        name="btnGoodsAdd" type="button">添加
+                                </button>
+                            </div>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
+                </div>
+
+            </div>
+
+            <%--添加规格--%>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box box-success collapsed-box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">添加商品规格</h3>
+                            <div class="box-tools pull-right">
+                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div><!-- /.box-tools -->
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-lg-10 col-lg-offset-1">
+                                    <form class="form-horizontal" id="goodsSpecForm">
+                                        <!-- 规格名称 -->
+                                        <div class="form-group">
+                                            <label for="goodsSpecName" class="col-lg-2 control-label">规格名称</label>
+                                            <div class="col-lg-9">
+                                                <input type="text" class="form-control" id="goodsSpecName"
+                                                       placeholder="规格名称" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- 规格描述 -->
+                                        <div class="form-group">
+                                            <label for="goodsSpecDesc" class="col-lg-2 control-label">规格描述</label>
+                                            <div class="col-lg-9">
+                                                <textarea class="form-control" rows="3" id="goodsSpecDesc"
+                                                          placeholder="规格描述" required></textarea>
+                                            </div>
+                                        </div>
+
+                                        <%--footer--%>
+                                        <div class="row">
+                                            <button class="btn btn-warning col-md-2 col-md-offset-4"
+                                                    id="btnGoodsSpecReset"
+                                                    name="btnGoodsSpecReset" type="reset">重置
+                                            </button>
+                                            <button class="btn btn-primary col-md-2 col-md-offset-2"
+                                                    id="btnGoodsSpecAdd"
+                                                    name="btnGoodsSpecAdd" type="button">添加
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <%--添加供应商--%>
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="box box-success collapsed-box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">添加商品提供商</h3>
+                            <div class="box-tools pull-right">
+                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div><!-- /.box-tools -->
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-lg-10 col-lg-offset-1">
+                                    <form class="form-horizontal" id="goodsProviderForm">
+                                        <!-- 供应商名称 -->
+                                        <div class="form-group">
+                                            <label for="goodsProviderName" class="col-lg-2 control-label">供应商名称</label>
+                                            <div class="col-lg-9">
+                                                <input type="text" class="form-control" id="goodsProviderName"
+                                                       placeholder="供应商名称" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- 供应商简介 -->
+                                        <div class="form-group">
+                                            <label for="goodsProviderProfile"
+                                                   class="col-lg-2 control-label">供应商简介</label>
+                                            <div class="col-lg-9">
+                                                <textarea class="form-control" rows="3" id="goodsProviderProfile"
+                                                          placeholder="供应商简介" required></textarea>
+                                            </div>
+                                        </div>
+
+                                        <!-- 供应商描述 -->
+                                        <div class="form-group">
+                                            <label for="goodsProviderDesc"
+                                                   class="col-lg-2 control-label">供应商描述</label>
+                                            <div class="col-lg-9">
+                                                <textarea class="form-control" rows="5" id="goodsProviderDesc"
+                                                          placeholder="供应商描述" required></textarea>
+                                            </div>
+                                        </div>
+
+                                        <!-- 供应商Banner -->
+                                        <div class="form-group">
+                                            <label for="goodsProviderBanners"
+                                                   class="col-lg-2 control-label">供应商Banner</label>
+                                            <div class="col-lg-9">
+                                                <input class="form-control" id="goodsProviderBanners"
+                                                       name="goodsProviderBanners"
+                                                       type="text"
+                                                       placeholder="http://www.semiwarm.cn/admin/upload/images/goods/..."
+                                                       disabled
+                                                       required>
+                                            </div>
+                                        </div>
+                                        <!-- 供应商Banner -->
+                                        <div class="form-group">
+                                            <label for="goodsProviderBannersUploader"
+                                                   class="col-lg-2 control-label">Banner上传</label>
+                                            <div class="col-lg-9">
+                                                <input class="form-control file-loading"
+                                                       id="goodsProviderBannersUploader"
+                                                       name="image" type="file" multiple required>
+                                            </div>
+                                        </div>
+
+                                        <%--footer--%>
+                                        <div class="row">
+                                            <button class="btn btn-warning col-md-2 col-md-offset-4"
+                                                    id="btnGoodsProviderReset"
+                                                    name="btnGoodsProviderReset" type="reset">重置
+                                            </button>
+                                            <button class="btn btn-primary col-md-2 col-md-offset-2"
+                                                    id="btnGoodsProviderAdd"
+                                                    name="btnGoodsProviderAdd" type="button">添加
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -569,35 +755,12 @@ desired effect
 <script src="<%=request.getContextPath()%>/static/js/flowchart.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/jquery.flowchart.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/editormd.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/sweetalert.min.js"></script>
 <script type="text/javascript">
     var goodsBannersUploader = $('#goodsBannersUploader'); // 图片上传工具
+    var goodsProviderBannersUploader = $('#goodsProviderBannersUploader');
     var specParamsTable = $('#specParamsTable'); // 规格参数表
     var editor; // 商品详情数据存放变量
-    var data = [{
-        "specName": "尺寸",
-        "specParam": "M",
-        "goodsQuantity": 20
-    }, {
-        "specName": "尺寸",
-        "specParam": "L",
-        "goodsQuantity": 20
-    }, {
-        "specName": "尺寸",
-        "specParam": "XL",
-        "goodsQuantity": 20
-    }, {
-        "specName": "颜色",
-        "specParam": "粉色",
-        "goodsQuantity": 20
-    }, {
-        "specName": "颜色",
-        "specParam": "湖蓝",
-        "goodsQuantity": 20
-    }, {
-        "specName": "颜色",
-        "specParam": "藏青",
-        "goodsQuantity": 20
-    }];
 
     // 初始化变量
     var goodsCategory = $('#goodsCategory'); // 所属子类目
@@ -607,6 +770,112 @@ desired effect
     var goodsPrice = $('#goodsPrice'); // 商品定价
     var goodsBanners = $('#goodsBanners'); // 商品图片
     var goodsDesc = $('#goodsDesc'); // 商品简介
+
+    // 商品供应商部分
+    var goodsProviderBanners = $('#goodsProviderBanners');
+    var goodsProviderName = $('#goodsProviderName');
+    var goodsProviderProfile = $('#goodsProviderProfile');
+    var goodsProviderDesc = $('#goodsProviderDesc');
+    var btnGoodsProviderAdd = $('#btnGoodsProviderAdd');
+    var goodsProviderForm = $('#goodsProviderForm');
+
+    var checkGoodsProviderInput = function () {
+        var result = "";
+
+        if (IsNull(replaceHTML(goodsProviderName.val()))) {
+            result += "请填写供应商名称!";
+        }
+
+        if (IsNull(replaceHTML(goodsProviderProfile.val()))) {
+            result += "请填写供应商简介!";
+        }
+
+        if (IsNull(replaceHTML(goodsProviderDesc.val()))) {
+            result += "请填写供应商描述!";
+        }
+
+        if (IsNull(replaceHTML(goodsProviderBanners.val()))) {
+            result += "请上传供应商图片!";
+        }
+
+        return result;
+    };
+
+    btnGoodsProviderAdd.bind('click', function () {
+        if (checkGoodsProviderInput().length > 0) {
+            sweetAlert("出错啦!", checkGoodsSpecInput(), "error");
+        } else {
+            $.ajax({
+                type: 'post',
+                url: '<%=request.getContextPath()%>/goodsProvider',
+                data: {
+                    "providerName": goodsProviderName.val(),
+                    "providerProfile": goodsProviderProfile.val(),
+                    "providerDesc": goodsProviderDesc.val(),
+                    "providerBanner": goodsProviderBanners.val()
+                },
+                async: false,
+                success: function (response) {
+                    if (response["success"] === 1) {
+                        sweetAlert({title: "成功信息", text: response["message"], type: "success"}, function () {
+                            goodsProviderForm[0].reset();
+                            goodsProviderBannersUploader.fileinput('clear');
+                        });
+                    } else {
+                        sweetAlert("提示信息", response["message"], "error");
+                    }
+                },
+                error: function (errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+        }
+    });
+
+    // 商品规格部分
+    var goodsSpecName = $('#goodsSpecName');
+    var goodsSpecDesc = $('#goodsSpecDesc');
+    var btnGoodsSpecAdd = $('#btnGoodsSpecAdd');
+    var goodsSpecForm = $('#goodsSpecForm');
+
+    var checkGoodsSpecInput = function () {
+        var result = "";
+
+        if (IsNull(replaceHTML(goodsSpecName.val()))) {
+            result += "请填写规格名称!";
+        }
+
+        if (IsNull(replaceHTML(goodsSpecDesc.val()))) {
+            result += "请填写规格描述!";
+        }
+
+        return result;
+    };
+
+    btnGoodsSpecAdd.bind('click', function () {
+        if (checkGoodsSpecInput().length > 0) {
+            sweetAlert("出错啦!", checkGoodsSpecInput(), "error");
+        } else {
+            $.ajax({
+                type: 'post',
+                url: '<%=request.getContextPath()%>/goodsSpec',
+                data: {"specName": goodsSpecName.val(), "specDesc": goodsSpecDesc.val()},
+                async: false,
+                success: function (response) {
+                    if (response["success"] === 1) {
+                        sweetAlert({title: "成功信息", text: response["message"], type: "success"}, function () {
+                            goodsSpecForm[0].reset();
+                        });
+                    } else {
+                        sweetAlert("提示信息", response["message"], "error");
+                    }
+                },
+                error: function (errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+        }
+    });
 
     $(function () {
         // 初始化上传域
@@ -623,10 +892,31 @@ desired effect
             maxFileCount: 5, // 最多文件数量
             enctype: 'multipart/form-data'
         });
+
+        goodsProviderBannersUploader.fileinput({
+            language: 'zh', // 设置语言
+            uploadUrl: '<%=request.getContextPath()%>/upload/goodsProviderBanner/image', // 上传地址
+            allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif'], // 允许上传的文件后缀
+            showRemove: true, // 是否显示移除按钮
+            removeClass: 'btn btn-warning', // 移除按钮主题
+            showUpload: false, // 是否显示上传按钮
+            showCaption: true, // 是否显示标题
+            dropZoneEnabled: false,
+            minFileCount: 1, // 最少文件数量
+            maxFileCount: 1, // 最多文件数量
+            enctype: 'multipart/form-data'
+        });
+
         // 上传完成后的回调函数
         goodsBannersUploader.on('fileuploaded', function (event, data) {
             var responses = data.response;
             console.log(responses);
+        });
+
+        // 商品供应商Banner上传完成后的回调
+        goodsProviderBannersUploader.on('fileuploaded', function (event, data) {
+            var response = data.response;
+            goodsProviderBanners.val(response["url"]);
         });
         // 初始化编辑器
         editor = editormd("mdEditor", {
@@ -641,9 +931,138 @@ desired effect
             imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
             imageUploadURL: "<%=request.getContextPath()%>/upload/editormd/images"
         });
-        // 初始化表格数据
-        specParamsTable.bootstrapTable({data: data});
     });
+
+
+    var addSpecParamModal = $('#addSpecParamModal');
+    var newSpec = $('#newSpec');
+    var addSpecModal = $('#addSpecModal');
+    var goodsCount = $('#goodsCount');
+    var i = 0;
+    var specFormId = "";
+    var specNameId = "";
+    var specParamId = "";
+    var removeSpec = function (formId) {
+        console.log(formId);
+        var specForm = window.document.getElementById("specForm" + formId);
+        specForm.parentNode.removeChild(specForm);
+    };
+
+    newSpec.bind('click', function () {
+        var currentId = i++;
+        specFormId = "specForm" + currentId;
+        specNameId = "specName" + currentId;
+        specParamId = "specParam" + currentId;
+        var addSpecHtml =
+            "<div class='row vertical-align form-group' id='" + specFormId + "'>" +
+            "<label for='" + specNameId + "' class='col-lg-2 control-label'>规格名称</label>" +
+            "<div class='col-lg-4'>" +
+            "<select class='selectpicker form-control' id='" + specNameId + "' title='规格名称'>" +
+            "<c:forEach items='${goodsSpecs}' var='goodsSpec'>" +
+            "<option>${goodsSpec.specName}</option>" +
+            "</c:forEach> " +
+            "</select>" +
+            "</div>" +
+            "<div class='col-lg-4'>" +
+            "<input class='form-control' id='" + specParamId + "' type='text' placeholder='请输入规格参数'>" +
+            "</div>" +
+            "<div class='col-lg-2'>" +
+            "<button class='btn btn-xs btn-default pull-right' onclick='removeSpec(" + currentId + ")'>" +
+            "<span class='glyphicon glyphicon-minus text-muted'></span>" +
+            "</button>" +
+            "</div>" +
+            "</div>";
+        addSpecModal.append(addSpecHtml);
+        $('.selectpicker').selectpicker('refresh');
+    });
+
+    var btnConfirm = $('#btnConfirm');
+    btnConfirm.bind('click', function () {
+        var errorMessage = "";
+        var specNameValues = "";
+        var specParamValues = "";
+        var specNameSelector = $("#addSpecModal" + " .selectpicker");
+
+        if (specNameSelector.length <= 0) {
+            errorMessage += "请至少添加一个规格!\n";
+        }
+
+        specNameSelector.each(function (j) {
+            if (this.value === "") {
+                errorMessage += "第" + (j + 1) + "个规格名称没有选择!\n"
+            } else {
+                if (j > 0) {
+                    specNameValues += ",";
+                    specNameValues += this.value;
+                } else {
+                    specNameValues += this.value;
+                }
+            }
+            console.log(this.value);
+        });
+        $("#addSpecModal" + " input[type='text']").each(function (j) {
+            if (this.value === "") {
+                errorMessage += "第" + (j + 1) + "个规格参数没有填写!\n"
+            } else {
+                if (j > 0) {
+                    specParamValues += ",";
+                    specParamValues += this.value;
+                } else {
+                    specParamValues += this.value;
+                }
+            }
+            console.log(this.value);
+        });
+
+        if (IsNull(replaceHTML(goodsCount.val()))) {
+            errorMessage += "商品数量没有填写!";
+        }
+        if (errorMessage.length <= 0) {
+            specParamsTable.bootstrapTable('append', {
+                "id": new Date().getTime(),
+                "specName": specNameValues,
+                "specParam": specParamValues,
+                "goodsQuantity": goodsCount.val()
+            })
+            ;
+            addSpecParamModal.modal('hide');
+            addSpecModal.html("");
+            $('.selectpicker').selectpicker('refresh');
+            goodsCount.val("");
+        } else {
+            sweetAlert("出错啦!", errorMessage, "error");
+        }
+    });
+
+    var btnRemoveSpecRow = $('#btnRemoveSpecRow');
+    btnRemoveSpecRow.bind('click', function () {
+        var rowId = $.map(specParamsTable.bootstrapTable('getSelections'), function (row) {
+            return row.id;
+        });
+        specParamsTable.bootstrapTable('remove', {
+            field: 'id',
+            values: rowId
+        });
+    });
+
+
+    /**
+     * 判断字符串是否为空
+     * @return {boolean}
+     */
+    function IsNull(str) {
+        return (Trim(str) === "");
+    }
+    function Trim(str) {
+        return str.replace(/(^\s*)|(\s*$)/g, "");
+    }
+    function replaceHTML(str) {
+        str = str.replace(/<[^>].*?>/g, "");
+        str = str.replace(/&nbsp;/g, "");
+        return str;
+    }
+
+
 </script>
 </body>
 </html>
