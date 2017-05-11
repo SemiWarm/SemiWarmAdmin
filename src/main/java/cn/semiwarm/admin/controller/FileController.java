@@ -1,7 +1,6 @@
 package cn.semiwarm.admin.controller;
 
 import cn.semiwarm.admin.entity.Image;
-import cn.semiwarm.admin.entity.Response;
 import cn.semiwarm.admin.entity.UploadImageResponse;
 import cn.semiwarm.admin.service.impl.ImageServiceImpl;
 import cn.semiwarm.admin.utils.CommonFileUtils;
@@ -15,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -150,54 +147,44 @@ public class FileController {
      */
     @RequestMapping(value = "/upload/{type}/images", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
     @ResponseBody
-    public Response<List<UploadImageResponse>> uploadImages(HttpSession session, HttpServletRequest request, HttpServletResponse response, @PathVariable("type") String type, @RequestParam(value = "images", required = false) MultipartFile[] uploadImages) throws Exception {
+    public UploadImageResponse uploadImages(HttpSession session, HttpServletRequest request, HttpServletResponse response, @PathVariable("type") String type, @RequestParam(value = "images") MultipartFile[] uploadImages) throws Exception {
 
-        Response<List<UploadImageResponse>> listResponse = new Response<List<UploadImageResponse>>(); // 初始化响应结果
+        UploadImageResponse imageResponse = new UploadImageResponse(); // 初始化响应结果
 
         try {
 
             if (null != uploadImages) {
                 // 初始化上传结果
-                List<UploadImageResponse> uploadImageResponses = new ArrayList<UploadImageResponse>();
-                UploadImageResponse uploadImageResponse;
-                for (int i = 0; i < uploadImages.length; i++) {
+                Image image = initUploadImage(session, request, response, uploadImages[0], type);
+                // 创建待上传的文件
+                File uploadFile = new File(image.getImageRealPath());
+                FileUtils.copyInputStreamToFile(uploadImages[0].getInputStream(), uploadFile);
 
-                    Image image = initUploadImage(session, request, response, uploadImages[i], type);
-                    // 创建待上传的文件
-                    File uploadFile = new File(image.getImageRealPath());
-                    FileUtils.copyInputStreamToFile(uploadImages[i].getInputStream(), uploadFile);
+                // 将图片持久化到数据库中
+                int result = imageService.addImage(image);
 
-                    // 将图片持久化到数据库中
-                    int result = imageService.addImage(image);
-                    uploadImageResponse = new UploadImageResponse();
-                    if (result > 0) {
-                        uploadImageResponse.setSuccess(1);
-                        uploadImageResponse.setMessage("第" + i + 1 + "张图片上传成功!");
-                        uploadImageResponse.setUrl(image.getImageAccessPath());
-                    } else {
-                        uploadImageResponse.setSuccess(0);
-                        uploadImageResponse.setMessage("第" + i + 1 + "张图片上传失败!");
-                        uploadImageResponse.setUrl("");
-                    }
-                    uploadImageResponses.add(uploadImageResponse);
+                if (result > 0) {
+                    imageResponse.setSuccess(1);
+                    imageResponse.setMessage("图片上传成功!");
+                    imageResponse.setUrl(image.getImageAccessPath());
+                } else {
+                    imageResponse.setSuccess(0);
+                    imageResponse.setMessage("图片上传异常!");
+                    imageResponse.setUrl("");
                 }
-                listResponse.setSuccess(1);
-                listResponse.setMessage("上传结果");
-                listResponse.setData(uploadImageResponses);
-
             } else {
-                listResponse.setSuccess(-1);
-                listResponse.setMessage("上传失败!请至少选择3张图片进行上传!");
-                listResponse.setData(null);
+                imageResponse.setSuccess(0);
+                imageResponse.setMessage("上传失败!");
+                imageResponse.setUrl("");
             }
 
         } catch (Exception e) {
-            listResponse.setSuccess(0);
-            listResponse.setMessage("上传失败!");
-            listResponse.setData(null);
+            imageResponse.setSuccess(0);
+            imageResponse.setMessage("上传失败!");
+            imageResponse.setUrl("");
         }
 
-        return listResponse;
+        return imageResponse;
     }
 
     /**

@@ -379,9 +379,8 @@ desired effect
                                         <div class="form-group">
                                             <label for="goodsTags" class="col-lg-2 control-label">商品标签</label>
                                             <div class="col-lg-9">
-                                                <select class="selectpicker form-control" id="goodsTags" multiple
-                                                        title="商品标签"
-                                                        data-max-options="2">
+                                                <select class="selectpicker form-control" id="goodsTags"
+                                                        title="商品标签">
                                                     <option value="上新"
                                                             data-content="<span class='label label-success'>上新</span>">
                                                         上新
@@ -762,7 +761,7 @@ desired effect
     var specParamsTable = $('#specParamsTable'); // 规格参数表
     var editor; // 商品详情数据存放变量
 
-    // 初始化变量
+    // 商品部分
     var goodsCategory = $('#goodsCategory'); // 所属子类目
     var goodsTitle = $('#goodsTitle'); // 商品标题
     var goodsTags = $('#goodsTags'); // 商品标签
@@ -770,6 +769,110 @@ desired effect
     var goodsPrice = $('#goodsPrice'); // 商品定价
     var goodsBanners = $('#goodsBanners'); // 商品图片
     var goodsDesc = $('#goodsDesc'); // 商品简介
+    var btnGoodsAdd = $('#btnGoodsAdd');
+
+    var checkGoodsInput = function () {
+
+        var result = "";
+
+        if (IsNull(replaceHTML(goodsCategory.val()))) {
+            result += "请选择商品所属类目!\n";
+        }
+
+        if (IsNull(replaceHTML(goodsTitle.val()))) {
+            result += "请填写商品标题!\n";
+        }
+
+        if (IsNull(replaceHTML(goodsTags.val()))) {
+            result += "请选择商品标签!\n";
+        }
+
+        if (IsNull(replaceHTML(goodsProvider.val()))) {
+            result += "请选择商品供应商!\n";
+        }
+
+        if (IsNull(replaceHTML(goodsPrice.val()))) {
+            result += "请填写商品定价!\n";
+        }
+
+        if (specParamsTable.bootstrapTable('getData').length <= 0) {
+            result += "请至少添加一条商品规格!\n";
+        }
+
+        if (IsNull(replaceHTML(goodsBanners.val()))) {
+            result += "请上传商品图片!\n";
+        }
+
+        if (IsNull(replaceHTML(goodsDesc.val()))) {
+            result += "请填写商品简介!\n";
+        }
+
+        if (editor.getMarkdown() === '# 请描述商品' || editor.getMarkdown() === '') {
+            result += "请描述商品信息!\n";
+        }
+
+        return result;
+    };
+
+    btnGoodsAdd.bind('click', function () {
+        if (checkGoodsInput().length > 0) {
+            sweetAlert("出错啦!", checkGoodsInput(), "error");
+        } else {
+            // 先上传商品信息
+            $.ajax({
+                type: 'post',
+                url: '<%=request.getContextPath()%>/goods',
+                data: {
+                    "subCategoryId": goodsCategory.val(),
+                    "goodsTitle": goodsTitle.val(),
+                    "goodsTags": goodsTags.val(),
+                    "providerId": goodsProvider.val(),
+                    "goodsPrice": goodsPrice.val(),
+                    "goodsBanners": goodsBanners.val(),
+                    "goodsDesc": goodsDesc.val(),
+                    "goodsMarkdownDetail": editor.getMarkdown(),
+                    "goodsHtmlDetail": editor.getHTML()
+                },
+                async: false,
+                success: function (response) {
+                    if (response["success"] === 1) {
+                        // 规格参数处理
+                        var goodsSpecParams = [];
+                        $.each(specParamsTable.bootstrapTable('getData'), function (i, item) {
+                            goodsSpecParams.push({
+                                "specParamId": item["id"],
+                                "specParamName": item["specName"],
+                                "specParamValue": item["specParam"],
+                                "goodsQuantity": item["goodsQuantity"],
+                                "goodsId": response["data"]["goodsId"]
+                            });
+                        });
+                        $.ajax({
+                            type: 'post',
+                            contentType: 'application/json', // 必须添加
+                            url: '<%=request.getContextPath()%>/goodsSpecParam',
+                            data: JSON.stringify(goodsSpecParams), // 需要转化成字符串
+                            async: false,
+                            success: function (response) {
+                                console.log(response);
+                                if (response["success"] === 1) {
+                                    sweetAlert("提示信息", "商品添加成功!", "success");
+                                } else {
+                                    sweetAlert("提示信息", "商品添加失败!", "error");
+                                }
+                            },
+                            error: function (errorMessage) {
+                                console.log(errorMessage);
+                            }
+                        });
+                    }
+                },
+                error: function (errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+        }
+    });
 
     // 商品供应商部分
     var goodsProviderBanners = $('#goodsProviderBanners');
@@ -783,19 +886,19 @@ desired effect
         var result = "";
 
         if (IsNull(replaceHTML(goodsProviderName.val()))) {
-            result += "请填写供应商名称!";
+            result += "请填写供应商名称!\n";
         }
 
         if (IsNull(replaceHTML(goodsProviderProfile.val()))) {
-            result += "请填写供应商简介!";
+            result += "请填写供应商简介!\n";
         }
 
         if (IsNull(replaceHTML(goodsProviderDesc.val()))) {
-            result += "请填写供应商描述!";
+            result += "请填写供应商描述!\n";
         }
 
         if (IsNull(replaceHTML(goodsProviderBanners.val()))) {
-            result += "请上传供应商图片!";
+            result += "请上传供应商图片!\n";
         }
 
         return result;
@@ -842,11 +945,11 @@ desired effect
         var result = "";
 
         if (IsNull(replaceHTML(goodsSpecName.val()))) {
-            result += "请填写规格名称!";
+            result += "请填写规格名称!\n";
         }
 
         if (IsNull(replaceHTML(goodsSpecDesc.val()))) {
-            result += "请填写规格描述!";
+            result += "请填写规格描述!\n";
         }
 
         return result;
@@ -909,8 +1012,11 @@ desired effect
 
         // 上传完成后的回调函数
         goodsBannersUploader.on('fileuploaded', function (event, data) {
-            var responses = data.response;
-            console.log(responses);
+            var response = data.response;
+            if (response["success"] === 1) {
+                console.log(response["url"]);
+                goodsBanners.val(goodsBanners.val() + response["url"] + ";");
+            }
         });
 
         // 商品供应商Banner上传完成后的回调
@@ -960,7 +1066,7 @@ desired effect
             "<select class='selectpicker form-control' id='" + specNameId + "' title='规格名称'>" +
             "<c:forEach items='${goodsSpecs}' var='goodsSpec'>" +
             "<option>${goodsSpec.specName}</option>" +
-            "</c:forEach> " +
+            "</c:forEach>" +
             "</select>" +
             "</div>" +
             "<div class='col-lg-4'>" +

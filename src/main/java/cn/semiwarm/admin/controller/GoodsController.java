@@ -1,17 +1,16 @@
 package cn.semiwarm.admin.controller;
 
 import cn.semiwarm.admin.entity.*;
-import cn.semiwarm.admin.service.impl.CategoryServiceImpl;
-import cn.semiwarm.admin.service.impl.GoodsProviderServiceImpl;
-import cn.semiwarm.admin.service.impl.GoodsSpecServiceImpl;
-import cn.semiwarm.admin.service.impl.SubCategoryServiceImpl;
+import cn.semiwarm.admin.service.impl.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,13 +26,22 @@ public class GoodsController {
     private final SubCategoryServiceImpl subCategoryService;
     private final GoodsSpecServiceImpl goodsSpecService;
     private final GoodsProviderServiceImpl goodsProviderService;
+    private final GoodsServiceImpl goodsService;
+    private final GoodsSpecParamServiceImpl goodsSpecParamService;
 
     @Autowired
-    public GoodsController(CategoryServiceImpl categoryService, SubCategoryServiceImpl subCategoryService, GoodsSpecServiceImpl goodsSpecService, GoodsProviderServiceImpl goodsProviderService) {
+    public GoodsController(CategoryServiceImpl categoryService,
+                           SubCategoryServiceImpl subCategoryService,
+                           GoodsSpecServiceImpl goodsSpecService,
+                           GoodsProviderServiceImpl goodsProviderService,
+                           GoodsServiceImpl goodsService,
+                           GoodsSpecParamServiceImpl goodsSpecParamService) {
         this.categoryService = categoryService;
         this.subCategoryService = subCategoryService;
         this.goodsSpecService = goodsSpecService;
         this.goodsProviderService = goodsProviderService;
+        this.goodsService = goodsService;
+        this.goodsSpecParamService = goodsSpecParamService;
     }
 
 
@@ -114,6 +122,56 @@ public class GoodsController {
     @ResponseBody
     public List<GoodsProvider> getAllGoodsProvider() throws Exception {
         return goodsProviderService.getAllGoodsProvider();
+    }
+
+    @RequestMapping(value = "/goodsSpecParam", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public Response<List<GoodsSpecParam>> addGoodsSpecParam(@RequestBody List<GoodsSpecParam> goodsSpecParams) throws Exception {
+
+        Response<List<GoodsSpecParam>> response = new Response<List<GoodsSpecParam>>();
+
+        int i = 0;
+        for (GoodsSpecParam goodsSpecParam : goodsSpecParams) {
+            int result = goodsSpecParamService.addGoodsSpecParam(goodsSpecParam);
+            if (result > 0) {
+                i++;
+            }
+        }
+
+        if (i == goodsSpecParams.size()) {
+            response.setSuccess(1);
+            response.setMessage("商品规格参数添加成功!");
+            response.setData(goodsSpecParams);
+        } else {
+            response.setSuccess(0);
+            response.setMessage("商品规格参数添加失败!");
+            response.setData(null);
+        }
+
+        return response;
+    }
+
+    @RequestMapping(value = "/goods", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public Response<Goods> addGoods(Goods goods) throws Exception {
+        Response<Goods> response = new Response<Goods>();
+        Date date = new Date();
+        goods.setGoodsId(date.getTime());
+        goods.setStatus(true);
+
+        int result = goodsService.addGoods(goods);
+
+        if (result > 0) {
+            response.setSuccess(1);
+            response.setMessage("商品添加成功!");
+            response.setData(goods);
+        } else {
+            response.setSuccess(0);
+            response.setMessage("商品添加失败!");
+            response.setData(null);
+        }
+
+        return response;
     }
 
 }
