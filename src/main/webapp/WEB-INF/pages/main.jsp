@@ -275,6 +275,30 @@ desired effect
                         </li>
                     </ul>
                 </li>
+                <%--商品集管理模块--%>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-list"></i>
+                        <span>商品集管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="<%=request.getContextPath()%>/goodsCollection">
+                                <i class="fa fa-plus-square"></i>
+                                <span> 商品集管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-pencil-square"></i>
+                                <span> 商品集编辑</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <%--类目管理--%>
                 <li class="treeview">
                     <a href="#">

@@ -287,6 +287,30 @@ desired effect
                         </li>
                     </ul>
                 </li>
+                <%--商品集管理模块--%>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-list"></i>
+                        <span>商品集管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="<%=request.getContextPath()%>/goodsCollection">
+                                <i class="fa fa-plus-square"></i>
+                                <span> 商品集管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-pencil-square"></i>
+                                <span> 商品集编辑</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <%--类目管理--%>
                 <li class="treeview">
                     <a href="#">
@@ -450,7 +474,7 @@ desired effect
                                                             data-align="center"
                                                             data-valign="middle">#
                                                         </th>
-                                                        <th colspan="5" data-halign="center"
+                                                        <th colspan="4" data-halign="center"
                                                             data-align="center"
                                                             data-valign="middle">参数明细
                                                         </th>
@@ -815,37 +839,63 @@ desired effect
     };
 
     btnGoodsAdd.bind('click', function () {
-        console.log(specParamsTable.bootstrapTable('getData'));
-        var goodsSpecParams = [];
-        $.each(specParamsTable.bootstrapTable('getData'), function (i, item) {
-            goodsSpecParams.push({
-                "specParamId": item["id"],
-                "specParamName": item["specName"],
-                "specParamValue": item["specParam"],
-                "goodsQuantity": item["goodsQuantity"]
-            });
-        });
-        console.log(goodsSpecParams);
-
-        $.ajax({
-            type: 'post',
-            contentType: 'application/json',
-            url: '<%=request.getContextPath()%>/goodsSpecParam',
-            data: JSON.stringify(goodsSpecParams),
-            async: false,
-            success: function (response) {
-                console.log(response);
-            },
-            error: function (errorMessage) {
-                console.log(errorMessage);
-            }
-        });
-
-
         if (checkGoodsInput().length > 0) {
             sweetAlert("出错啦!", checkGoodsInput(), "error");
         } else {
-
+            // 先上传商品信息
+            $.ajax({
+                type: 'post',
+                url: '<%=request.getContextPath()%>/goods',
+                data: {
+                    "subCategoryId": goodsCategory.val(),
+                    "goodsTitle": goodsTitle.val(),
+                    "goodsTags": goodsTags.val(),
+                    "providerId": goodsProvider.val(),
+                    "goodsPrice": goodsPrice.val(),
+                    "goodsBanners": goodsBanners.val(),
+                    "goodsDesc": goodsDesc.val(),
+                    "goodsMarkdownDetail": editor.getMarkdown(),
+                    "goodsHtmlDetail": editor.getHTML()
+                },
+                async: false,
+                success: function (response) {
+                    if (response["success"] === 1) {
+                        // 规格参数处理
+                        var goodsSpecParams = [];
+                        $.each(specParamsTable.bootstrapTable('getData'), function (i, item) {
+                            goodsSpecParams.push({
+                                "specParamId": item["id"],
+                                "specParamName": item["specName"],
+                                "specParamValue": item["specParam"],
+                                "goodsQuantity": item["goodsQuantity"],
+                                "goodsId": response["data"]["goodsId"]
+                            });
+                        });
+                        $.ajax({
+                            type: 'post',
+                            contentType: 'application/json', // 必须添加
+                            url: '<%=request.getContextPath()%>/goodsSpecParam',
+                            data: JSON.stringify(goodsSpecParams), // 需要转化成字符串
+                            async: false,
+                            success: function (response) {
+                                console.log(response);
+                                if (response["success"] === 1) {
+                                    sweetAlert("提示信息", "商品添加成功!", "success");
+                                    window.location.reload();
+                                } else {
+                                    sweetAlert("提示信息", "商品添加失败!", "error");
+                                }
+                            },
+                            error: function (errorMessage) {
+                                console.log(errorMessage);
+                            }
+                        });
+                    }
+                },
+                error: function (errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
         }
     });
 
@@ -1104,8 +1154,7 @@ desired effect
                 "specName": specNameValues,
                 "specParam": specParamValues,
                 "goodsQuantity": goodsCount.val()
-            })
-            ;
+            });
             addSpecParamModal.modal('hide');
             addSpecModal.html("");
             $('.selectpicker').selectpicker('refresh');

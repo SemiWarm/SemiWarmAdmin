@@ -35,7 +35,15 @@ public class CategoryController {
     @RequestMapping(value = "/categories", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     @ResponseBody
     public List<Category> getAllCategories() throws Exception {
-        return categoryService.getAllCategories();
+
+        List<Category> categories = categoryService.getAllCategories();
+
+        for (Category category : categories) {
+            String formatCategoryBanner = "<button type='button' class='btn btn-success btn-xs' data-toggle='modal' data-target='#imagePreviewModal' value='" + category.getCategoryBanner() + "'>预览图片</button>";
+            category.setCategoryBanner(formatCategoryBanner);
+        }
+
+        return categories;
     }
 
     /**

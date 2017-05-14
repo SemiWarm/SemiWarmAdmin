@@ -7,20 +7,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ef2965f-b7a0-4071-bf46-2322f5cb1d34" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsSpecParamServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsCollection.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsCollections.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsCollectionMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsCollectionsMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/pojo/GoodsCollectionPOJO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsCollectionService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsCollectionServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/GoodsCollectionMapper.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/GoodsCollectionsMapper.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/goodsCollection.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemiWarmAdmin.war" afterPath="$PROJECT_DIR$/target/SemiWarmAdmin.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/classes/cn/semiwarm/admin/controller/FileController.class" afterPath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/classes/cn/semiwarm/admin/controller/FileController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/classes/cn/semiwarm/admin/controller/CategoryController.class" afterPath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/classes/cn/semiwarm/admin/controller/CategoryController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/classes/cn/semiwarm/admin/controller/GoodsController.class" afterPath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/classes/cn/semiwarm/admin/controller/GoodsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/cn/semiwarm/admin/controller/FileController.class" afterPath="$PROJECT_DIR$/target/classes/cn/semiwarm/admin/controller/FileController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/classes/cn/semiwarm/admin/service/GoodsService.class" afterPath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/classes/cn/semiwarm/admin/service/GoodsService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/classes/cn/semiwarm/admin/service/GoodsSpecParamService.class" afterPath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/classes/cn/semiwarm/admin/service/GoodsSpecParamService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/cn/semiwarm/admin/controller/CategoryController.class" afterPath="$PROJECT_DIR$/target/classes/cn/semiwarm/admin/controller/CategoryController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/cn/semiwarm/admin/controller/GoodsController.class" afterPath="$PROJECT_DIR$/target/classes/cn/semiwarm/admin/controller/GoodsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/cn/semiwarm/admin/service/GoodsService.class" afterPath="$PROJECT_DIR$/target/classes/cn/semiwarm/admin/service/GoodsService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/cn/semiwarm/admin/service/GoodsSpecParamService.class" afterPath="$PROJECT_DIR$/target/classes/cn/semiwarm/admin/service/GoodsSpecParamService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/c29de77f-f3d3-4647-8120-14dcb3062706.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/c29de77f-f3d3-4647-8120-14dcb3062706.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/FileController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/FileController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/CategoryController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/CategoryController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/GoodsController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/GoodsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsMapper.java" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsSpecParamService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsSpecParamService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/GoodsMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/GoodsMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/categoryEdit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/categoryEdit.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/goods.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/goods.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/image.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/image.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/pages/categoryEdit.jsp" afterPath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/pages/categoryEdit.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/pages/goods.jsp" afterPath="$PROJECT_DIR$/target/SemiWarmAdmin/WEB-INF/pages/goods.jsp" />
     </list>
     <list id="ddde8985-8dd0-446d-8999-7843fd295b91" name="修改了Splash图片路径(http://www.semiwarm/upload/splash/images)" comment="" />
@@ -83,7 +102,43 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="GoodsSpecParam" />
+        <option name="myItemId" value="GoodsCollections" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="SemiWarmDB" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="SemiWarm" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="GoodsCollection" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="SemiWarmDB" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="SemiWarm" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="Goods" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -94,55 +149,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="goodsCollection.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/goodsCollection.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="665" column="75" lean-forward="true" selection-start-line="665" selection-start-column="75" selection-end-line="665" selection-end-column="75" />
+              <folding>
+                <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#5;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#1;n#div#6;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="GoodsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/GoodsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="134" column="81" lean-forward="true" selection-start-line="134" selection-start-column="81" selection-end-line="134" selection-end-column="81" />
+            <state relative-caret-position="288">
+              <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
               <folding>
-                <element signature="e#3313#3324#0" expanded="true" />
-                <element signature="e#4262#4277#0" expanded="true" />
-                <element signature="e#5288#5310#0" expanded="true" />
-                <element signature="e#6155#6162#0" expanded="true" />
+                <element signature="e#8389#8410#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="goods.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GoodsCollectionServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsCollectionServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="38" column="84" lean-forward="true" selection-start-line="38" selection-start-column="84" selection-end-line="38" selection-end-column="84" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoodsCollectionService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsCollectionService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="106" lean-forward="true" selection-start-line="11" selection-start-column="106" selection-end-line="11" selection-end-column="106" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoodsCollectionMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsCollectionMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+              <folding>
+                <marker date="1494764902000" expanded="true" signature="373:639" ph="INSERT INTO GoodsCollection... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoodsCollectionPOJO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/pojo/GoodsCollectionPOJO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="58" lean-forward="true" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoodsCollection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsCollection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goods.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/goods.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="1144" column="91" lean-forward="true" selection-start-line="1144" selection-start-column="91" selection-end-line="1144" selection-end-column="91" />
-              <folding>
-                <element signature="n#div#1;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#2;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#51590#52537#0#HTML" expanded="false" />
-                <element signature="e#55155#55318#0#HTML" expanded="false" />
-                <element signature="e#55359#56620#0#HTML" expanded="false" />
-                <element signature="e#58922#58975#0#HTML" expanded="false" />
-                <element signature="e#59067#59124#0#HTML" expanded="false" />
-                <element signature="e#59155#59269#0#HTML" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GoodsSpecParam.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsSpecParam.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Goods.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/Goods.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+            <state relative-caret-position="355">
+              <caret line="875" column="68" lean-forward="true" selection-start-line="875" selection-start-column="68" selection-end-line="875" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -181,18 +282,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/static/css/fileinput.min.css" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/ImageMapper.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/Image.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/Category.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/SubCategory.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/ImageMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/AdministratorMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/CategoryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/CategoryServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/CategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/ImageService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/ImageController.java" />
@@ -202,16 +292,10 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/SubCategoryMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/SubCategoryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/SubCategoryServiceImpl.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c29de77f-f3d3-4647-8120-14dcb3062706/console.sql" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/categoryEdit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/image.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsSpec.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsSpecParam.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/Goods.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsProviderMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/GoodsMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/GoodsProviderMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsSpecMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/GoodsSpecMapper.xml" />
@@ -222,16 +306,33 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsProviderService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsProviderServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/FileController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsSpecParamService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsSpecParamServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/GoodsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/CategoryController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsCollections.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsCollectionsMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsCollectionMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/GoodsCollectionsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/pojo/GoodsCollectionPOJO.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/categoryEdit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/image.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/GoodsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/goods.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsCollection.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/GoodsCollectionMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsCollectionService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/GoodsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsCollectionServiceImpl.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c29de77f-f3d3-4647-8120-14dcb3062706/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/goodsCollection.jsp" />
       </list>
     </option>
   </component>
@@ -313,7 +414,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -608,7 +709,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mapper" />
+              <option name="myItemId" value="pojo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -638,7 +739,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
+              <option name="myItemId" value="mapper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -674,7 +775,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -698,8 +799,8 @@
       <recent name="https://github.com/pagehelper/Mybatis-PageHelper.git" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/mapper" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages" />
+      <recent name="$PROJECT_DIR$/src/main/resources/mapper" />
       <recent name="$PROJECT_DIR$/src/main/webapp/static/js" />
       <recent name="$PROJECT_DIR$/src/main/webapp/static/css" />
       <recent name="$PROJECT_DIR$/src/main/webapp/static" />
@@ -1338,6 +1439,10 @@
       <workItem from="1494290508325" duration="2483000" />
       <workItem from="1494337822128" duration="27836000" />
       <workItem from="1494409060575" duration="13616000" />
+      <workItem from="1494507670798" duration="1190000" />
+      <workItem from="1494550156345" duration="1488000" />
+      <workItem from="1494587573368" duration="760000" />
+      <workItem from="1494746403833" duration="16137000" />
     </task>
     <servers />
   </component>
@@ -1371,7 +1476,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="327369000" />
+    <option name="totallyTimeSpent" value="346944000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1395,7 +1500,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2374798" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28029078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1410,7 +1515,8 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.67254037" sideWeight="0.49434572" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34491116" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.56828195" sideWeight="0.4951535" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35056543" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1419,7 +1525,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.56828195" sideWeight="0.4951535" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1496,7 +1601,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1505,196 +1610,324 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/Image.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsSpecMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="112" column="30" lean-forward="true" selection-start-line="112" selection-start-column="30" selection-end-line="112" selection-end-column="30" />
+        <state relative-caret-position="285">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/SubCategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="21" column="77" lean-forward="true" selection-start-line="21" selection-start-column="77" selection-end-line="21" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsSpecService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="59" lean-forward="true" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsSpec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsSpecServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="67" lean-forward="true" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsProviderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/UploadImageResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.2.RELEASE/spring-webmvc-4.3.2.RELEASE.jar!/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="108" column="13" lean-forward="false" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.2.RELEASE/spring-webmvc-4.3.2.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="141" column="13" lean-forward="false" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-service.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-transaction.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="659">
+          <caret line="74" column="33" lean-forward="true" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="48" column="11" lean-forward="false" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/CategoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsProviderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsSpecParamMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsSpecParamServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="56" lean-forward="false" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsSpecParamService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsSpecParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/Goods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/CategoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="53" column="63" lean-forward="true" selection-start-line="53" selection-start-column="63" selection-end-line="53" selection-end-column="63" />
+        <state relative-caret-position="465">
+          <caret line="42" column="61" lean-forward="true" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/SubCategoryMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsCollectionsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" column="59" lean-forward="true" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
+        <state relative-caret-position="75">
+          <caret line="5" column="99" lean-forward="true" selection-start-line="5" selection-start-column="99" selection-end-line="5" selection-end-column="99" />
+          <folding>
+            <marker date="1494749863000" expanded="true" signature="375:466" ph="INSERT INTO GoodsCollections... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsCollectionsMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="19" column="54" lean-forward="true" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SubCategoryMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="42" column="67" lean-forward="true" selection-start-line="42" selection-start-column="67" selection-end-line="42" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/SubCategoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="46" column="62" lean-forward="false" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#651#652#0" expanded="false" />
-            <element signature="e#709#710#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/SubCategoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="22" column="91" lean-forward="false" selection-start-line="22" selection-start-column="91" selection-end-line="22" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/CategoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#617#618#0" expanded="false" />
-            <element signature="e#669#670#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c29de77f-f3d3-4647-8120-14dcb3062706/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/mdEditor.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1587">
-          <caret line="192" column="72" lean-forward="false" selection-start-line="192" selection-start-column="72" selection-end-line="192" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="167" column="31" lean-forward="true" selection-start-line="167" selection-start-column="31" selection-end-line="167" selection-end-column="31" />
+        <state relative-caret-position="446">
+          <caret line="300" column="21" lean-forward="false" selection-start-line="300" selection-start-column="21" selection-end-line="300" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/image.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="937">
-          <caret line="447" column="7" lean-forward="false" selection-start-line="447" selection-start-column="7" selection-end-line="447" selection-end-column="7" />
+        <state relative-caret-position="317">
+          <caret line="306" column="21" lean-forward="false" selection-start-line="306" selection-start-column="21" selection-end-line="306" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/categoryEdit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3687">
-          <caret line="193" column="72" lean-forward="false" selection-start-line="193" selection-start-column="72" selection-end-line="193" selection-end-column="72" />
+        <state relative-caret-position="364">
+          <caret line="301" column="21" lean-forward="false" selection-start-line="301" selection-start-column="21" selection-end-line="301" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/SubCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="70" lean-forward="true" selection-start-line="8" selection-start-column="70" selection-end-line="8" selection-end-column="70" />
+        <state relative-caret-position="513">
+          <caret line="39" column="48" lean-forward="true" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
           <folding>
-            <marker date="1494391813000" expanded="true" signature="353:723" ph="INSERT INTO Goods... " />
-            <marker date="1494391813000" expanded="true" signature="818:871" ph="DELETE FROM " />
-            <marker date="1494391813000" expanded="true" signature="966:1489" ph="UPDATE Goods... " />
-            <marker date="1494391813000" expanded="true" signature="1614:1677" ph="SELECT * FRO... Goods" />
-            <marker date="1494391813000" expanded="true" signature="1770:1797" ph="SELECT * FRO... Goods" />
+            <marker date="1494755605000" expanded="true" signature="353:723" ph="INSERT INTO Goods... " />
+            <marker date="1494755605000" expanded="true" signature="818:871" ph="DELETE FROM " />
+            <marker date="1494755605000" expanded="true" signature="966:1489" ph="UPDATE Goods... " />
+            <marker date="1494755605000" expanded="true" signature="1614:1677" ph="SELECT * FRO... Goods" />
+            <marker date="1494755605000" expanded="true" signature="1770:1797" ph="SELECT * FRO... Goods" />
+            <marker date="1494755605000" expanded="true" signature="1936:2012" ph="SELECT * FRO... Goods" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsProviderMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state relative-caret-position="315">
+          <caret line="29" column="62" lean-forward="true" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsProviderMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-          <folding>
-            <marker date="1494391813000" expanded="true" signature="369:577" ph="INSERT INTO GoodsProvider... " />
-            <marker date="1494391813000" expanded="true" signature="680:747" ph="DELETE FROM " />
-            <marker date="1494391813000" expanded="true" signature="850:1108" ph="UPDATE Goods... " />
-            <marker date="1494391813000" expanded="true" signature="1241:1318" ph="SELECT * FRO... GoodsProvider" />
-            <marker date="1494391813000" expanded="true" signature="1419:1454" ph="SELECT * FRO... GoodsProvider" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsSpecMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding>
-            <marker date="1494391813000" expanded="true" signature="361:459" ph="INSERT INTO GoodsSpec... " />
-            <marker date="1494391813000" expanded="true" signature="558:613" ph="DELETE FROM " />
-            <marker date="1494391813000" expanded="true" signature="712:835" ph="UPDATE Goods... " />
-            <marker date="1494391813000" expanded="true" signature="964:1029" ph="SELECT * FRO... GoodsSpec" />
-            <marker date="1494391813000" expanded="true" signature="1126:1157" ph="SELECT * FRO... GoodsSpec" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsSpecParamMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        <state relative-caret-position="195">
+          <caret line="13" column="83" lean-forward="true" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsSpecMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="300">
+          <caret line="23" column="43" lean-forward="false" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1062">
+          <caret line="828" column="42" lean-forward="true" selection-start-line="828" selection-start-column="42" selection-end-line="828" selection-end-column="42" />
+          <folding>
+            <marker date="1494750734000" expanded="true" signature="48472:48478" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="48797:48803" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="49105:49111" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="49405:49411" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="51165:51171" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="51490:51496" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="51798:51804" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="52098:52104" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="53826:53832" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="54151:54157" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="54459:54465" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="54759:54765" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="58915:58921" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="59240:59246" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="59548:59554" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="59837:59843" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="61814:61820" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="62139:62145" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="62447:62453" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="62736:62742" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="64692:64698" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="65017:65023" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="65325:65331" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="65625:65631" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="67581:67587" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="67906:67912" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="68214:68220" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="68514:68520" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="70421:70427" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="70746:70752" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="71054:71060" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="71354:71360" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="73247:73253" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="73572:73578" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="73880:73886" ph="&amp;nbsp;" />
+            <marker date="1494750734000" expanded="true" signature="74180:74186" ph="&amp;nbsp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsCollections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1707,134 +1940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/SubCategoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="21" column="77" lean-forward="true" selection-start-line="21" selection-start-column="77" selection-end-line="21" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsSpecService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="59" lean-forward="true" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsSpec.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsSpecServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="67" lean-forward="true" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#636#637#0" expanded="false" />
-            <element signature="e#690#691#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="19" column="54" lean-forward="true" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
-          <folding>
-            <element signature="e#685#686#0" expanded="false" />
-            <element signature="e#739#740#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsProviderServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/UploadImageResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="1142" column="47" lean-forward="true" selection-start-line="1142" selection-start-column="47" selection-end-line="1142" selection-end-column="47" />
-          <folding>
-            <marker date="1494408263000" expanded="true" signature="47443:47449" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="47768:47774" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="48076:48082" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="48376:48382" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="50136:50142" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="50461:50467" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="50769:50775" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="51069:51075" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="52797:52803" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="53122:53128" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="53430:53436" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="53730:53736" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="57886:57892" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="58211:58217" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="58519:58525" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="58808:58814" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="60785:60791" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="61110:61116" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="61418:61424" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="61707:61713" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="63663:63669" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="63988:63994" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="64296:64302" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="64596:64602" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="66552:66558" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="66877:66883" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="67185:67191" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="67485:67491" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="69392:69398" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="69717:69723" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="70025:70031" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="70325:70331" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="72218:72224" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="72543:72549" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="72851:72857" ph="&amp;nbsp;" />
-            <marker date="1494408263000" expanded="true" signature="73151:73157" ph="&amp;nbsp;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/FileController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -1843,174 +1948,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.2.RELEASE/spring-webmvc-4.3.2.RELEASE.jar!/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/AdministratorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="108" column="13" lean-forward="false" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
+        <state relative-caret-position="135">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.2.RELEASE/spring-webmvc-4.3.2.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/mapper/GoodsCollectionMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="141" column="13" lean-forward="false" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-service.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-transaction.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="74" column="33" lean-forward="true" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="48" column="11" lean-forward="false" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/CategoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsProviderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+        <state relative-caret-position="165">
+          <caret line="11" column="76" lean-forward="true" selection-start-line="11" selection-start-column="76" selection-end-line="11" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#520#521#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/Goods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsSpecParam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsSpecParamMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-          <folding>
-            <marker date="1494391813000" expanded="true" signature="371:573" ph="INSERT INTO GoodsSpecParam... " />
-            <marker date="1494391813000" expanded="true" signature="677:748" ph="DELETE FROM " />
-            <marker date="1494391813000" expanded="true" signature="852:1108" ph="UPDATE Goods... " />
-            <marker date="1494391813000" expanded="true" signature="1242:1323" ph="SELECT * FRO... GoodsSpecParam" />
-            <marker date="1494391813000" expanded="true" signature="1425:1461" ph="SELECT * FRO... GoodsSpecParam" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsSpecParamServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="56" lean-forward="false" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsSpecParamService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/GoodsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="134" column="81" lean-forward="true" selection-start-line="134" selection-start-column="81" selection-end-line="134" selection-end-column="81" />
-          <folding>
-            <element signature="e#3313#3324#0" expanded="true" />
-            <element signature="e#4262#4277#0" expanded="true" />
-            <element signature="e#5288#5310#0" expanded="true" />
-            <element signature="e#6155#6162#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/goods.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="1144" column="91" lean-forward="true" selection-start-line="1144" selection-start-column="91" selection-end-line="1144" selection-end-column="91" />
+        <state relative-caret-position="355">
+          <caret line="875" column="68" lean-forward="true" selection-start-line="875" selection-start-column="68" selection-end-line="875" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/entity/GoodsCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
           <folding>
-            <element signature="n#div#1;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#2;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#51590#52537#0#HTML" expanded="false" />
-            <element signature="e#55155#55318#0#HTML" expanded="false" />
-            <element signature="e#55359#56620#0#HTML" expanded="false" />
-            <element signature="e#58922#58975#0#HTML" expanded="false" />
-            <element signature="e#59067#59124#0#HTML" expanded="false" />
-            <element signature="e#59155#59269#0#HTML" expanded="false" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsCollectionMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding>
+            <marker date="1494764902000" expanded="true" signature="373:639" ph="INSERT INTO GoodsCollection... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/pojo/GoodsCollectionPOJO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="58" lean-forward="true" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/AdministratorServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c29de77f-f3d3-4647-8120-14dcb3062706/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/impl/GoodsCollectionServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="38" column="84" lean-forward="true" selection-start-line="38" selection-start-column="84" selection-end-line="38" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/service/GoodsCollectionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="106" lean-forward="true" selection-start-line="11" selection-start-column="106" selection-end-line="11" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/semiwarm/admin/controller/GoodsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+          <folding>
+            <element signature="e#8389#8410#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/goodsCollection.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="665" column="75" lean-forward="true" selection-start-line="665" selection-start-column="75" selection-end-line="665" selection-end-column="75" />
+          <folding>
+            <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#6;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

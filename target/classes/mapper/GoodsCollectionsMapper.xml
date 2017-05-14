@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace是指明Mybatis扫描的目录，即cn.semiwarm.admin.mapper.xxxMapper -->
+<mapper namespace="cn.semiwarm.admin.mapper.GoodsCollectionsMapper">
+    <insert id="add" parameterType="cn.semiwarm.admin.entity.GoodsCollections">
+        INSERT INTO GoodsCollections (goods_id, collection_id) VALUES (#{goodsId}, #{collectionId})
+    </insert>
+</mapper>

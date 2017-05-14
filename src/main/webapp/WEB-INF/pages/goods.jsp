@@ -287,6 +287,30 @@ desired effect
                         </li>
                     </ul>
                 </li>
+                <%--商品集管理模块--%>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-list"></i>
+                        <span>商品集管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="<%=request.getContextPath()%>/goodsCollection">
+                                <i class="fa fa-plus-square"></i>
+                                <span> 商品集管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-pencil-square"></i>
+                                <span> 商品集编辑</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <%--类目管理--%>
                 <li class="treeview">
                     <a href="#">
@@ -450,7 +474,7 @@ desired effect
                                                             data-align="center"
                                                             data-valign="middle">#
                                                         </th>
-                                                        <th colspan="5" data-halign="center"
+                                                        <th colspan="4" data-halign="center"
                                                             data-align="center"
                                                             data-valign="middle">参数明细
                                                         </th>
@@ -857,6 +881,7 @@ desired effect
                                 console.log(response);
                                 if (response["success"] === 1) {
                                     sweetAlert("提示信息", "商品添加成功!", "success");
+                                    window.location.reload();
                                 } else {
                                     sweetAlert("提示信息", "商品添加失败!", "error");
                                 }
@@ -1129,8 +1154,7 @@ desired effect
                 "specName": specNameValues,
                 "specParam": specParamValues,
                 "goodsQuantity": goodsCount.val()
-            })
-            ;
+            });
             addSpecParamModal.modal('hide');
             addSpecModal.html("");
             $('.selectpicker').selectpicker('refresh');

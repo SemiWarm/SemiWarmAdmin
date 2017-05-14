@@ -276,6 +276,30 @@ desired effect
                         </li>
                     </ul>
                 </li>
+                <%--商品集管理模块--%>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-list"></i>
+                        <span>商品集管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="<%=request.getContextPath()%>/goodsCollection">
+                                <i class="fa fa-plus-square"></i>
+                                <span> 商品集管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-pencil-square"></i>
+                                <span> 商品集编辑</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <%--类目管理--%>
                 <li class="treeview active">
                     <a href="#">
@@ -369,9 +393,14 @@ desired effect
                             <div class="row">
                                 <div class="col-lg-12">
                                     <table id="categoryTable"
+                                           data-page-size="5"
+                                           data-toggle="table"
                                            data-toolbar="#toolBar"
-                                           data-toggle="categoryTable"
-                                           data-click-to-select="true">
+                                           data-pagination="true"
+                                           data-page-list="[10,20]"
+                                           data-click-to-select="true"
+                                           data-side-pagination="client"
+                                           data-url="<%=request.getContextPath()%>/categories">
                                         <thead>
                                         <tr>
                                             <th rowspan="2" data-field="state" data-radio="true" data-halign="center"
@@ -445,23 +474,6 @@ desired effect
 <script type="text/javascript">
     var categoryTable = $('#categoryTable');
     $(function () {
-        // 页面加载完成后进行ajax请求
-        $.ajax({
-            type: 'get',
-            url: '<%=request.getContextPath()%>/categories',
-            // 同步请求解决布局错乱问题
-            async: false,
-            success: function (categories) {
-                // 请求成功后对每一个类目信息进行处理
-                $.each(categories, function (i, item) {
-                    item["categoryBanner"] = "<button type='button' class='btn btn-success btn-xs' data-toggle='modal' data-target='#imagePreviewModal' value='" + item["categoryBanner"] + "'>预览图片</button>";
-                });
-                categoryTable.bootstrapTable({data: categories});
-            },
-            error: function (errorMessage) {
-                console.log(errorMessage);
-            }
-        });
     });
 
     $('#imagePreviewModal').on('show.bs.modal', function (e) {

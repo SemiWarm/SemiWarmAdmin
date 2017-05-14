@@ -34,4 +34,9 @@
         SELECT *
         FROM Goods
     </select>
+    <select id="findBySubCategoryId" parameterType="java.lang.Integer" resultType="cn.semiwarm.admin.entity.Goods">
+        SELECT *
+        FROM Goods
+        WHERE sub_category_id = #{subCategoryId}
+    </select>
 </mapper>

@@ -20,4 +20,6 @@ public interface GoodsMapper extends BaseMapper<Goods> {
     Goods findById(Serializable id);
 
     List<Goods> findAll();
+
+    List<Goods> findBySubCategoryId(Integer subCategoryId);
 }
