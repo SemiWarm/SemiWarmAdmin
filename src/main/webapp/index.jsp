@@ -169,14 +169,10 @@
         signInButton.text("登录中...");
         signInButton.attr("disabled",true);
         $.ajax({
-            // 请求发送方式
-            type: 'post',
-            // 请求地址
-            url: '<%=request.getContextPath()%>/signIn',
-            // 请求数据，用户名和密码
-            data: {'administratorName': $('#administratorName').val(), 'password': $('#password').val()},
-            // 异步，不写默认为True
-            async: true,
+            type: 'post', // 请求发送方式
+            url: '<%=request.getContextPath()%>/signIn', // 请求地址
+            data: {'administratorName': $('#administratorName').val(), 'password': $('#password').val()},// 请求数据，用户名和密码
+            async: true,// 异步，不写默认为True
             // 请求成功后的回调
             success: function (signInResponse) {
                 // 登录成功状态码为 1

@@ -664,6 +664,7 @@ desired effect
                 success: function (response) {
                     if (response["success"] === 1) {
                         sweetAlert("提示信息", response["message"], "success");
+                        window.location.reload();
                     } else {
                         sweetAlert("提示信息", response["message"], "error");
                     }
